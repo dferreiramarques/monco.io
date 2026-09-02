@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>monco.io — David Ferreira Marques, product studio</title>
+  <meta name="description" content="Product studio de David Ferreira Marques. Produtos, automação e workflows à medida para negócios, estúdios de vibe coding e developers independentes.">
+  <meta property="og:title" content="monco.io — David Ferreira Marques, product studio">
+  <meta property="og:description" content="Produtos, automação e workflows à medida. Portfólio de 12 produtos reais.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='%23d4ff3a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">
+      <span class="nav-logo-dot"></span>
+      <span>monco.io</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">home</a>
+      <a class="nav-link" href="work.html"><span data-i18n="nav.work">work</span></a>
+    </div>
+        <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn is-active" data-lang="pt">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a class="nav-cta" href="https://cal.com/monco.io" target="_blank" rel="noopener" data-i18n="nav.cta">agendar call →</a>
+    </div>
+  </nav>
+
+ <style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+.h-wrap{position:relative;width:100%;height:580px;overflow:hidden;background:#070708;border-radius:16px;cursor:none;margin:-1rem -1rem 0;user-select:none;}
+.h-persp{position:absolute;inset:0;perspective:1100px;perspective-origin:50% 50%;}
+.h-plane{position:absolute;inset:0;will-change:transform;transform-style:preserve-3d;transform:rotateX(0deg) rotateY(0deg);}
+canvas.h-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
+.h-content{position:absolute;bottom:0;left:0;right:0;padding:44px 0 36px;z-index:20;pointer-events:none;background:linear-gradient(to top,rgba(7,7,8,0.85) 0%,transparent 100%);}
+.h-inner{max-width:1280px;margin:0 auto;padding:0 32px;}
+.h-tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px;}
+.h-title{font-family:'Instrument Serif',serif;font-size:clamp(44px,7vw,72px);line-height:.95;letter-spacing:-.04em;color:#fff;font-weight:400;margin:0 0 18px;mix-blend-mode:difference;}
+.h-title em{font-style:italic;color:#d4ff3a;}
+.h-hint{position:absolute;bottom:20px;right:24px;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:.12em;text-transform:uppercase;z-index:20;pointer-events:none;}
+.h-cursor{position:fixed;width:12px;height:12px;background:#d4ff3a;border-radius:50%;pointer-events:none;z-index:999;mix-blend-mode:difference;transform:translate(-50%,-50%);transition:width .25s,height .25s;}
+.h-ripple{position:absolute;border-radius:50%;border:1px solid rgba(212,255,58,.5);pointer-events:none;transform:translate(-50%,-50%) scale(0);z-index:15;}
+</style>
+
+<div class="h-wrap" id="hw">
+  <div class="h-persp" id="hp">
+    <div class="h-plane" id="hpl">
+      <canvas class="h-canvas" id="hc"></canvas>
+    </div>
+  </div>
+  <div class="h-content">
+    <div class="h-inner">
+      <div class="h-tag" data-i18n="hero.tag">DAVID MARQUES · PRODUCT STUDIO, AI-ACCELERATED</div>
+      <h1 class="h-title" data-i18n-html="hero.title">Inteligência Artificial,<br>processos de trabalho<br>e <em>produtos customizados.</em></h1>
+    </div>
+  </div>
+  <div class="h-hint" id="hhint" data-i18n="hero.hint">← move mouse to tilt / click to burst →</div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(function(){
+  const wrap = document.getElementById('hw');
+  const plane = document.getElementById('hpl');
+  const canvas = document.getElementById('hc');
+  const hint = document.getElementById('hhint');
+  const ctx = canvas.getContext('2d');
+
+  let W, H, mx = 0, my = 0, scrollY = 0, raf, t0 = 0;
+  const ripples = [], bursts = [];
+  let interacted = false;
+
+  function resize(){
+    const r = wrap.getBoundingClientRect();
+    W = canvas.width = r.width;
+    H = canvas.height = r.height;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  if(!window.gsap) return;
+
+  const rotX = gsap.quickTo(plane,'rotateX',{duration:1.4,ease:'elastic.out(1,0.45)'});
+  const rotY = gsap.quickTo(plane,'rotateY',{duration:1.4,ease:'elastic.out(1,0.45)'});
+
+  wrap.addEventListener('mousemove', e=>{
+    const r = wrap.getBoundingClientRect();
+    const px = (e.clientX - r.left)/r.width;
+    const py = (e.clientY - r.top)/r.height;
+    mx = px - .5; my = py - .5;
+    rotX(-my * 14);
+    rotY(mx * 9);
+    if(!interacted){ interacted=true; gsap.to(hint,{opacity:0,duration:.4}); }
+  });
+
+  wrap.addEventListener('mouseleave',()=>{ rotX(0); rotY(0); });
+
+  window.addEventListener('scroll',()=>{
+    scrollY = window.scrollY;
+    const tilt = Math.min(scrollY / 300, 1);
+    rotX(-tilt * 18 + (-my * 14) * (1 - tilt));
+  });
+
+  wrap.addEventListener('click', e=>{
+    const r = wrap.getBoundingClientRect();
+    const bx = e.clientX - r.left, by = e.clientY - r.top;
+    addRipple(bx, by);
+    addBurst(bx, by);
+    gsap.timeline()
+      .to(plane,{scale:.96,duration:.12,ease:'power2.out'})
+      .to(plane,{scale:1,duration:.9,ease:'elastic.out(1,.5)'});
+  });
+
+  function addRipple(x,y){
+    const el = document.createElement('div');
+    el.className = 'h-ripple';
+    el.style.cssText = `left:${x}px;top:${y}px;width:20px;height:20px;`;
+    wrap.appendChild(el);
+    const colors = ['#d4ff3a','#a78bfa','#67e8f9','#ff6b35','#f0abfc'];
+    el.style.borderColor = colors[Math.floor(Math.random()*colors.length)]+'88';
+    gsap.timeline({onComplete:()=>el.remove()})
+      .to(el,{scale:18,opacity:0,duration:1.1,ease:'power2.out'});
+  }
+
+  function addBurst(x,y){
+    const count = 18;
+    for(let i=0;i<count;i++){
+      const a = (Math.PI*2/count)*i + Math.random()*.4;
+      const dist = 60+Math.random()*120;
+      const r = 2+Math.random()*4;
+      const colors=['#d4ff3a','#a78bfa','#67e8f9','#ff6b35','#f0abfc','#ff8c42'];
+      bursts.push({
+        x,y,vx:Math.cos(a)*dist,vy:Math.sin(a)*dist,
+        r,color:colors[Math.floor(Math.random()*colors.length)],
+        life:1, decay:.02+Math.random()*.015
+      });
+    }
+  }
+
+  /* ── Shape definitions ──────────────────────────────────────── */
+  const shapes = [
+    {type:'blob',   cx:.12,cy:.28,rx:200,ry:160,color:'#d4ff3a',alpha:.07,spd:.00025,phase:0,  depth:.8},
+    {type:'blob',   cx:.82,cy:.62,rx:160,ry:220,color:'#a78bfa',alpha:.09,spd:.0003, phase:2.1,depth:.6},
+    {type:'blob',   cx:.55,cy:.15,rx:120,ry:100,color:'#67e8f9',alpha:.07,spd:.0002, phase:4.2,depth:.7},
+    {type:'ring',   cx:.75,cy:.22,r:180, lw:1,  color:'#a78bfa',alpha:.22,spd:.0002, phase:1,  depth:.4},
+    {type:'ring',   cx:.3, cy:.72,r:130, lw:1,  color:'#67e8f9',alpha:.18,spd:-.0003,phase:3,  depth:.3},
+    {type:'ring',   cx:.55,cy:.5, r:280, lw:.5, color:'#d4ff3a',alpha:.06,spd:.00015,phase:0,  depth:.2},
+    {type:'tri',    cx:.62,cy:.35,r:90,  lw:1.5,color:'#f0abfc',alpha:.35,spd:.0006, phase:.5, depth:.5},
+    {type:'tri',    cx:.25,cy:.58,r:60,  lw:1,  color:'#ff6b35',alpha:.3, spd:-.0005,phase:1.8,depth:.6},
+    {type:'hex',    cx:.45,cy:.65,r:110, lw:1,  color:'#d4ff3a',alpha:.2, spd:.0003, phase:2.5,depth:.45},
+    {type:'hex',    cx:.85,cy:.45,r:70,  lw:1,  color:'#67e8f9',alpha:.25,spd:-.0004,phase:.9, depth:.55},
+    {type:'diamond',cx:.68,cy:.78,r:50,  lw:1.5,color:'#ff6b35',alpha:.28,spd:.0005, phase:3.7,depth:.65},
+    {type:'diamond',cx:.18,cy:.42,r:40,  lw:1,  color:'#f0abfc',alpha:.25,spd:-.0004,phase:1.2,depth:.5},
+    {type:'arc',    cx:.38,cy:.3, r:150,a0:-.4,a1:1.2,lw:2,color:'#ff8c42',alpha:.3,spd:.0004,phase:0,depth:.55},
+    {type:'arc',    cx:.78,cy:.65,r:100,a0:2.0,a1:3.8,lw:1.5,color:'#d4ff3a',alpha:.25,spd:-.0003,phase:2,depth:.4},
+    {type:'cross',  cx:.15,cy:.68,r:30,  lw:1.5,color:'#a78bfa',alpha:.3, spd:.0007, phase:1, depth:.7},
+    {type:'cross',  cx:.9, cy:.32,r:25,  lw:1,  color:'#d4ff3a',alpha:.3, spd:-.0006,phase:3, depth:.6},
+    {type:'dots',   count:28, color:'#ededed', alpha:.15, depth:.35},
+    {type:'grid',   alpha:.04, depth:.15},
+  ];
+
+  /* pre-compute dot positions once */
+  const dotField = Array.from({length:28},()=>({
+    x:Math.random(),y:Math.random(),
+    r:.5+Math.random()*2.5,
+    spd:.0001+Math.random()*.0003,
+    phase:Math.random()*Math.PI*2,
+    color:['#d4ff3a','#a78bfa','#67e8f9','#ff6b35','#f0abfc'][Math.floor(Math.random()*5)]
+  }));
+
+  function tri(ctx,cx,cy,r,rot){
+    ctx.beginPath();
+    for(let i=0;i<3;i++){
+      const a=rot+(Math.PI*2/3)*i - Math.PI/2;
+      i===0?ctx.moveTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r):ctx.lineTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r);
+    }
+    ctx.closePath();
+  }
+  function hex(ctx,cx,cy,r,rot){
+    ctx.beginPath();
+    for(let i=0;i<6;i++){
+      const a=rot+(Math.PI*2/6)*i;
+      i===0?ctx.moveTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r):ctx.lineTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r);
+    }
+    ctx.closePath();
+  }
+  function diamond(ctx,cx,cy,r){
+    ctx.beginPath();
+    ctx.moveTo(cx,cy-r);ctx.lineTo(cx+r*.65,cy);
+    ctx.lineTo(cx,cy+r);ctx.lineTo(cx-r*.65,cy);
+    ctx.closePath();
+  }
+
+  function drawBlob(ctx,cx,cy,rx,ry,t,phase){
+    ctx.beginPath();
+    const segs=12;
+    for(let i=0;i<=segs;i++){
+      const a=(Math.PI*2/segs)*i;
+      const wobble=1+.2*Math.sin(t*.8+phase+i*2.1);
+      const wobble2=1+.12*Math.cos(t*.5+phase+i*3.7);
+      const px=cx+Math.cos(a)*rx*wobble;
+      const py=cy+Math.sin(a)*ry*wobble2;
+      i===0?ctx.moveTo(px,py):ctx.lineTo(px,py);
+    }
+    ctx.closePath();
+  }
+
+  function draw(ts){
+    if(!t0) t0=ts;
+    const t=(ts-t0)*.001;
+    ctx.clearRect(0,0,W,H);
+
+    /* subtle radial bg */
+    const bg=ctx.createRadialGradient(W*.5,H*.5,0,W*.5,H*.5,W*.7);
+    bg.addColorStop(0,'rgba(18,12,30,0.6)');
+    bg.addColorStop(1,'rgba(7,7,8,0)');
+    ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+
+    const paralX=mx*40, paralY=my*30;
+
+    shapes.forEach(s=>{
+      ctx.save();
+      const px=paralX*s.depth, py=paralY*s.depth;
+
+      if(s.type==='grid'){
+        ctx.globalAlpha=s.alpha;
+        ctx.strokeStyle='#ffffff';ctx.lineWidth=.4;
+        const gsize=60;
+        const ofx=(paralX*s.depth*.3)%gsize, ofy=(paralY*s.depth*.3)%gsize;
+        for(let x=-gsize+ofx;x<W+gsize;x+=gsize){
+          ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();
+        }
+        for(let y=-gsize+ofy;y<H+gsize;y+=gsize){
+          ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();
+        }
+        ctx.restore(); return;
+      }
+
+      if(s.type==='dots'){
+        dotField.forEach(d=>{
+          const dx=d.x*W+px+Math.sin(t*d.spd*1000+d.phase)*15;
+          const dy=d.y*H+py+Math.cos(t*d.spd*1000+d.phase+1)*10;
+          const pulse=1+.3*Math.sin(t*1.2+d.phase);
+          ctx.globalAlpha=s.alpha*(0.5+0.5*Math.sin(t*.8+d.phase));
+          ctx.fillStyle=d.color;
+          ctx.beginPath();ctx.arc(dx,dy,d.r*pulse,0,Math.PI*2);ctx.fill();
+        });
+        ctx.restore(); return;
+      }
+
+      const cx=s.cx*W+px+Math.sin(t*s.spd*1000+s.phase)*25;
+      const cy=s.cy*H+py+Math.cos(t*s.spd*800+s.phase+1)*18;
+      const rot=t*s.spd*1000;
+
+      ctx.globalAlpha=s.alpha;
+      ctx.strokeStyle=s.color;
+      ctx.fillStyle=s.color;
+      ctx.lineWidth=s.lw||1;
+
+      if(s.type==='blob'){
+        drawBlob(ctx,cx,cy,s.rx,s.ry,t,s.phase);
+        ctx.fill();
+      } else if(s.type==='ring'){
+        const pulse=s.r*(1+.04*Math.sin(t*1.1+s.phase));
+        ctx.beginPath();ctx.arc(cx,cy,pulse,0,Math.PI*2);ctx.stroke();
+      } else if(s.type==='tri'){
+        tri(ctx,cx,cy,s.r*(1+.06*Math.sin(t*.9+s.phase)),rot);
+        ctx.stroke();
+      } else if(s.type==='hex'){
+        hex(ctx,cx,cy,s.r*(1+.05*Math.sin(t*.7+s.phase)),rot);
+        ctx.stroke();
+      } else if(s.type==='diamond'){
+        const ds=s.r*(1+.08*Math.sin(t*1.3+s.phase));
+        ctx.save();ctx.translate(cx,cy);ctx.rotate(rot*.4);ctx.translate(-cx,-cy);
+        diamond(ctx,cx,cy,ds);ctx.stroke();
+        ctx.restore();
+      } else if(s.type==='arc'){
+        const a0=s.a0+rot*.3, a1=s.a1+rot*.3;
+        ctx.beginPath();ctx.arc(cx,cy,s.r,a0,a1);ctx.stroke();
+      } else if(s.type==='cross'){
+        const cs=s.r*(1+.1*Math.sin(t*1.5+s.phase));
+        ctx.save();ctx.translate(cx,cy);ctx.rotate(rot*.5);
+        ctx.beginPath();ctx.moveTo(-cs,0);ctx.lineTo(cs,0);
+        ctx.moveTo(0,-cs);ctx.lineTo(0,cs);ctx.stroke();
+        ctx.restore();
+      }
+      ctx.restore();
+    });
+
+    /* burst particles */
+    for(let i=bursts.length-1;i>=0;i--){
+      const b=bursts[i];
+      ctx.save();
+      ctx.globalAlpha=b.life*.9;
+      ctx.fillStyle=b.color;
+      ctx.beginPath();
+      ctx.arc(b.x+b.vx*(1-b.life),b.y+b.vy*(1-b.life),b.r*b.life,0,Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+      b.life-=b.decay;
+      if(b.life<=0)bursts.splice(i,1);
+    }
+
+    raf=requestAnimationFrame(draw);
+  }
+  raf=requestAnimationFrame(draw);
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden)cancelAnimationFrame(raf);
+    else raf=requestAnimationFrame(draw);
+  });
+
+  /* fade hint after 5s */
+  setTimeout(()=>gsap.to(hint,{opacity:0,duration:.8}),5000);
+})();
+</script>
+
+  <!-- ============ SOBRE MIM ============ -->
+  <section class="about-hero">
+    <div class="eyebrow" data-reveal data-i18n="about.eyebrow">/ 01 — SOBRE MIM</div>
+    <h2 data-reveal data-i18n-html="about.h1">Construo com <em>velocidade</em>,<br>entrego com cuidado.</h2>
+    <p class="about-byline" data-reveal data-i18n-html="about.byline">David Ferreira Marques — product studio. <a href="https://www.linkedin.com/in/dferreiramarques/" target="_blank" rel="noopener">LinkedIn ↗</a></p>
+    <div class="manifesto" data-reveal>
+      <p data-i18n-html="about.p1">A monco.io é o meu product studio: nasceu de uma constatação simples — <strong>há uma geração inteira de negócios a perder o edge competitivo</strong> não por falta de talento, mas por estarem presos a ferramentas e processos de outra década.</p>
+      <p data-i18n-html="about.p2">Não sou uma consultora tradicional. Não faço slides bonitos com prazos de 18 meses. Sou um product studio que aplica AI, automação e vibe coding para entregar resultados em <strong>dias, não trimestres</strong>.</p>
+      <p data-i18n-html="about.p3b">Trabalho como recurso externo, contratado à peça ou por projeto: resolvo workflows, automação e crio produto à medida. Os meus parceiros tanto podem ser negócios que querem modernizar operações, como outros estúdios de vibe coding ou developers independentes que precisam de mais um par de mãos sénior num sprint, sem contratar a tempo inteiro.</p>
+      <p data-i18n-html="about.p3">Cada projeto entrega algo a correr logo na primeira semana — a tua equipa fica mais rápida, mais autónoma, mais competitiva.</p>
+    </div>
+    <div class="principles">
+      <div class="principle" data-reveal><h5 data-i18n="about.pr1.h5">Ship, don't slide.</h5><p data-i18n="about.pr1.p">Entrego software a correr, não decks. Cada conversa termina com algo deployable.</p></div>
+      <div class="principle" data-reveal><h5 data-i18n="about.pr2.h5">AI as default.</h5><p data-i18n="about.pr2.p">Não é featurette, é o substrato. Pensar AI desde o primeiro dia muda tudo.</p></div>
+      <div class="principle" data-reveal><h5 data-i18n="about.pr3.h5">People over process.</h5><p data-i18n="about.pr3.p">A tua equipa conhece o negócio. Co-construo com eles, não para eles.</p></div>
+      <div class="principle" data-reveal><h5 data-i18n="about.pr4.h5">Days, not quarters.</h5><p data-i18n="about.pr4.p">Velocidade é uma feature. Resultados em dias, não trimestres.</p></div>
+    </div>
+    <div class="svc-note" data-reveal>
+      <div class="svc-note-label" data-i18n="svc.note.label">Serviços que desenvolvo com parceiros</div>
+      <ul class="svc-note-list">
+        <li data-i18n="svc1.h3">Automação de tarefas</li>
+        <li data-i18n="svc2.h3">Processos &amp; ferramentas</li>
+        <li data-i18n="svc3.h3">Formação &amp; mentoria</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ SHOWCASE: APRENDIZAGEM ============ -->
+  <section class="section" style="border-top:1px solid var(--border);">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow" data-i18n="la.eyebrow">/ 02 — APRENDIZAGEM</div>
+        <h2 data-i18n-html="la.h2">Produtos que ensinam <em>a fazer</em>.</h2>
+      </div>
+      <p class="section-desc" data-i18n="la.desc">Ferramentas simples o suficiente para uma sala de aula, feitas com o mesmo rigor de produto.</p>
+    </div>
+
+    <div class="portfolio">
+          <a href="http://3d.monco.io/" target="_blank" rel="noopener" class="proj" data-reveal>
+            <div class="proj-visual">
+              <svg viewBox="0 0 200 130" role="img" aria-label="3D Monco">
+                <rect width="200" height="130" fill="#0d0d0d"/>
+                <circle cx="100" cy="58" r="34" fill="#4ade80" opacity="0.07"/>
+                <circle cx="100" cy="58" r="34" fill="none" stroke="#4ade80" stroke-width="1" opacity="0.35"/>
+                <text x="100" y="70" text-anchor="middle" font-size="30" fill="#4ade80" opacity="0.9">⬢</text>
+                <rect x="70" y="104" width="60" height="1.5" fill="#4ade80" opacity="0.25"/>
+              </svg>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">EDUCATION · BETA</div>
+              <h4>3D Monco</h4>
+              <p data-i18n="pf9.p">Ferramenta educativa open-source que introduz crianças do 1.º ciclo à modelação e impressão 3D, com camadas, modo orifício, conquistas e export STL.</p>
+              <div class="proj-foot">
+                <span data-i18n="pf.live">ver ao vivo</span>
+                <span class="proj-link">abrir →</span>
+              </div>
+            </div>
+          </a>
+          <a href="https://prepara-te.monco.io/" target="_blank" rel="noopener" class="proj" data-reveal>
+            <div class="proj-visual">
+              <svg viewBox="0 0 200 130" role="img" aria-label="Prepara-te">
+                <rect width="200" height="130" fill="#0d0d0d"/>
+                <circle cx="100" cy="58" r="34" fill="#60a5fa" opacity="0.07"/>
+                <circle cx="100" cy="58" r="34" fill="none" stroke="#60a5fa" stroke-width="1" opacity="0.35"/>
+                <text x="100" y="70" text-anchor="middle" font-size="30" fill="#60a5fa" opacity="0.9">▨</text>
+                <rect x="70" y="104" width="60" height="1.5" fill="#60a5fa" opacity="0.25"/>
+              </svg>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">STUDY · PWA</div>
+              <h4>Prepara-te</h4>
+              <p data-i18n="pf11.p">Cartões de revisão por ano e disciplina — 541 cartões do 5.º ano, com pergunta, resposta e explicação.</p>
+              <div class="proj-foot">
+                <span data-i18n="pf.live">ver ao vivo</span>
+                <span class="proj-link">abrir →</span>
+              </div>
+            </div>
+          </a>
+          <a href="https://microbit.monco.io/" target="_blank" rel="noopener" class="proj" data-reveal>
+            <div class="proj-visual">
+              <svg viewBox="0 0 200 130" role="img" aria-label="microbit.monco.io">
+                <rect width="200" height="130" fill="#0d0d0d"/>
+                <circle cx="100" cy="58" r="34" fill="#2dd4bf" opacity="0.07"/>
+                <circle cx="100" cy="58" r="34" fill="none" stroke="#2dd4bf" stroke-width="1" opacity="0.35"/>
+                <text x="100" y="70" text-anchor="middle" font-size="30" fill="#2dd4bf" opacity="0.9">⌁</text>
+                <rect x="70" y="104" width="60" height="1.5" fill="#2dd4bf" opacity="0.25"/>
+              </svg>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">STEM · CATALOG</div>
+              <h4>microbit.monco.io</h4>
+              <p data-i18n="pf12.p">Catálogo de atividades práticas com micro:bit: código pronto e guião do dinamizador para cada sessão.</p>
+              <div class="proj-foot">
+                <span data-i18n="pf.soon">em breve</span>
+              </div>
+            </div>
+          </a>
+          <a href="http://stampforge.monco.io/" target="_blank" rel="noopener" class="proj" data-reveal>
+            <div class="proj-visual">
+              <svg viewBox="0 0 200 130" role="img" aria-label="StampForge">
+                <rect width="200" height="130" fill="#0d0d0d"/>
+                <circle cx="100" cy="58" r="34" fill="#ff6b35" opacity="0.07"/>
+                <circle cx="100" cy="58" r="34" fill="none" stroke="#ff6b35" stroke-width="1" opacity="0.35"/>
+                <text x="100" y="70" text-anchor="middle" font-size="30" fill="#ff6b35" opacity="0.9">◈</text>
+                <rect x="70" y="104" width="60" height="1.5" fill="#ff6b35" opacity="0.25"/>
+              </svg>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">3D PRINT · BETA</div>
+              <h4>StampForge</h4>
+              <p data-i18n="pf4.p">Editor de carimbos no browser: desenha ou importa SVG e exporta um STL pronto a imprimir em 3D.</p>
+              <div class="proj-foot">
+                <span data-i18n="pf.live">ver ao vivo</span>
+                <span class="proj-link">abrir →</span>
+              </div>
+            </div>
+          </a>
+          <a href="http://podcaststudio.monco.io/" target="_blank" rel="noopener" class="proj" data-reveal>
+            <div class="proj-visual">
+              <svg viewBox="0 0 200 130" role="img" aria-label="PodcastStudio">
+                <rect width="200" height="130" fill="#0d0d0d"/>
+                <circle cx="100" cy="58" r="34" fill="#ff8c42" opacity="0.07"/>
+                <circle cx="100" cy="58" r="34" fill="none" stroke="#ff8c42" stroke-width="1" opacity="0.35"/>
+                <text x="100" y="70" text-anchor="middle" font-size="30" fill="#ff8c42" opacity="0.9">◉</text>
+                <rect x="70" y="104" width="60" height="1.5" fill="#ff8c42" opacity="0.25"/>
+              </svg>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">AUDIO · SCHOOL</div>
+              <h4>PodcastStudio</h4>
+              <p data-i18n="lp5.p">Grava e edita, no browser, o podcast da turma — sem instalar nada, pronto a publicar.</p>
+              <div class="proj-foot">
+                <span data-i18n="pf.live">ver ao vivo</span>
+                <span class="proj-link">abrir →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+  </section>
+
+  <!-- ============ AMBIÇÃO ============ -->
+  <section class="section ambition" style="border-top:1px solid var(--border);">
+    <div data-reveal>
+      <h2 data-i18n-html="amb.h2">Um <em>product studio</em> na era da IA.</h2>
+    </div>
+  </section>
+
+  <!-- ============ SHOWCASE: PRODUTOS SÉRIOS ============ -->
+  <section class="section" style="border-top:1px solid var(--border);">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow" data-i18n="sp.eyebrow">/ 03 — PRODUTOS</div>
+        <h2 data-i18n-html="sp.h2">Prova de <em>craft profissional</em>.</h2>
+      </div>
+      <a class="btn btn-ghost" data-magnetic="0.2" href="work.html" data-i18n="work.cta">Ver todos os 12 produtos →</a>
+    </div>
+
+    <div class="portfolio">
+          <a href="https://kerf.monco.io/" target="_blank" rel="noopener" class="proj" data-reveal>
+            <div class="proj-visual">
+              <svg viewBox="0 0 200 130" role="img" aria-label="Kerf">
+                <rect width="200" height="130" fill="#0d0d0d"/>
+                <circle cx="100" cy="58" r="34" fill="#6366f1" opacity="0.07"/>
+                <circle cx="100" cy="58" r="34" fill="none" stroke="#6366f1" stroke-width="1" opacity="0.35"/>
+                <text x="100" y="70" text-anchor="middle" font-size="30" fill="#6366f1" opacity="0.9">▧</text>
+                <rect x="70" y="104" width="60" height="1.5" fill="#6366f1" opacity="0.25"/>
+              </svg>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">MUSIC · DESKTOP APP</div>
+              <h4>Kerf</h4>
+              <p data-i18n="pf8.p">Sample slicer e sequenciador de 16 passos com deteção de transientes, cadeia de efeitos, suporte MIDI e instalador desktop nativo.</p>
+              <div class="proj-foot">
+                <span data-i18n="pf.live">ver ao vivo</span>
+                <span class="proj-link">abrir →</span>
+              </div>
+            </div>
+          </a>
+          <a href="http://kanbicards.monco.io/" target="_blank" rel="noopener" class="proj" data-reveal>
+            <div class="proj-visual">
+              <svg viewBox="0 0 200 130" role="img" aria-label="Kanbi Cards">
+                <rect width="200" height="130" fill="#0d0d0d"/>
+                <circle cx="100" cy="58" r="34" fill="#a78bfa" opacity="0.07"/>
+                <circle cx="100" cy="58" r="34" fill="none" stroke="#a78bfa" stroke-width="1" opacity="0.35"/>
+                <text x="100" y="70" text-anchor="middle" font-size="30" fill="#a78bfa" opacity="0.9">◧</text>
+                <rect x="70" y="104" width="60" height="1.5" fill="#a78bfa" opacity="0.25"/>
+              </svg>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">HABITS · SaaS</div>
+              <h4>Kanbi Cards</h4>
+              <p data-i18n="pf2.p">Cartões de hábitos com ciclos semanais, mensais e anuais que se renovam sozinhos. Versão Pro com sync na cloud.</p>
+              <div class="proj-foot">
+                <span data-i18n="pf.live">ver ao vivo</span>
+                <span class="proj-link">abrir →</span>
+              </div>
+            </div>
+          </a>
+          <a href="http://taskboards.monco.io/" target="_blank" rel="noopener" class="proj" data-reveal>
+            <div class="proj-visual">
+              <svg viewBox="0 0 200 130" role="img" aria-label="Taskboards">
+                <rect width="200" height="130" fill="#0d0d0d"/>
+                <circle cx="100" cy="58" r="34" fill="#d4ff3a" opacity="0.07"/>
+                <circle cx="100" cy="58" r="34" fill="none" stroke="#d4ff3a" stroke-width="1" opacity="0.35"/>
+                <text x="100" y="70" text-anchor="middle" font-size="30" fill="#d4ff3a" opacity="0.9">▤</text>
+                <rect x="70" y="104" width="60" height="1.5" fill="#d4ff3a" opacity="0.25"/>
+              </svg>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">KANBAN · PWA</div>
+              <h4>Taskboards</h4>
+              <p data-i18n="pf1.p">Gestão de tarefas em quadros Kanban com múltiplos boards, arquivo de ideias e sincronização com Google Drive.</p>
+              <div class="proj-foot">
+                <span data-i18n="pf.live">ver ao vivo</span>
+                <span class="proj-link">abrir →</span>
+              </div>
+            </div>
+          </a>
+          <a href="http://queridodiario.monco.io/" target="_blank" rel="noopener" class="proj" data-reveal>
+            <div class="proj-visual">
+              <svg viewBox="0 0 200 130" role="img" aria-label="Querido Diário">
+                <rect width="200" height="130" fill="#0d0d0d"/>
+                <circle cx="100" cy="58" r="34" fill="#f472b6" opacity="0.07"/>
+                <circle cx="100" cy="58" r="34" fill="none" stroke="#f472b6" stroke-width="1" opacity="0.35"/>
+                <text x="100" y="70" text-anchor="middle" font-size="30" fill="#f472b6" opacity="0.9">✎</text>
+                <rect x="70" y="104" width="60" height="1.5" fill="#f472b6" opacity="0.25"/>
+              </svg>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">JOURNAL · PWA</div>
+              <h4>Querido Diário</h4>
+              <p data-i18n="pf13.p">Diário pessoal privado — texto, áudio, fotos, vídeos e emoções, guardado no dispositivo.</p>
+              <div class="proj-foot">
+                <span data-i18n="pf.live">ver ao vivo</span>
+                <span class="proj-link">abrir →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta">
+    <div class="cta-bg"></div>
+    <h2 data-i18n-html="cta.h2">Perde o lag.<br><em>Ganha o edge.</em></h2>
+    <p data-i18n="cta.p">Diagnóstico gratuito de 30 minutos. Sem slides, sem comissões — só uma conversa honesta sobre onde podes ganhar tempo e competitividade.</p>
+    <div class="cta-actions">
+      <a class="btn btn-primary" data-magnetic="0.3" href="https://cal.com/monco.io" target="_blank" rel="noopener" data-i18n="cta.primary">Agendar diagnóstico →</a>
+      <a class="btn btn-ghost" data-magnetic="0.2" href="work.html" data-i18n="cta.secondary">Ver portfólio →</a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="foot">
+    <div><span data-i18n="foot.copy">© 2026 MONCO.IO / DAVID FERREIRA MARQUES</span></div>
+    <div class="foot-links">
+      <a href="index.html">home</a>
+      <a href="work.html">work</a>
+      <a href="https://github.com/dferreiramarques" target="_blank" rel="noopener">github</a>
+      <a href="mailto:hello@monco.io">hello@monco.io</a>
+    </div>
+  </footer>
+
+  <!-- ============ Scripts ============ -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
+<script src="assets/js/i18n.js"></script>
+</body>
+</html>
