@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Ferreira Marques — CV · FedEx</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+  :root {
+    --ink: #0D0D0D;
+    --mid: #4A4A4A;
+    --light: #9A9A9A;
+    --rule: #E0E0E0;
+    --accent: #FF3B1F;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #F7F6F3;
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--white);
+    min-height: 100vh;
+  }
+
+  .header {
+    padding: 56px 64px 40px;
+    border-bottom: 1px solid var(--ink);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+  }
+
+  .name { font-size: 48px; font-weight: 700; letter-spacing: -1.5px; line-height: 1; margin-bottom: 12px; }
+  .name span { color: var(--accent); }
+
+  .title-line { font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: var(--mid); margin-bottom: 4px; }
+  .tagline { font-size: 15px; color: var(--mid); max-width: 480px; line-height: 1.55; }
+
+  .contact-block { text-align: right; }
+  .contact-block a, .contact-block span { display: block; font-family: 'Space Mono', monospace; font-size: 11px; color: var(--mid); text-decoration: none; letter-spacing: 0.5px; line-height: 1.9; }
+  .contact-block a:hover { color: var(--accent); }
+
+  .body { display: grid; grid-template-columns: 1fr 260px; }
+  .main { padding: 48px 64px 64px; border-right: 1px solid var(--rule); }
+  .sidebar { padding: 48px 32px 64px; }
+
+  .section { margin-bottom: 48px; }
+
+  .section-label { font-family: 'Space Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); display: inline-block; }
+
+  .job { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); }
+  .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .job-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 3px; }
+  .job-title { font-size: 15.5px; font-weight: 600; letter-spacing: -0.2px; }
+  .job-period { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--light); white-space: nowrap; padding-top: 3px; }
+  .job-org { font-size: 13px; font-weight: 500; color: var(--mid); margin-bottom: 10px; }
+  .job-org .location { color: var(--light); font-weight: 400; }
+  .job-org .sub { font-size: 11.5px; color: var(--light); font-weight: 400; display: block; margin-top: 1px; font-style: italic; }
+
+  .job-desc { font-size: 13px; color: var(--mid); line-height: 1.65; margin-bottom: 10px; }
+
+  .highlights { list-style: none; margin-bottom: 10px; }
+  .highlights li { font-size: 13px; color: var(--mid); line-height: 1.55; padding-left: 14px; position: relative; margin-bottom: 4px; }
+  .highlights li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 2px; }
+
+  .job-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+  .tag { font-family: 'Space Mono', monospace; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.8px; padding: 3px 8px; border: 1px solid var(--rule); color: var(--mid); border-radius: 2px; }
+
+  .sidebar .section { margin-bottom: 32px; }
+  .skill-group { margin-bottom: 18px; }
+  .skill-group-name { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--ink); margin-bottom: 5px; }
+  .skill-list { font-size: 12.5px; color: var(--mid); line-height: 1.85; }
+
+  .education-item { margin-bottom: 18px; }
+  .edu-degree { font-size: 13px; font-weight: 600; line-height: 1.3; }
+  .edu-school { font-size: 12px; color: var(--mid); }
+  .edu-year { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--light); }
+
+  .lang-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .lang-name { font-size: 13px; font-weight: 500; }
+  .lang-level { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--light); }
+  .dot-row { display: flex; gap: 5px; margin-top: 3px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rule); }
+  .dot.filled { background: var(--accent); }
+
+  @media print {
+    body { background: white; }
+    .page { max-width: 100%; }
+    .header { padding: 40px 48px 32px; }
+    .main { padding: 36px 48px 48px; }
+    .sidebar { padding: 36px 28px 48px; }
+    .name { font-size: 38px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div>
+      <div class="title-line">Liderança · Inovação · Mudança</div>
+      <h1 class="name">David Ferreira<br><span>Marques</span></h1>
+      <p class="tagline">Construir pontes para a mudança. Criar condições para que as pessoas e as organizações trabalhem melhor. Executar quando o caminho ainda não está traçado. <strong style="color:#0D0D0D;">É assim que tem sido trabalhado, ao longo de 15+ anos, em sectores e escalas muito diferentes</strong> — e é o que distingue gerir de liderar numa altura em que as organizações precisam de ambos ao mesmo tempo. A IA não mudou esta forma de operar. Acelerou-a.</p>
+    </div>
+    <div class="contact-block">
+      <span>Porto / Maia, Portugal</span>
+      <a href="mailto:dferreiramarques@gmail.com">dferreiramarques@gmail.com</a>
+      <a href="https://linkedin.com/in/dferreiramarques">linkedin.com/in/dferreiramarques</a>
+    </div>
+  </header>
+
+  <div class="body">
+    <main class="main">
+
+      <section class="section">
+        <div class="section-label">Experiência Profissional</div>
+
+        <!-- CICF -->
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Responsável de Operações & Programas</div>
+            <div class="job-period">2025 — atual</div>
+          </div>
+          <div class="job-org">CDI Portugal · Centro de Inovação Carlos Fiolhais <span class="location">· Maia</span></div>
+          <p class="job-desc">Liderança operacional de um laboratório de inovação social co-financiado pelo Norte 2030, com gestão direta de equipa, programas, orçamento e indicadores de desempenho. Conceção, implementação e melhoria contínua de oito programas em simultâneo.</p>
+          <ul class="highlights">
+            <li>Definição de performance estratégica e monitorização de OKRs e KPIs trimestrais para toda a operação</li>
+            <li>Gestão de múltiplos processos em paralelo com recursos limitados e prazos rígidos (financiamento público)</li>
+            <li>Coordenação com entidades externas: Câmara Municipal da Maia, parceiros europeus, British Esports Federation</li>
+            <li>Recrutamento, onboarding e supervisão de equipa multidisciplinar</li>
+            <li>Implementação de fluxos de trabalho e ferramentas de gestão operacional próprias</li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag">Gestão de Equipas</span><span class="tag">OKRs / KPIs</span><span class="tag">Processos</span><span class="tag">Orçamento</span><span class="tag">Multi-projeto</span>
+          </div>
+        </div>
+
+        <!-- FARFETCH Innovation Principal -->
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Innovation Principal</div>
+            <div class="job-period">2023 — 2025</div>
+          </div>
+          <div class="job-org">FARFETCH <span class="location">· Porto</span></div>
+          <p class="job-desc">Liderança de processos de inovação de produto em paralelo com funções operacionais. Responsável pela cadência e qualidade dos ciclos de discovery, prototipagem e validação, articulando equipas de produção de fotografia, video e 3D.</p>
+          <ul class="highlights">
+            <li>Coordenação transversal dodesenvolvimento da fundação de processos AI que automatizaram toda a pós-produção de fotografia</li>
+            <li>Gestão de stakeholders com prioridades divergentes e timelines apertadas</li>
+            <li>Definição e melhoria de processos de trabalho em equipas distribuídas globalmente</li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag">Inovação de Produto</span><span class="tag">Stakeholder Management</span><span class="tag">Agile</span><span class="tag">Equipas Globais</span>
+          </div>
+        </div>
+
+        <!-- FARFETCH Gestor de Produção -->
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Gestor de Produção Internacional</div>
+            <div class="job-period">2020 — 2025</div>
+          </div>
+          <div class="job-org">FARFETCH <span class="location">· Porto</span></div>
+          <p class="job-desc">Gestão de processos de produção dos estudios de fotografia (PT, BR, US, HK) em empresa cotada em bolsa com mais de 5.000 colaboradores. Coordenação de fluxos de trabalho entre equipas e parceiros distribuídos globalmente, com foco em qualidade, prazo e eficiência operacional.</p>
+          <ul class="highlights">
+            <li>Gestão de pipelines de produção com múltiplos fornecedores e equipas internacionais</li>
+            <li>Desenvolvimento e otimização de processos de entrega em contexto de alto volume</li>
+            <li>Reporte de métricas operacionais a gestão sénior e stakeholders executivos</li>
+            <li>Resolução de bloqueios e gestão de risco em projetos críticos de negócio</li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag">Gestão de Produção</span><span class="tag">Operações Internacionais</span><span class="tag">Fornecedores</span><span class="tag">Métricas</span><span class="tag">Alto Volume</span>
+          </div>
+        </div>
+
+        <!-- Creative Oscillator -->
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Fundador & Gestor</div>
+            <div class="job-period">2024 — atual</div>
+          </div>
+          <div class="job-org">Creative Oscillator <span class="location">· Porto</span>
+            <span class="sub">Marcas: Monco (consultoria de gestão da mudança) · Devity Studio (design e criatividade)</span>
+          </div>
+          <p class="job-desc">Estrutura empresarial que agrega duas marcas de serviço. Responsável pela operação, posicionamento estratégico e definição de portfolio.</p>
+          <ul class="highlights">
+            <li>Desenvolvimento de processos replicáveis de entrega para projetos de consultoria de integração de IA na estratégia empresarial</li>
+            <li>Gestão de pipeline comercial e coordenação de equipa em regime remoto</li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag">Gestão da Mudança</span><span class="tag">Consultoria</span><span class="tag">Design</span><span class="tag">Operações</span>
+          </div>
+        </div>
+
+        
+        <!-- Surf&Code -->
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Lead Designer - Platform team</div>
+            <div class="job-period">2019 — 2020</div>
+          </div>
+          <div class="job-org">Surf & Code <span class="location">· Matosinhos - Londres</span></div>
+          <p class="job-desc">Gestão da equipa de design de produto de uma aceleradora de startups. Responsável pela cadência operacional de sprints, qualidade de entrega e alinhamento entre stakeholders internacionais.</p>
+          <ul class="highlights">
+            <li>Dinamização de workshops de ideação e validação de produto para financiamento</li>
+            <li>Liderança da equipa de protótipos e de user research</li>
+            <li>Definição e aplicação de framework "product-market validation"</li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag">Scrum</span><span class="tag">Gestão de Equipa</span><span class="tag">Métricas de Entrega</span><span class="tag">Melhoria Contínua</span>
+          </div>
+        </div>
+
+        <!-- Namecheap -->
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Scrum Master & Design Manager</div>
+            <div class="job-period">2016 — 2019</div>
+          </div>
+          <div class="job-org">Namecheap <span class="location">· Porto (remoto)</span></div>
+          <p class="job-desc">Gestão de equipas em contexto ágil. Responsável pela cadência operacional de sprints, qualidade de entrega e alinhamento entre stakeholders internacionais (PT, US, UK, UA, IN).</p>
+          <ul class="highlights">
+            <li>Implementação e otimização de processos Scrum adaptados ao contexto da equipa - UX Design Framework</li>
+            <li>Remoção de bloqueios operacionais e garantia de fluxo de entrega contínuo</li>
+            <li>Reporting regular de métricas de desempenho a gestão sénior</li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag">Scrum</span><span class="tag">Gestão de Equipa</span><span class="tag">Métricas de Entrega</span><span class="tag">Melhoria Contínua</span>
+          </div>
+        </div>
+
+        <!-- ESAD -->
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Coordenador Pedagógico</div>
+            <div class="job-period">2010 — 2015</div>
+          </div>
+          <div class="job-org">ESAD — Escola Superior de Artes e Design <span class="location">· Matosinhos</span></div>
+          <p class="job-desc">Coordenação operacional de cursos de design. Gestão de calendários, docentes, parcerias com indústria e processos de avaliação de desempenho.</p>
+          <div class="job-tags">
+            <span class="tag">Coordenação Operacional</span><span class="tag">Gestão de Equipas</span><span class="tag">Planeamento</span>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Professor Assisnte</div>
+            <div class="job-period">2007 — 2015</div>
+          </div>
+          <div class="job-org">ESAD — Escola Superior de Artes e Design <span class="location">· Matosinhos</span></div>
+          <p class="job-desc">Coordenação operacional das unidades curriculares de Projeto I, Modelos e Protótipos, Laboratório Digital. Definição de programa e learning outcomes.</p>
+          <div class="job-tags">
+            <span class="tag">Coordenação Operacional</span><span class="tag">Gestão de Equipas</span><span class="tag">Planeamento</span>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="section" style="margin-bottom:0">
+        <div class="section-label">Modelo de Trabalho</div>
+        <ul class="highlights" style="margin-top:12px">
+          <li><strong>Pontes para a mudança</strong> — não como consultor que optimiza o que existe, mas como alguém que entra, lê o contexto, e constrói — com as pessoas, para as pessoas, com velocidade e sem desperdício</li>
+          <li><strong>Sistemas que sobrevivem ao criador</strong> — processos operacionais desenhados para serem independentes de quem os criou</li>
+          <li><strong>Liderança com presença individual</strong> — cada membro da equipa recebe atenção, justiça e exigência; as equipas ficam melhores depois de trabalhar juntas</li>
+          <li><strong>Pensamento sintético</strong> — desmonto problemas complexos até ao osso e traduzo conceitos radicais em linguagem acessível sem perder a profundidade</li>
+          <li><strong>IA como alavanca operacional</strong> — integrada nos processos do dia-a-dia; o que muda é a velocidade de execução, não o julgamento</li>
+          <li><strong>Referências transversais</strong> — músico, cinéfilo, leitor; perspectivas que expandem o espaço de soluções das equipas</li>
+        </ul>
+      </section>
+
+    </main>
+
+    <aside class="sidebar">
+
+      <section class="section">
+        <div class="section-label">Ferramentas & Métodos</div>
+        <div class="skill-group">
+          <div class="skill-group-name">Gestão de Projetos</div>
+          <div class="skill-list">Scrum / Agile<br>OKRs & KPIs<br>Gestão por objetivos<br>Lean / Melhoria Contínua<br>Planeamento de recursos</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-name">Ferramentas Digitais</div>
+          <div class="skill-list">Jira · Notion · Asana<br>Google Workspace<br>Microsoft 365<br>Dashboards & reporting<br>Ferramentas de IA / automação</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-name">Competências Transversais</div>
+          <div class="skill-list">Liderança de equipas<br>Resolução de problemas<br>Comunicação executiva<br>Gestão de fornecedores<br>Documentação de processos</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-label">Educação</div>
+        <div class="education-item">
+          <div class="edu-degree">Licenciatura em Design Industrial</div>
+          <div class="edu-school">ESAD — Escola Superior de Artes e Design</div>
+          <div class="edu-year">Matosinhos</div>
+          <div class="edu-degree">Pós-graduação em Gestão do Design</div>
+          <div class="edu-school">ESAD — Escola Superior de Artes e Design</div>
+          <div class="edu-year">Matosinhos</div>
+          <div class="edu-degree">MA - New Porduct Development</div>
+          <div class="edu-school">ESAD — Escola Superior de Artes e Design</div>
+          <div class="edu-year">Matosinhos</div>
+          <div class="edu-degree">Learning from Users</div>
+          <div class="edu-school">Fraunhofer</div>
+          <div class="edu-year">Porto</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-label">Línguas</div>
+        <div class="lang-item">
+          <div>
+            <div class="lang-name">Português</div>
+            <div class="dot-row"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
+          </div>
+          <div class="lang-level">Nativo</div>
+        </div>
+        <div class="lang-item">
+          <div>
+            <div class="lang-name">Inglês</div>
+            <div class="dot-row"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+          </div>
+          <div class="lang-level">Fluente</div>
+        </div>
+        <div class="lang-item">
+          <div>
+            <div class="lang-name">Espanhol</div>
+            <div class="dot-row"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
+          </div>
+          <div class="lang-level">Intermédio</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-label">Perfil</div>
+        <div class="skill-list" style="line-height:1.7">
+          Habituado a gerir operações complexas com múltiplas variáveis em simultâneo. Orientado para resultados, com forte capacidade de estruturar ambiguidade em planos executáveis. Confortável a liderar pessoas, a comunicar com stakeholders exigentes e a trabalhar sob pressão com prazos não negociáveis.
+        </div>
+      </section>
+
+    </aside>
+  </div>
+</div>
+
+<a href="../index.html" style="position:fixed;bottom:28px;right:28px;z-index:999;display:flex;align-items:center;gap:8px;background:#0D0D0D;color:#F5F0E8;font-family:monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;padding:10px 16px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 4px 20px rgba(0,0,0,0.18);" onmouseover="this.style.background='#FF3B1F'" onmouseout="this.style.background='#0D0D0D'">← Index</a>
+
+</body>
+</html>

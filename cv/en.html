@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>David Ferreira Marques — CV</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+  :root {
+    --ink: #0D0D0D;
+    --mid: #4A4A4A;
+    --light: #9A9A9A;
+    --rule: #E0E0E0;
+    --accent: #FF3B1F;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11.8px;
+    line-height: 1.5;
+    color: var(--ink);
+    background: #eee;
+  }
+
+  /* ── PAGE SHELL ── */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    background: white;
+    margin: 12px auto;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+  }
+
+  @media print {
+    @page { size: A4 portrait; margin: 0; }
+    html, body { background: white; margin: 0; padding: 0; }
+    .page {
+      margin: 0;
+      page-break-after: always;
+      page-break-inside: avoid;
+      break-after: page;
+      break-inside: avoid;
+    }
+    .page:last-child { page-break-after: auto; break-after: auto; }
+  }
+
+  /* ── HEADER ── */
+  .hdr {
+    padding: 32px 44px 24px;
+    border-bottom: 1.5px solid var(--ink);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: end;
+  }
+
+  .eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 5px;
+  }
+
+  .name {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1.2px;
+    line-height: 1;
+    margin-bottom: 9px;
+  }
+
+  .tagline { font-size: 11.2px; color: var(--mid); max-width: 400px; line-height: 1.55; }
+
+  .contact { text-align: right; }
+  .contact span, .contact a {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--mid);
+    text-decoration: none;
+    line-height: 1.85;
+  }
+
+  /* ── PAGE 2 MINI HEADER ── */
+  .hdr2 {
+    padding: 16px 44px 12px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hdr2-name { font-size: 13px; font-weight: 700; }
+  .hdr2-pg { font-family: 'Space Mono', monospace; font-size: 8.5px; color: var(--light); text-transform: uppercase; letter-spacing: 2px; }
+
+  /* ── BODY ── */
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 192px;
+    overflow: hidden;
+    height: 100%;
+    align-items: start;
+  }
+
+  .main { padding: 18px 28px 20px 44px; border-right: 1px solid var(--rule); overflow: hidden; max-height: 100%; }
+  .side { padding: 18px 20px 20px 18px; overflow: hidden; max-height: 100%; }
+
+  /* ── SECTION ── */
+  .sec { margin-bottom: 16px; }
+  .sec:last-child { margin-bottom: 0; }
+
+  .lbl {
+    font-family: 'Space Mono', monospace;
+    font-size: 7.5px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent);
+    padding-bottom: 5px;
+    border-bottom: 1.5px solid var(--accent);
+    display: inline-block;
+    margin-bottom: 13px;
+  }
+
+  /* ── JOB ── */
+  .job { margin-bottom: 13px; padding-bottom: 13px; border-bottom: 1px solid var(--rule); }
+  .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .jh { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 1px; }
+  .jt { font-size: 12.5px; font-weight: 600; letter-spacing: -0.2px; line-height: 1.2; }
+  .jp { font-family: 'Space Mono', monospace; font-size: 8.5px; color: var(--light); white-space: nowrap; padding-top: 2px; }
+
+  .jo { font-size: 10.5px; font-weight: 500; color: var(--mid); margin-bottom: 5px; }
+  .jo .loc { color: var(--light); font-weight: 400; }
+  .jo .sub { display: block; font-size: 9.5px; color: var(--light); font-style: italic; margin-top: 1px; }
+
+  .jd { font-size: 11px; color: var(--mid); line-height: 1.55; margin-bottom: 5px; }
+
+  ul.bul { list-style: none; margin-bottom: 5px; }
+  ul.bul li {
+    font-size: 11px; color: var(--mid); line-height: 1.45;
+    padding-left: 12px; position: relative; margin-bottom: 2px;
+  }
+  ul.bul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-size: 9px; top: 2px; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 5px; }
+  .tag {
+    font-family: 'Space Mono', monospace; font-size: 7px; text-transform: uppercase;
+    letter-spacing: 0.5px; padding: 2px 5px; border: 1px solid var(--rule); color: var(--light); border-radius: 2px;
+  }
+
+  /* ── SIDEBAR ── */
+  .side .sec { margin-bottom: 14px; }
+  .sg { margin-bottom: 9px; }
+  .sgn { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--ink); margin-bottom: 3px; }
+  .sgl { font-size: 10.5px; color: var(--mid); line-height: 1.75; }
+
+  .cert { font-size: 10.5px; color: var(--mid); line-height: 1.45; padding-left: 11px; position: relative; margin-bottom: 3px; }
+  .cert::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-size: 8.5px; }
+
+  .edu { margin-bottom: 8px; }
+  .edeg { font-size: 11px; font-weight: 600; line-height: 1.25; }
+  .esch { font-size: 10px; color: var(--mid); }
+  .eyr  { font-family: 'Space Mono', monospace; font-size: 8.5px; color: var(--light); }
+
+  .lang { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
+  .ln { font-size: 11px; font-weight: 500; }
+  .ll { font-family: 'Space Mono', monospace; font-size: 8.5px; color: var(--light); }
+  .dots { display: flex; gap: 3px; margin-top: 2px; }
+  .d { width: 5px; height: 5px; border-radius: 50%; background: var(--rule); }
+  .d.on { background: var(--accent); }
+
+  .ptext { font-size: 10.5px; color: var(--mid); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- ████████████████ PAGE 1 ████████████████ -->
+<div class="page">
+
+  <div class="hdr">
+    <div>
+      <div class="eyebrow">Leadership · Innovation · Change</div>
+      <div class="name">David Ferreira Marques</div>
+      <div class="tagline">Building bridges for change. Creating the conditions for people and organisations to work better. Executing when the path hasn't been mapped yet. <strong>That is how 15+ years across sectors and scales have been spent</strong> — and what distinguishes managing from leading at a time when organisations need both at once. AI didn't change this way of operating. It accelerated it.</div>
+    </div>
+    <div class="contact">
+      <span>Porto / Maia, Portugal</span>
+      <a href="mailto:dferreiramarques@gmail.com">dferreiramarques@gmail.com</a>
+      <a href="https://linkedin.com/in/dferreiramarques">linkedin.com/in/dferreiramarques</a>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div class="main">
+
+      <div class="sec">
+        <div class="lbl">Professional Experience</div>
+
+        <div class="job">
+          <div class="jh"><div class="jt">Operations &amp; Programme Manager</div><div class="jp">2025 — present</div></div>
+          <div class="jo">CDI Portugal · Centro de Inovação Carlos Fiolhais <span class="loc">· Maia</span></div>
+          <div class="jd">Operational leadership of a Norte 2030-funded social innovation lab for youth aged 12–18. End-to-end management of eight simultaneous programmes, team, budget and performance indicators.</div>
+          <ul class="bul">
+            <li>Defined and monitored quarterly OKRs and KPIs aligned with public funding obligations</li>
+            <li>Managed multiple parallel workflows under tight deadlines and limited resources</li>
+            <li>Coordinated with Câmara Municipal da Maia, European partners and British Esports Federation</li>
+            <li>Recruited, onboarded and supervised a multidisciplinary team</li>
+            <li>Developed and implemented proprietary operational workflows and management tools</li>
+          </ul>
+          <div class="tags"><span class="tag">Programme Management</span><span class="tag">OKRs / KPIs</span><span class="tag">Budgeting</span><span class="tag">Multi-project</span><span class="tag">Team Leadership</span></div>
+        </div>
+
+        <div class="job">
+          <div class="jh"><div class="jt">Innovation Principal</div><div class="jp">2023 — 2025</div></div>
+          <div class="jo">FARFETCH <span class="loc">· Porto</span></div>
+          <div class="jd">Led strategic innovation initiatives across product, design and engineering at a global listed company (+5,000 employees). Managed innovation roadmap, KPI tracking and complex projects from conception through to delivery.</div>
+          <ul class="bul">
+            <li>Cross-functional coordination in a large-scale Agile environment</li>
+            <li>Stakeholder management with competing priorities and tight executive timelines</li>
+          </ul>
+          <div class="tags"><span class="tag">Innovation</span><span class="tag">Roadmap</span><span class="tag">Agile</span><span class="tag">Stakeholder Management</span><span class="tag">KPIs</span></div>
+        </div>
+
+        <div class="job">
+          <div class="jh"><div class="jt">Senior Production Manager</div><div class="jp">2022 — 2024</div></div>
+          <div class="jo">FARFETCH <span class="loc">· Porto</span></div>
+          <div class="jd">Oversaw the global post-production department with strategic vision and operational leadership. Built a high-performance team culture while ensuring brand consistency across international markets.</div>
+          <ul class="bul">
+            <li>Team leadership and mentoring of a creative production team in a high-volume global context</li>
+            <li>Drove process improvement through design thinking, with measurable departmental impact</li>
+            <li>Reported operational metrics regularly to senior and executive stakeholders</li>
+          </ul>
+          <div class="tags"><span class="tag">Production Management</span><span class="tag">Global Operations</span><span class="tag">Continuous Improvement</span></div>
+        </div>
+
+        <div class="job">
+          <div class="jh"><div class="jt">Founder &amp; Managing Director</div><div class="jp">2024 — present</div></div>
+          <div class="jo">Creative Oscillator <span class="loc">· Porto</span>
+            <span class="sub">Brands: Monco (change management consultancy) · Devity Studio (design &amp; culture)</span>
+          </div>
+          <div class="jd">Business structure housing two service brands. Responsible for operations, strategic positioning, client management and coordination of remote partners.</div>
+          <ul class="bul">
+            <li>Developed replicable delivery processes and playbooks for consultancy projects (Monco)</li>
+            <li>Art direction, curation and production of cultural initiatives (Devity Studio)</li>
+          </ul>
+          <div class="tags"><span class="tag">Change Management</span><span class="tag">Consulting</span><span class="tag">Operations</span><span class="tag">Design</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="side">
+
+      <div class="sec">
+        <div class="lbl">Tools &amp; Methods</div>
+        <div class="sg">
+          <div class="sgn">Project Management</div>
+          <div class="sgl">Scrum / Agile<br>OKRs &amp; KPIs<br>Lean / Continuous Improvement<br>Value Stream Mapping<br>Resource Planning</div>
+        </div>
+        <div class="sg">
+          <div class="sgn">Digital Tools</div>
+          <div class="sgl">Jira · Notion · Asana<br>Google Workspace<br>Microsoft 365<br>Dashboards &amp; reporting<br>AI / workflow automation</div>
+        </div>
+        <div class="sg">
+          <div class="sgn">Soft Skills</div>
+          <div class="sgl">Team leadership &amp; mentoring<br>Executive communication<br>Problem solving<br>Vendor management<br>Process documentation<br>Stakeholder engagement</div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="lbl">Certifications</div>
+        <div class="cert">Certified Scrum Master</div>
+        <div class="cert">Lean Six Sigma YB</div>
+        <div class="cert">Design Thinking: CJM</div>
+        <div class="cert">User Stories for Agile</div>
+        <div class="cert">VSM Specialist</div>
+      </div>
+
+      <div class="sec">
+        <div class="lbl">Languages</div>
+        <div class="lang">
+          <div><div class="ln">Portuguese</div><div class="dots"><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d on"></div></div></div>
+          <div class="ll">Native</div>
+        </div>
+        <div class="lang">
+          <div><div class="ln">English</div><div class="dots"><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d"></div></div></div>
+          <div class="ll">Fluent C1</div>
+        </div>
+        <div class="lang">
+          <div><div class="ln">Spanish</div><div class="dots"><div class="d on"></div><div class="d on"></div><div class="d on"></div><div class="d"></div><div class="d"></div></div></div>
+          <div class="ll">Intermediate</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ████████████████ PAGE 2 ████████████████ -->
+<div class="page">
+
+  <div class="hdr2">
+    <div class="hdr2-name">David Ferreira Marques</div>
+    <div class="hdr2-pg">CV · Page 2 of 2</div>
+  </div>
+
+  <div class="cols">
+    <div class="main">
+
+      <div class="sec">
+        <div class="lbl">Professional Experience (continued)</div>
+
+        <div class="job">
+          <div class="jh"><div class="jt">Lead Designer — Platform Team</div><div class="jp">2019 — 2020</div></div>
+          <div class="jo">Surf &amp; Code <span class="loc">· Matosinhos / London</span></div>
+          <div class="jd">Led the product design team at a startup accelerator. Facilitated ideation, user research and product-market validation workshops for seed-round startups across Porto and London.</div>
+          <ul class="bul">
+            <li>Ran ideation and product validation workshops for investor funding rounds</li>
+            <li>Led prototyping team and defined the product-market validation framework</li>
+          </ul>
+          <div class="tags"><span class="tag">Product Discovery</span><span class="tag">Facilitation</span><span class="tag">Prototyping</span><span class="tag">Scrum</span></div>
+        </div>
+
+        <div class="job">
+          <div class="jh"><div class="jt">Scrum Master &amp; Design Manager</div><div class="jp">2016 — 2019</div></div>
+          <div class="jo">Namecheap, Inc. <span class="loc">· Remote (Porto)</span></div>
+          <div class="jd">Built and led the global UX department. Managed sprint cadence, delivery quality and stakeholder alignment across distributed teams in Portugal, the US, UK, Ukraine and India.</div>
+          <ul class="bul">
+            <li>Implemented and optimised Scrum processes and a UX Design Framework for distributed teams</li>
+            <li>Removed operational blockers and ensured continuous delivery flow</li>
+            <li>Regular performance metrics reporting to senior management</li>
+          </ul>
+          <div class="tags"><span class="tag">Scrum Master</span><span class="tag">UX Design</span><span class="tag">Agile</span><span class="tag">Distributed Teams</span><span class="tag">Metrics</span></div>
+        </div>
+
+        <div class="job">
+          <div class="jh"><div class="jt">Course Coordinator</div><div class="jp">2010 — 2015</div></div>
+          <div class="jo">ESAD — Escola Superior de Artes e Design <span class="loc">· Matosinhos</span></div>
+          <div class="jd">Coordinated the Product Design course. Managed timetables, faculty, industry partnerships and academic performance assessment. Member of the Pedagogical Council.</div>
+          <div class="tags"><span class="tag">Operational Coordination</span><span class="tag">Team Management</span><span class="tag">Planning</span></div>
+        </div>
+
+        <div class="job">
+          <div class="jh"><div class="jt">Assistant Lecturer</div><div class="jp">2007 — 2015</div></div>
+          <div class="jo">ESAD — Escola Superior de Artes e Design <span class="loc">· Matosinhos</span></div>
+          <div class="jd">Taught Design Project, Models &amp; Prototypes and Digital Lab. Curriculum design and learning outcomes definition. Organised international workshops including SummerLab on Cordophones and Sound Objects.</div>
+          <div class="tags"><span class="tag">Curriculum Design</span><span class="tag">Prototyping</span><span class="tag">Digital Arts</span></div>
+        </div>
+
+      </div>
+
+      <div class="sec">
+        <div class="lbl">Way of Working</div>
+        <ul class="bul" style="margin-top:8px;">
+          <li><strong>Bridges for change</strong> — not as a consultant optimising what exists, but as someone who enters, reads the context, and builds — with people, for people, with speed and without waste</li>
+          <li><strong>Systems that outlast their creator</strong> — operational processes designed to be independent of whoever built them</li>
+          <li><strong>Individual leadership presence</strong> — every team member receives attention, fairness and accountability; teams leave better than they arrived</li>
+          <li><strong>Synthetic thinking</strong> — radical concepts translated into accessible language without losing depth; first principles over frameworks</li>
+          <li><strong>AI as an operational lever</strong> — integrated into daily processes, not deployed as novelty; what changes is execution speed, not judgement</li>
+          <li><strong>Cross-domain references</strong> — musician, cinephile, reader; perspectives that expand the solution space for teams</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="side">
+
+      <div class="sec">
+        <div class="lbl">Profile</div>
+        <div class="sgl">Building bridges for change — not as a consultant optimising what exists, but as someone who enters, reads the context, and builds with people, for people. With speed, clarity and without waste. AI didn't change this way of operating. It accelerated it.</div>
+      </div>
+
+      <div class="sec">
+        <div class="lbl">Education</div>
+        <div class="edu"><div class="edeg">MA — New Product Development</div><div class="esch">ESAD, Matosinhos</div><div class="eyr">2011 – 2012</div></div>
+        <div class="edu"><div class="edeg">PG — Design Management</div><div class="esch">ESAD, Matosinhos</div></div>
+        <div class="edu"><div class="edeg">BA — Industrial Design</div><div class="esch">ESAD, Matosinhos</div><div class="eyr">2000 – 2006</div></div>
+        <div class="edu"><div class="edeg">Learning from Users</div><div class="esch">Fraunhofer, Porto</div></div>
+      </div>
+
+      <div class="sec">
+        <div class="lbl">Certifications</div>
+        <div class="cert">Certified Scrum Master</div>
+        <div class="cert">Lean Six Sigma Yellow Belt</div>
+        <div class="cert">Design Thinking: CJM</div>
+        <div class="cert">User Stories for Agile Scrum</div>
+        <div class="cert">VSM Specialist</div>
+      </div>
+
+      <div class="sec">
+        <div class="lbl">Also Notable</div>
+        <div class="sgl">
+          Event production management<br>
+          <span style="color:var(--light);font-size:9.5px;">Orquestra Portuguesa de Guitarras e Bandolins, 2025</span><br><br>
+          Digital fabrication &amp; maker education<br><br>
+          Board game design &amp; browser-based tools
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<a href="../index.html" style="position:fixed;bottom:28px;right:28px;z-index:999;display:flex;align-items:center;gap:8px;background:#0D0D0D;color:#F5F0E8;font-family:monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;padding:10px 16px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 4px 20px rgba(0,0,0,0.18);" onmouseover="this.style.background='#FF3B1F'" onmouseout="this.style.background='#0D0D0D'">← Index</a>
+</body>
+</html>

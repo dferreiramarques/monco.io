@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{NAME}}</title>
+  <meta name="description" content="TODO">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <header class="bar">
+    <span class="bar-name">{{NAME}}</span>
+    <div class="lang-toggle">
+      <button class="lang-btn is-active" data-lang="pt">PT</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1 data-i18n-html="app.title">{{NAME}}</h1>
+    <p data-i18n="app.lead">TODO — written from docs/VISION.md.</p>
+  </main>
+
+  <footer class="foot">
+    <span data-i18n="foot.credit">Dirigido por David Ferreira Marques · feito com IA sob direcção humana</span>
+    <a href="https://monco.io/metodo" target="_blank" rel="noopener" data-i18n="foot.method">método ↗</a>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
