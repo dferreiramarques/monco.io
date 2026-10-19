@@ -44,15 +44,17 @@
       }
     });
 
-    // Squishy click: the outer ring squashes on press, then pops and wobbles back on release
+    // Squishy click: the ring stays a circle while pressed; it only turns elliptical in the transitions
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       window.addEventListener('mousedown', () => {
-        gsap.to(trail, {scaleX: 1.3, scaleY: 0.72, duration: 0.14, ease: 'power2.out', overwrite: 'auto'});
+        gsap.timeline({overwrite: 'auto'})
+          .to(trail, {scaleX: 1.25, scaleY: 0.8, duration: 0.09, ease: 'power2.out'})
+          .to(trail, {scaleX: 0.8, scaleY: 0.8, duration: 0.45, ease: 'elastic.out(1, 0.4)'});
         gsap.to(cursor, {scale: 0.7, duration: 0.14, ease: 'power2.out', overwrite: 'auto'});
       });
       window.addEventListener('mouseup', () => {
         gsap.timeline({overwrite: 'auto'})
-          .to(trail, {scaleX: 0.82, scaleY: 1.34, duration: 0.1, ease: 'power2.out'})
+          .to(trail, {scaleX: 0.88, scaleY: 1.22, duration: 0.1, ease: 'power2.out'})
           .to(trail, {scaleX: 1, scaleY: 1, duration: 1.1, ease: 'elastic.out(1, 0.28)'});
         gsap.to(cursor, {scale: 1, duration: 0.7, ease: 'elastic.out(1, 0.4)', overwrite: 'auto'});
       });
