@@ -109,41 +109,13 @@
       color: var(--text-faint);
     }
 
-    /* Caixa de ferramentas */
-    .tk-grid {
-      max-width: 1040px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    .tk-card { border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px; background: var(--f-bg2); }
-    .tk-card h4 {
-      font-family: 'IBM Plex Sans', system-ui, sans-serif;
-      font-size: 11px;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin: 0 0 12px;
-    }
-    .tk-card .tk-body { font-size: 14px; line-height: 1.8; color: var(--text-dim); }
-    .tk-card .tk-body strong { color: var(--text); font-weight: 500; }
-    .tk-card.edu .edu-item { margin-bottom: 14px; }
-    .tk-card.edu .edu-item:last-child { margin-bottom: 0; }
-    .tk-edu-h { font-size: 14px; font-weight: 600; color: var(--text); margin: 0 0 2px; }
-    .tk-edu-s { font-size: 12.5px; color: var(--text-dim); }
-    .tk-edu-loc { font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 8px; }
-    .tk-lang { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-    .tk-lang:last-child { margin-bottom: 0; }
-    .tk-lang-h { font-size: 14px; font-weight: 600; color: var(--text); }
-    .tk-lang-lv { font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.12em; }
+    /* Caixa de ferramentas — (retirada do site; CSS reservado) */
 
     @media (max-width: 900px) {
       .eq-id { grid-template-columns: 1fr; gap: 28px; }
       .eq-id-fig { max-width: 340px; }
       .eq-id-img { aspect-ratio: 3 / 2; height: auto; min-height: 0; }
       .tj { grid-template-columns: 1fr; gap: 8px; }
-      .tk-grid { grid-template-columns: 1fr; }
     }
   </style>
 <body>
@@ -364,51 +336,6 @@
       <div class="principle" data-reveal><h5 data-i18n="eq.wm4.h">Pensamento sintético</h5><p data-i18n="eq.wm4.p"></p></div>
       <div class="principle" data-reveal><h5 data-i18n="eq.wm5.h">IA como alavanca operacional</h5><p data-i18n="eq.wm5.p"></p></div>
       <div class="principle" data-reveal><h5 data-i18n="eq.wm6.h">Referências transversais</h5><p data-i18n="eq.wm6.p"></p></div>
-    </div>
-  </section>
-
-  <!-- ============ 03 CAIXA DE FERRAMENTAS ============ -->
-  <section class="section" style="border-top:1px solid var(--border);">
-    <div class="section-head" data-reveal>
-      <div>
-        <div class="eyebrow" data-i18n="eq.tools.eyebrow">/ 03 — CAIXA DE FERRAMENTAS</div>
-        <h2 data-i18n-html="eq.tools.h2">O que <em>sustenta</em> o ofício.</h2>
-      </div>
-    </div>
-    <div class="tk-grid">
-      <div class="tk-card" data-reveal>
-        <h4 data-i18n="eq.tools.h">Ferramentas & Métodos</h4>
-        <div class="tk-body">
-          <strong data-i18n="eq.tk1.h">Gestão de Projetos</strong><br>
-          <span data-i18n-html="eq.tk1.p">Scrum / Agile / SAFe<br>OKRs & KPIs</span>
-        </div>
-        <div class="tk-body" style="margin-top:14px;">
-          <strong data-i18n="eq.tk2.h">Ferramentas Digitais</strong><br>
-          <span data-i18n-html="eq.tk2.p">Jira · Notion · Asana</span>
-        </div>
-        <div class="tk-body" style="margin-top:14px;">
-          <strong data-i18n="eq.tk3.h">Competências Transversais</strong><br>
-          <span data-i18n-html="eq.tk3.p">Liderança de equipas</span>
-        </div>
-      </div>
-      <div class="tk-card edu" data-reveal>
-        <h4 data-i18n="eq.edu.h">Educação</h4>
-        <div class="edu-item"><h6 class="tk-edu-h" data-i18n="eq.e1.h">Licenciatura em Design Industrial</h6><div class="tk-edu-s" data-i18n="eq.e1.s">ESAD</div></div>
-        <div class="edu-item"><h6 class="tk-edu-h" data-i18n="eq.e2.h">Pós-graduação em Gestão do Design</h6><div class="tk-edu-s" data-i18n="eq.e2.s">ESAD</div></div>
-        <div class="edu-item"><h6 class="tk-edu-h" data-i18n="eq.e3.h">MA — New Product Development</h6><div class="tk-edu-s" data-i18n="eq.e3.s">ESAD</div></div>
-        <div class="edu-item"><h6 class="tk-edu-h" data-i18n="eq.e4.h">Learning from Users</h6><div class="tk-edu-s" data-i18n="eq.e4.s">Fraunhofer</div></div>
-        <div class="tk-edu-loc" data-i18n="eq.edu.loc">Matosinhos / Porto</div>
-      </div>
-      <div class="tk-card" data-reveal>
-        <h4 data-i18n="eq.lang.h">Línguas</h4>
-        <div class="tk-lang"><span class="tk-lang-h" data-i18n="eq.l1.h">Português</span><span class="tk-lang-lv" data-i18n="eq.l1.lv">Nativo</span></div>
-        <div class="tk-lang"><span class="tk-lang-h" data-i18n="eq.l2.h">Inglês</span><span class="tk-lang-lv" data-i18n="eq.l2.lv">Fluente</span></div>
-        <div class="tk-lang"><span class="tk-lang-h" data-i18n="eq.l3.h">Espanhol</span><span class="tk-lang-lv" data-i18n="eq.l3.lv">Intermédio</span></div>
-      </div>
-      <div class="tk-card" data-reveal>
-        <h4 data-i18n="eq.profile.h">Perfil</h4>
-        <div class="tk-body" data-i18n="eq.profile.p"></div>
-      </div>
     </div>
   </section>
 
