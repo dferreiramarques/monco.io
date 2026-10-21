@@ -291,9 +291,9 @@
       'ludens.cta.h2': 'Vamos jogar<br><em>para criar.</em>',
 
       /* ── Página equipa ── */
-      'eq.eyebrow':     '/ A EQUIPA',
+      'eq.eyebrow':     '/ PESSOAS',
       'eq.h2':          'Um laboratório que <em>cabe numa pessoa.</em>',
-      'eq.desc':        'Por agora, o laboratório é uma pessoa — o percurso completo está nesta página. Quando a equipa crescer, é aqui que ela aparece.',
+      'eq.desc':        'Por agora, um só perfil — o percurso completo por trás do método. Quando lá houver mais pessoas, é aqui que elas aparecem.',
       'eq.m.eyebrow':   '/ DIRECTOR DO LABORATÓRIO',
       'eq.m.name':      'David Ferreira Marques',
       'eq.m.tag':       'Construir pontes para a mudança. Criar condições para que as pessoas e as organizações trabalhem melhor. Executar quando o caminho ainda não está traçado. <strong>É assim que tem sido trabalhado, ao longo de 15+ anos, em sectores e escalas muito diferentes</strong> — e é o que distingue gerir de liderar numa altura em que as organizações precisam de ambos ao mesmo tempo. A IA não mudou esta forma de operar. Acelerou-a.',
@@ -690,9 +690,9 @@
       'ludens.cta.h2': 'Let\'s play<br><em>to create.</em>',
 
       /* ── Team page ── */
-      'eq.eyebrow':     '/ THE TEAM',
+      'eq.eyebrow':     '/ PEOPLE',
       'eq.h2':          'A lab that <em>fits in one person.</em>',
-      'eq.desc':        'For now, the laboratory is one person — the full path is on this page. When the team grows, this is where it shows up.',
+      'eq.desc':        'One profile for now — the full path behind the method. When there are more people here, this is where they show up.',
       'eq.m.eyebrow':   '/ LABORATORY DIRECTOR',
       'eq.m.name':      'David Ferreira Marques',
       'eq.m.tag':       'Building bridges to change. Creating the conditions for people and organisations to work better. Executing when the way isn\'t mapped yet. <strong>That\'s how it has been done for 15+ years, across very different sectors and scales</strong> — and that\'s what separates managing from leading at a time when organisations need both at once. AI didn\'t change this way of operating. It accelerated it.',

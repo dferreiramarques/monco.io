@@ -2,9 +2,9 @@
 <html lang="pt">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>A Equipa — monco.io</title>
+  <title>Pessoas — monco.io</title>
   <meta name="description" content="O percurso completo por trás do laboratório monco.io: 15+ anos entre design industrial, engenharia de processos, ensino e liderança de equipas internacionais.">
-  <meta property="og:title" content="A Equipa — monco.io">
+  <meta property="og:title" content="Pessoas — monco.io">
   <meta property="og:description" content="Um laboratório que cabe numa pessoa. O percurso completo por trás do método.">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='%23d4ff3a'/%3E%3C/svg%3E">
@@ -15,16 +15,18 @@
       display: grid;
       grid-template-columns: 300px 1fr;
       gap: 44px;
-      align-items: start;
+      align-items: stretch;
       max-width: 1040px;
       margin: 0 auto;
     }
-    .eq-id-fig { margin: 0; }
+    .eq-id-fig { margin: 0; display: flex; }
     .eq-id-img {
       display: block;
       width: 100%;
-      aspect-ratio: 4 / 5;
+      height: 100%;
+      min-height: 300px;
       object-fit: cover;
+      object-position: center 22%;
       border-radius: 16px;
       border: 1px solid var(--f-stroke1);
       background: var(--f-bg3);
@@ -139,6 +141,7 @@
     @media (max-width: 900px) {
       .eq-id { grid-template-columns: 1fr; gap: 28px; }
       .eq-id-fig { max-width: 340px; }
+      .eq-id-img { aspect-ratio: 3 / 2; height: auto; min-height: 0; }
       .tj { grid-template-columns: 1fr; gap: 8px; }
       .tk-grid { grid-template-columns: 1fr; }
     }
@@ -168,10 +171,10 @@
   <section class="section" style="padding-top:80px;">
     <div class="section-head" data-reveal>
       <div>
-        <div class="eyebrow" data-i18n="eq.eyebrow">/ A EQUIPA</div>
+        <div class="eyebrow" data-i18n="eq.eyebrow">/ PESSOAS</div>
         <h2 data-i18n-html="eq.h2">Um laboratório que <em>cabe numa pessoa.</em></h2>
       </div>
-      <p class="section-desc" data-i18n="eq.desc">Por agora, o laboratório é uma pessoa.</p>
+      <p class="section-desc" data-i18n="eq.desc">Por agora, um só perfil.</p>
     </div>
 
     <div class="eq-id" data-reveal>
