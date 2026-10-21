@@ -200,16 +200,16 @@
     });
   }
 
-  /* ============ NAV: smooth in-page nav + page indication ============ */
+  /* ============ NAV: page indication ============ */
   function initNav(){
-    // Mark current nav link as active based on URL
-    const path = location.pathname.split('/').pop() || 'index.html';
+    // Mark current nav link as active based on URL (supports folder paths like /spark/)
+    let path = location.pathname;
+    if (/\/index\.html?$/.test(path)) path = path.slice(0, -'index.html'.length);
     $$('.nav-link, .foot-links a').forEach(link => {
-      const href = link.getAttribute('href') || '';
-      const name = href.split('/').pop();
-      if (name === path || (path === '' && name === 'index.html')) {
-        link.classList.add('is-active');
-      }
+      try {
+        const url = new URL(link.href, location.origin);
+        if (url.pathname === path) link.classList.add('is-active');
+      } catch(e){}
     });
   }
 

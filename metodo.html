@@ -2,21 +2,77 @@
 <html lang="pt">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Método — How We Build — monco.io</title>
-  <meta name="description" content="Como David Ferreira Marques cria produtos digitais com IA: papéis, ética e cadeia de valor criativa.">
-  <meta property="og:title" content="Método — How We Build — monco.io">
-  <meta property="og:description" content="Eu dirijo. A IA executa. Uma declaração de método.">
+  <title>O Ciclo do Laboratório — monco.io</title>
+  <meta name="description" content="A metodologia monco.io: colaboração homem-máquina para potenciar o output da mente humana — IA como fundação da iteração, validação com experts de domínio e conversão de cada experimento em aprendizagem.">
+  <meta property="og:title" content="O Ciclo do Laboratório — monco.io">
+  <meta property="og:description" content="Uma metodologia de colaboração homem-máquina para potenciar o output da mente humana.">
   <meta property="og:type" content="article">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='%23d4ff3a'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    /* O autor do método */
+    .m-id {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 44px;
+      align-items: center;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .m-id-fig { margin: 0; }
+    .m-id-img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid var(--f-stroke1);
+      background: var(--f-bg3);
+      box-shadow: var(--f-shadow16);
+    }
+    .m-id-cap {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-size: 10px;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+    .m-id-h2 {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-size: clamp(28px, 3.6vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 400;
+      margin: 0 0 22px;
+    }
+    .m-id-h2 em { font-style: italic; color: var(--accent); }
+    .m-id-copy p {
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: var(--text-dim);
+      margin: 0 0 14px;
+      max-width: 560px;
+    }
+    .m-id-copy p strong { color: var(--text); font-weight: 500; }
+    .m-id-actions { margin-top: 22px; }
+    @media (max-width: 900px) {
+      .m-id { grid-template-columns: 1fr; gap: 28px; }
+      .m-id-fig { max-width: 340px; }
+    }
+  </style>
 </head>
 <body>
   <nav class="nav">
     <a class="nav-logo" href="index.html"><span class="nav-logo-dot"></span><span>monco.io</span></a>
     <div class="nav-links">
       <a class="nav-link" href="index.html">home</a>
-      <a class="nav-link" href="work.html"><span data-i18n="nav.work">work</span></a>
+      <a class="nav-link" href="spark/">spark</a>
+      <a class="nav-link" href="nimble/">nimble</a>
+      <a class="nav-link" href="wave/">wave</a>
+      <a class="nav-link" href="ludens/">ludens</a>
       <a class="nav-link is-active" href="metodo.html"><span data-i18n="nav.method">método</span></a>
     </div>
     <div class="nav-right">
@@ -30,19 +86,55 @@
 
   <!-- ============ INTRO ============ -->
   <section class="about-hero">
-    <div class="eyebrow" data-reveal data-i18n="m.eyebrow">/ MÉTODO</div>
-    <h1 class="m-title" data-reveal data-i18n-html="m.title">Eu dirijo.<br><em>A IA executa.</em></h1>
+    <div class="eyebrow" data-reveal data-i18n="m.eyebrow">/ CICLO DO LABORATÓRIO</div>
+    <h1 class="m-title" data-reveal data-i18n-html="m.title">Experimenta. Valida.<br><em>Ensina. Lança.</em></h1>
     <div class="manifesto" data-reveal>
-      <p data-i18n-html="m.intro1">Esta página explica como crio produtos digitais em colaboração com inteligência artificial: quem faz o quê, onde estão as decisões e porque tudo isto é transparente.</p>
-      <p data-i18n-html="m.intro2">Não é um disclaimer, é uma <strong>declaração de método</strong>. Há quem use a IA para automatizar e há quem a use para substituir trabalho sem critério. Eu uso-a como ferramenta de materialização: a visão, a direcção criativa e a responsabilidade ficam do lado humano.</p>
+      <p data-i18n-html="m.intro1">Esta página explica como o laboratório corre.</p>
+      <p data-i18n-html="m.intro2">Não é um disclaimer, é uma <strong>declaração de método</strong>.</p>
+      <p data-i18n-html="m.intro3">Mais do que um método, é uma <strong>metodologia</strong>.</p>
     </div>
   </section>
 
-  <!-- ============ 01 CO-CRIAÇÃO ============ -->
+  <!-- ============ O AUTOR DO MÉTODO ============ -->
+  <section class="section" style="border-top:1px solid var(--border);">
+    <div class="m-id" data-reveal>
+      <figure class="m-id-fig">
+        <img class="m-id-img" src="assets/img/david.jpg" alt="David Ferreira Marques" width="800" height="1000" loading="lazy">
+        <figcaption class="m-id-cap" data-i18n="m.id.cap">DAVID FERREIRA MARQUES · DIRECTOR DO LABORATÓRIO</figcaption>
+      </figure>
+      <div class="m-id-copy">
+        <div class="eyebrow" data-i18n="m.id.eyebrow">/ QUEM ASSINA</div>
+        <h2 class="m-id-h2" data-i18n-html="m.id.h2">Atrás do laboratório há <em>um percurso inteiro.</em></h2>
+        <p data-i18n-html="m.id.p1">Nada daqui nasce de um prompt solto.</p>
+        <p data-i18n-html="m.id.p2">Design industrial, engenharia de processos e desenvolvimento de produto.</p>
+        <div class="m-id-actions">
+          <a class="btn btn-ghost" data-magnetic="0.2" href="cv/pt.html" data-i18n="m.id.cv">Ver currículo completo · PT / EN →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 01 O CICLO ============ -->
   <section class="section" style="border-top:1px solid var(--border);">
     <div class="section-head" data-reveal>
       <div>
-        <div class="eyebrow" data-i18n="m.s1.eyebrow">/ 01 — CO-CRIAÇÃO</div>
+        <div class="eyebrow" data-i18n="m.s0.eyebrow">/ 01 — O CICLO</div>
+        <h2 data-i18n-html="m.s0.h2">Iterar mais, <em>mais depressa.</em></h2>
+      </div>
+      <p class="section-desc" data-i18n="m.s0.desc">Três princípios governam tudo o que o laboratório produz.</p>
+    </div>
+    <div class="principles">
+      <div class="principle" data-reveal><h5 data-i18n="m.s0.1.h">A IA como fundação</h5><p data-i18n="m.s0.1.p"></p></div>
+      <div class="principle" data-reveal><h5 data-i18n="m.s0.2.h">Validação com SME</h5><p data-i18n="m.s0.2.p"></p></div>
+      <div class="principle" data-reveal><h5 data-i18n="m.s0.3.h">Converter em aprendizagem</h5><p data-i18n="m.s0.3.p"></p></div>
+    </div>
+  </section>
+
+  <!-- ============ 02 CO-CRIAÇÃO ============ -->
+  <section class="section" style="border-top:1px solid var(--border);">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow" data-i18n="m.s1.eyebrow">/ 02 — CO-CRIAÇÃO</div>
         <h2 data-i18n-html="m.s1.h2">Co-criar não é <em>gerar automaticamente</em>.</h2>
       </div>
     </div>
@@ -87,24 +179,16 @@
   <section class="section" style="border-top:1px solid var(--border);">
     <div class="section-head" data-reveal>
       <div>
-        <div class="eyebrow" data-i18n="m.s3.eyebrow">/ 03 — CADEIA DE VALOR</div>
+        <div class="eyebrow" data-i18n="m.s3.eyebrow">/ 04 — CADEIA DE VALOR</div>
         <h2 data-i18n-html="m.s3.h2">A IA é uma <em>alavanca</em>.</h2>
       </div>
     </div>
     <div class="manifesto" data-reveal>
-      <p data-i18n-html="m.s3.p1">Uma alavanca multiplica a força de quem a maneja, mas não tem força própria. O valor do produto não vem da alavanca; vem de quem a usa com uma intenção clara. <strong>Sem direcção humana forte, é ruído. Com ela, é aí que o valor aparece.</strong></p>
-    </div>
-    <div class="chain" data-reveal>
-      <div class="chain-head"><span data-i18n="m.david">David</span><span data-i18n="m.ai">IA</span></div>
-      <div class="chain-row"><span data-i18n="m.c1a">Visão e conceito original</span><span data-i18n="m.c1b">Velocidade de execução</span></div>
-      <div class="chain-row"><span data-i18n="m.c2a">Identidade e direcção criativa</span><span data-i18n="m.c2b">Capacidade técnica de materialização</span></div>
-      <div class="chain-row"><span data-i18n="m.c3a">Decisões estratégicas e de produto</span><span data-i18n="m.c3b">Geração de variantes e opções</span></div>
-      <div class="chain-row"><span data-i18n="m.c4a">Validação, testes e correcção</span><span data-i18n="m.c4b">Formalização e redacção estruturada</span></div>
-      <div class="chain-row"><span data-i18n="m.c5a">Gosto, intenção e julgamento</span><span data-i18n="m.c5b">Consistência e escala de output</span></div>
-      <div class="chain-row"><span data-i18n="m.c6a">Responsabilidade sobre o produto</span><span data-i18n="m.c6b">Nenhuma iniciativa autónoma</span></div>
+      <p data-i18n-html="m.s3.p1">A disciplina de design está a evoluir mais do que nunca.</p>
     </div>
     <div class="manifesto" data-reveal style="margin-top:28px;">
-      <p data-i18n-html="m.s3.p2">Num projecto de jogo, por exemplo: as mecânicas, as regras, os temas, os nomes e as decisões de design são meus. O código do servidor, o cliente web, a lógica implementada e a documentação nascem da colaboração, sempre sob direcção e validação contínua.</p>
+      <p data-i18n-html="m.s3.p2">Num projecto de jogo, por exemplo.</p>
+      <p data-i18n-html="m.s3.p3">E quanto mais o laboratório corre, mais o método serve para partilhar o conhecimento que gera.</p>
     </div>
   </section>
 
@@ -163,7 +247,7 @@
     <h2 data-i18n-html="m.end.h2">Dirigido, validado<br><em>e assumido.</em></h2>
     <p data-i18n="m.end.p">Este texto pode ser citado, partilhado ou incluído na documentação dos meus projectos como declaração de método de trabalho.</p>
     <div class="cta-actions">
-      <a class="btn btn-primary" data-magnetic="0.3" href="work.html" data-i18n="cta.secondary">Ver portfólio →</a>
+      <a class="btn btn-primary" data-magnetic="0.3" href="index.html" data-i18n="cta.secondary">Voltar ao laboratório →</a>
       <a class="btn btn-ghost" data-magnetic="0.2" href="https://www.linkedin.com/in/dferreiramarques/" target="_blank" rel="noopener" data-i18n="cta.linkedin">LinkedIn ↗</a>
     </div>
   </section>
@@ -172,7 +256,10 @@
     <div><span data-i18n="foot.copy">© 2026 MONCO.IO / DAVID FERREIRA MARQUES</span></div>
     <div class="foot-links">
       <a href="index.html">home</a>
-      <a href="work.html">work</a>
+      <a href="spark/">spark</a>
+      <a href="nimble/">nimble</a>
+      <a href="wave/">wave</a>
+      <a href="ludens/">ludens</a>
       <a href="metodo.html" data-i18n="nav.method">método</a>
       <a href="https://www.linkedin.com/in/dferreiramarques/" target="_blank" rel="noopener">linkedin</a>
       <a href="https://github.com/dferreiramarques" target="_blank" rel="noopener">github</a>

@@ -1,0 +1,295 @@
+/* ==========================================================================
+   monco.io — labs.css
+   Lab-first components: lab cards (hub), cycle loop, lab pages theming.
+   Theming pattern: body.lab + --lab / --lab-r set inline per page.
+   ========================================================================== */
+
+/* ===================== Lab theming scope ===================== */
+/* Each lab page sets on <body>:
+   style="--lab:#ff6b35; --lab-r:255,107,53" + class="lab lab-spark"
+   This recolours every brand-driven variable from main.css, including
+   --accent (which must be re-declared here: vars resolve at :root, so an
+   override of --f-brand alone would NOT recolour --accent). */
+body.lab {
+  --lab:        #d4ff3a; /* fallback — always set inline per lab page */
+  --lab-r:      212,255,58;
+  --f-brand:    var(--lab);
+  --f-brand-h:  var(--lab);
+  --f-brand-a:  var(--lab);
+  --f-brand-bg:  rgba(var(--lab-r), .10);
+  --f-brand-bg2: rgba(var(--lab-r), .05);
+  --accent:      var(--lab);
+  --accent-soft: rgba(var(--lab-r), .10);
+}
+
+/* kill every hardcoded-lime remnant from main.css inside a lab page */
+body.lab .nav::after { background: linear-gradient(90deg, rgba(var(--lab-r), .05) 0%, transparent 40%); }
+body.lab .nav-cta {
+  color: var(--lab);
+  border-color: rgba(var(--lab-r), .3);
+  background: rgba(var(--lab-r), .05);
+}
+body.lab .nav-cta:hover { background: var(--lab); color: #0a0a0a; }
+body.lab .btn-primary:hover { box-shadow: 0 8px 28px rgba(var(--lab-r), .35), var(--f-shadow8); }
+body.lab .nav-logo-dot { background: var(--lab); box-shadow: 0 0 12px var(--lab); }
+body.lab .cyc:hover { border-color: rgba(var(--lab-r), .4); }
+body.lab .cyc:first-child, body.lab .cyc:nth-last-child(2) { border-color: rgba(var(--lab-r), .35); }
+
+/* ===================== Hero ===================== */
+.lab-hero {
+  padding: 90px 32px 70px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(ellipse 60% 80% at 0% 0%, rgba(var(--lab-r), .07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 100% 100%, rgba(var(--lab-r), .04) 0%, transparent 60%);
+}
+.lab-domain {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--lab);
+  border: 1px solid rgba(var(--lab-r), .35);
+  background: rgba(var(--lab-r), .08);
+  border-radius: var(--f-rpill);
+  padding: 7px 14px;
+  margin-bottom: 22px;
+}
+.lab-domain::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--lab);
+  box-shadow: 0 0 8px var(--lab);
+}
+.lab-hero h1 {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: clamp(40px, 6.5vw, 76px);
+  line-height: .95;
+  letter-spacing: -0.035em;
+  font-weight: 400;
+  margin: 0 0 26px;
+  max-width: 780px;
+}
+.lab-hero h1 em { font-style: italic; color: var(--lab); }
+.lab-hero .lab-lede {
+  max-width: 620px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text-dim);
+  margin: 0;
+}
+.lab-hero .lab-lede strong { color: var(--text); font-weight: 500; }
+
+/* ===================== Learning vector (principles) ===================== */
+.lab-vectors {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 32px;
+}
+
+/* ===================== Products grid (reuse .proj from main.css) ===================== */
+.lab-products { margin-top: 24px; }
+
+/* ===================== Workshops ===================== */
+.lab-wk { margin-bottom: 0; }
+
+/* ===================== Hub — lab cards grid ===================== */
+.lab-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.lab-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--f-stroke1);
+  border-radius: 16px;
+  background: var(--f-bg3);
+  padding: 30px 28px 26px;
+  overflow: hidden;
+  box-shadow: var(--f-shadow2);
+  transition: transform var(--f-normal) var(--f-ease),
+              box-shadow var(--f-normal) var(--f-ease),
+              border-color var(--f-normal) var(--f-ease),
+              background var(--f-normal) var(--f-ease);
+}
+.lab-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 0% 0%, rgba(var(--lcr), .10) 0%, transparent 60%);
+  pointer-events: none;
+  opacity: .7;
+  transition: opacity var(--f-normal) var(--f-ease);
+}
+.lab-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--lcr), .5);
+  background: var(--f-bg2);
+  box-shadow: 0 8px 28px rgba(var(--lcr), .10), var(--f-shadow8);
+}
+.lab-card:hover::before { opacity: 1; }
+.lab-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+  position: relative;
+}
+.lab-card-name {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--lcol);
+  line-height: 1;
+}
+.lab-card-domain {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.06em;
+}
+.lab-card h4 {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+  position: relative;
+}
+.lab-card p {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin: 0 0 20px;
+  position: relative;
+}
+.lab-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: auto 0 0;
+  position: relative;
+}
+.lab-chip {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 10px;
+  color: var(--text-dim);
+  padding: 4px 9px;
+  border: 1px solid var(--border);
+  border-radius: var(--f-rpill);
+  background: rgba(255,255,255,0.02);
+}
+.lab-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  transition: color .2s;
+  position: relative;
+}
+.lab-card:hover .lab-card-link { color: var(--lcol); }
+
+/* per-lab card colours (hub) */
+.lab-card--spark  { --lcol:#ff6b35; --lcr:255,107,53; }
+.lab-card--nimble { --lcol:#4ade80; --lcr:74,222,128; }
+.lab-card--wave   { --lcol:#67e8f9; --lcr:103,232,249; }
+.lab-card--ludens { --lcol:#e879f9; --lcr:232,121,249; }
+
+/* ===================== Hub — cycle loop ===================== */
+.cycle {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+.cyc {
+  position: relative;
+  background: var(--f-bg3);
+  border: 1px solid var(--f-stroke1);
+  border-radius: var(--f-r8);
+  padding: 22px 18px 20px;
+  transition: transform var(--f-normal) var(--f-ease), box-shadow var(--f-normal) var(--f-ease), border-color var(--f-normal) var(--f-ease);
+}
+.cyc:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212,255,58,.4);
+  box-shadow: var(--f-shadow8);
+}
+.cyc:first-child { border-color: rgba(212,255,58,.35); }
+.cyc:nth-last-child(2) { border-color: rgba(212,255,58,.35); }
+.cyc-num {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text-faint);
+  display: block;
+  margin-bottom: 10px;
+  transition: color .3s;
+}
+.cyc:hover .cyc-num { color: var(--accent); }
+.cyc h5 {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+.cyc p {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin: 0;
+}
+/* connector arrows between steps */
+.cyc:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  top: 24px;
+  right: -13px;
+  z-index: 2;
+  color: var(--accent);
+  font-size: 14px;
+  opacity: .8;
+}
+.cyc-loop {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px 0;
+  border-top: 1px dashed var(--border);
+  margin-top: 10px;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 12px;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+}
+.cyc-loop::before {
+  content: '⟲';
+  color: var(--accent);
+  font-size: 18px;
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 900px) {
+  .lab-cards, .lab-vectors, .cycle { grid-template-columns: 1fr; }
+  .lab-hero { padding: 50px 24px 40px; }
+  .cyc:not(:last-child)::after { content: '↓'; top: auto; bottom: -22px; right: 22px; }
+  .cyc { padding-bottom: 26px; }
+  .cyc-loop { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
