@@ -7,6 +7,7 @@ página de pessoas/CV (`equipa/`). Bilingue PT/EN via `assets/js/i18n.js`.
 ## Desenvolvimento local
 
 ```bash
+start.bat            # Windows: arranca o servidor e abre o editor no browser
 python dev.py        # servidor + CMS em http://localhost:4173/
 ```
 
