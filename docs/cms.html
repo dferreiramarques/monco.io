@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wiki do CMS — monco.io</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='%23d4ff3a'/%3E%3C/svg%3E">
+<style>
+  :root { --bg:#0a0a0a; --bg2:#121212; --br:#242424; --tx:#ededed; --dim:#9a9a9a; --lima:#d4ff3a; }
+  * { box-sizing:border-box; }
+  body { font-family:'IBM Plex Sans',system-ui,sans-serif; background:var(--bg); color:var(--tx); line-height:1.65; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
+  .eyebrow { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--lima); margin-bottom:10px; }
+  h1 { font-weight:400; font-size:clamp(28px,4vw,40px); letter-spacing:-.02em; margin-bottom:8px; }
+  h2 { font-weight:600; font-size:18px; margin:40px 0 12px; padding-top:18px; border-top:1px solid var(--br); }
+  p, li { color:var(--dim); font-size:14.5px; }
+  p { margin-bottom:12px; }
+  strong { color:var(--tx); font-weight:500; }
+  ul { padding-left:20px; margin-bottom:12px; }
+  li { margin-bottom:6px; }
+  li::marker { color:var(--lima); }
+  code, pre { font-family:'IBM Plex Mono',monospace; background:var(--bg2); border:1px solid var(--br); border-radius:8px; }
+  code { padding:2px 7px; font-size:12.5px; color:var(--lima); }
+  pre { padding:14px 16px; margin:12px 0; font-size:12.5px; color:var(--tx); overflow-x:auto; line-height:1.7; }
+  pre code { background:none; border:0; padding:0; color:var(--tx); }
+  .btn-voltar { display:inline-block; margin-top:36px; color:var(--lima); font-size:13px; text-decoration:none; }
+  .btn-voltar:hover { text-decoration:underline; }
+  table { border-collapse:collapse; width:100%; margin:12px 0; font-size:13.5px; }
+  th, td { text-align:left; padding:8px 12px; border:1px solid var(--br); color:var(--dim); }
+  th { color:var(--lima); font-weight:600; background:var(--bg2); }
+  .nota { border-left:3px solid var(--lima); padding:10px 14px; background:var(--bg2); border-radius:0 8px 8px 0; margin:14px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">/ WIKI · CMS</div>
+  <h1>Editor de textos do monco.io</h1>
+  <p>Um CMS mínimo instalado no próprio repositório: edita <strong>todos os textos do site</strong> (PT e EN) numa interface local, guarda no disco e publica no ar com um push de git — <strong>sem escrever código e sem gastar tokens de IA</strong>.</p>
+
+  <h2>1 · Arrancar</h2>
+  <p>Na pasta do projecto, corre (substitui o <code>http.server</code> antigo):</p>
+  <pre><code>python dev.py</code></pre>
+  <p>Depois abre <code>http://localhost:4173/editor.html</code>. O site continua acessível no mesmo endereço (<code>http://localhost:4173/</code>).</p>
+
+  <h2>2 · O editor</h2>
+  <ul>
+    <li><strong>Esquerda</strong> — todos os ~745 campos de texto, agrupados por secção (<code>hero</code>, <code>cyc</code> = o ciclo, <code>m</code> = método, <code>spark</code> / <code>nimble</code> / <code>wave</code> / <code>ludens</code>, <code>eq</code> = CV/pessoas, <code>pj</code> / <code>r</code> = produtos…). Cada campo mostra <strong>PT</strong> (texto claro) e <strong>EN</strong> (texto esverdeado) lado a lado. Os grupos fecham-se clicando no título; os campos alterados ficam com fundo destacado até serem guardados.</li>
+    <li><strong>Procura</strong> — a caixa no topo filtra por chave ou por conteúdo (<code>workshop</code>, <code>/ 03</code>…).</li>
+    <li><strong>Direita</strong> — <em>preview</em> vivo do site com seletor de página; recarrega no <code>↻</code> ou muda de página. O idioma muda-se dentro do próprio <em>preview</em> (botões PT/EN do site).</li>
+    <li>HTML simples é permitido nos valores: <code>&lt;em&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;br&gt;</code> — o mesmo que já está a ser usado.</li>
+  </ul>
+
+  <h2>3 · Guardar e publicar</h2>
+  <ul>
+    <li><strong>Guardar</strong> (activa assim que há alterações) — grava <code>assets/js/i18n.js</code> no disco. O <em>preview</em> recarrega sozinho.</li>
+    <li><strong>Publicar (git push)</strong> — pede uma mensagem de commit e executa <code>git add -A</code> → <code>git commit</code> → <code>git push</code> no repositório real. O GitHub Pages reconstrói <code>monco.io</code> em ±1 minuto. Se nada foi alterado, diz “Nada para publicar”.</li>
+    <li>Podes guardar várias vezes antes de publicar — cada <em>Guardar</em> é só no disco; o <em>Publicar</em> leva tudo o que estiver pendente.</li>
+  </ul>
+
+  <h2>4 · Segurança e reversões</h2>
+  <ul>
+    <li>Antes de cada gravação é criado um backup com data: <code>assets/js/.i18n.AAAAMMDD-HHMMSS.bak</code>. Ninguém os envia para o o git (estão no <code>.gitignore</code>).</li>
+    <li><strong>Para voltar atrás:</strong> troca o nome do ficheiro <code>.bak</code> mais recente para <code>i18n.js</code> (apagando o actual ou renomeando-o primeiro) e clica <code>↻</code> no <em>editor/preview</em>.</li>
+    <li>No site publicado (<code>monco.io/editor.html</code>) o editor fica em <strong>modo leitura</strong> — sem servidor local não há API de gravação, por isso o site ao vivo nunca é alterado por ai.</li>
+  </ul>
+
+  <h2>5 · O que o editor não faz</h2>
+  <ul>
+    <li><strong>Novos campos/chaves</strong> — edita o que já existe. Para uma nova secção ou campo extra, pede ao agente (1 frase basta).</li>
+    <li><strong>Estrutura HTML</strong> — mover/mexer/adicionar secções, imagens ou botões: com o agente, por ser raro e delicado.</li>
+    <li>Os <strong>CVs imprimíveis</strong> (<code>cv/pt.html</code>, <code>cv/en.html</code>) têm o seu próprio HTML — não passam pelo editor.</li>
+  </ul>
+
+  <h2>6 · Referência da API (dev.py)</h2>
+  <table>
+    <tr><th>Endpoint</th><th>Método</th><th>O que faz</th></tr>
+    <tr><td><code>/api/save</code></td><td>POST</td><td>Grava <code>i18n.js</code> (valida que é o ficheiro certo; cria backup)</td></tr>
+    <tr><td><code>/api/publish</code></td><td>POST</td><td><code>git add -A</code> + <code>commit</code> + <code>push</code> (mensagem no JSON)</td></tr>
+    <tr><td><code>/api/status</code></td><td>GET</td><td><code>git status --short</code> (o que está por publicar)</td></tr>
+    <tr><td>qualquer outro</td><td>GET</td><td>Ficheiro estático do site (igual ao <code>http.server</code>)</td></tr>
+  </table>
+
+  <a class="btn-voltar" href="/editor.html">✎ voltar ao editor</a>
+</div>
+</body>
+</html>
