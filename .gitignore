@@ -1,0 +1,3 @@
+# backups do editor CMS
+assets/js/.i18n.*.bak
+__pycache__/

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>editor · monco.io</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0a0a'/%3E%3Ctext x='16' y='21' font-size='14' text-anchor='middle' fill='%23d4ff3a'%3E✎%3C/text%3E%3C/svg%3E">
+<style>
+  :root { --bg:#0a0a0a; --bg2:#121212; --br:#242424; --tx:#ededed; --dim:#9a9a9a; --lima:#d4ff3a; }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:'IBM Plex Sans',system-ui,sans-serif; background:var(--bg); color:var(--tx); display:flex; flex-direction:column; height:100vh; }
+
+  header { display:flex; align-items:center; gap:14px; padding:10px 16px; border-bottom:1px solid var(--br); background:var(--bg2); flex-wrap:wrap; }
+  header .dot { width:8px; height:8px; border-radius:50%; background:var(--lima); }
+  header b { font-size:14px; letter-spacing:.02em; }
+  header .sep { color:var(--dim); }
+  header input[type=text] { background:#181818; border:1px solid var(--br); color:var(--tx); padding:6px 10px; border-radius:8px; font-size:12.5px; width:200px; }
+  header button { background:#181818; border:1px solid var(--br); color:var(--tx); padding:6px 12px; border-radius:8px; font-size:12.5px; cursor:pointer; }
+  header button:hover { border-color:var(--lima); color:var(--lima); }
+  header button:disabled { opacity:.4; cursor:not-allowed; }
+  header button.prim { background:var(--lima); color:#0a0a0a; border-color:var(--lima); font-weight:600; }
+  header button.prim:hover { color:#0a0a0a; opacity:.9; }
+  #msg { font-size:11.5px; color:var(--dim); margin-left:auto; max-width:340px; text-align:right; }
+  #msg.ok { color:var(--lima); } #msg.err { color:#ff6b5a; }
+
+  main { display:grid; grid-template-columns:minmax(480px,44%) 1fr; flex:1; min-height:0; }
+  #list { overflow:auto; padding:14px 16px 60px; border-right:1px solid var(--br); }
+  #prev { display:flex; flex-direction:column; min-width:0; }
+  #prev-bar { display:flex; gap:8px; align-items:center; padding:8px 10px; border-bottom:1px solid var(--br); background:var(--bg2); }
+  #prev-bar select { background:#181818; color:var(--tx); border:1px solid var(--br); border-radius:8px; padding:5px 8px; font-size:12px; }
+  #frame { flex:1; border:0; background:#0a0a0a; width:100%; }
+
+  details.grp { margin-bottom:10px; }
+  details.grp > summary { cursor:pointer; list-style:none; display:flex; align-items:center; gap:10px; padding:8px 10px; border:1px solid var(--br); border-radius:10px; background:var(--bg2); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--dim); }
+  details.grp > summary::-webkit-details-marker { display:none; }
+  details.grp > summary .cnt { background:#1d1d1d; border-radius:999px; padding:1px 8px; font-size:10px; color:var(--dim); }
+  details.grp > summary .cnt.dirty { background:var(--lima); color:#0a0a0a; }
+  details.grp > summary::after { content:"▾"; color:var(--dim); margin-left:auto; }
+  details.grp[open] > summary::after { content:"▴"; }
+  details.grp > .rows { padding:8px 2px 0; }
+
+  .row { margin-bottom:10px; border:1px solid var(--br); border-radius:10px; overflow:hidden; }
+  .row .k { display:flex; gap:8px; align-items:center; padding:7px 10px 4px; font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--dim); }
+  .row .k .rq { background:#1d1d1d; color:var(--lima); border-radius:4px; padding:1px 5px; }
+  .row textarea { display:block; width:100%; min-height:44px; resize:vertical; background:transparent; border:0; border-top:1px dashed #1d1d1d; color:var(--tx); font:12.5px/1.55 'IBM Plex Sans',sans-serif; padding:8px 10px; }
+  .row textarea:first-of-type { border-top:0; }
+  .row textarea.pt { color:#e8e8e8; } .row textarea.en { color:#b8c9a0; }
+  .row textarea:focus { outline:none; background:#151515; }
+  .row textarea.dirty { background:#1c1c10; }
+  .row.hidden { display:none; }
+
+  .readonly-bar { padding:10px 16px; background:#2a1a0a; color:#ffb75a; font-size:12.5px; border-bottom:1px solid #4a2f0a; }
+</style>
+</head>
+<body>
+<header>
+  <span class="dot"></span><b>monco editor</b><span class="sep">·</span>
+  <input id="q" type="text" placeholder="procurar chave ou texto…">
+  <span style="font-size:11px;color:var(--dim)" id="count"></span>
+  <button id="save" class="prim" disabled>Guardar</button>
+  <button id="pub" disabled>Publicar (git push)</button>
+  <span id="msg"></span>
+</header>
+<div id="ro" class="readonly-bar" style="display:none">⚠ Está no site publicado (sem servidor local). Modo leitura — corre <b>python dev.py</b> e abre http://localhost:4173/editor.html para editar.</div>
+
+<main>
+  <div id="list"></div>
+  <div id="prev">
+    <div id="prev-bar">
+      <b style="font-size:12px;letter-spacing:.06em;color:var(--dim)">PREVIEW</b>
+      <select id="page">
+        <option value="index.html">home</option>
+        <option value="spark/">spark</option>
+        <option value="nimble/">nimble</option>
+        <option value="wave/">wave</option>
+        <option value="ludens/">ludens</option>
+        <option value="metodo.html">método</option>
+        <option value="equipa/">cv · pessoas</option>
+      </select>
+      <button id="reload">↻</button>
+      <span style="font-size:10.5px;color:var(--dim)">reabre o preview depois de guardar</span>
+    </div>
+    <iframe id="frame" src="/index.html"></iframe>
+  </div>
+</main>
+
+<script>
+(function(){
+  const $ = s => document.querySelector(s);
+  const esc = s => s.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+  const unesc = s => s.replace(/\\(.)/g,'$1');
+
+  let raw = '', entries = [], dirty = new Set(), local = false;
+
+  // ── parse ──────────────────────────────────────────────
+  async function load(){
+    const res = await fetch('assets/js/i18n.js');
+    raw = await res.text();
+    const RE = /'([^']+)'\s*:\s*'((?:\\.|[^'\\])*)'/g;
+    let m, order = 0;
+    entries = [];
+    while ((m = RE.exec(raw))) {
+      entries.push({ key:m[1], idx:order++, val:unesc(m[2]),
+                     start:m.index, end:m.index+m[0].length, dirty:false });
+    }
+    // separar PT / EN: certas chaves aparecem 2× (pt dict, en dict)
+    const seen = new Map();
+    entries.forEach(e => {
+      e.lang = seen.has(e.key) ? 'en' : 'pt';
+      seen.set(e.key, e);
+    });
+    render();
+  }
+
+  // ── render ─────────────────────────────────────────────
+  function render(){
+    const list = $('#list'); list.innerHTML = '';
+    const groups = new Map();
+    entries.forEach(e => {
+      const g = e.key.split('.')[0];
+      if (!groups.has(g)) groups.set(g, []);
+      groups.get(g).push(e);
+    });
+    for (const [g, arr] of groups) {
+      const det = document.createElement('details'); det.className='grp'; det.open = (g==='hero'||g==='cyc');
+      const dirtyGrp = arr.filter(x=>x.dirty).length;
+      det.innerHTML = `<summary>${g}<span class="cnt ${dirtyGrp?'dirty':''}">${dirtyGrp||arr.length}</span></summary><div class="rows"></div>`;
+      const rows = det.querySelector('.rows');
+      arr.forEach(e => {
+        const row = document.createElement('div'); row.className='row'; row.dataset.k=e.key;
+        row.innerHTML = `
+          <div class="k"><span class="rq">${e.lang}</span>${e.key}</div>
+          <textarea class="${e.lang}" spellcheck="false">${e.val.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</textarea>`;
+        const ta = row.querySelector('textarea');
+        ta.addEventListener('input', () => {
+          e.val = ta.value; e.dirty = true; ta.classList.add('dirty');
+          dirty.add(e); updateButtons();
+        });
+        rows.appendChild(row);
+      });
+      list.appendChild(det);
+    }
+    updateCount();
+  }
+
+  function updateCount(){
+    const q = $('#q').value.trim().toLowerCase();
+    let vis = 0;
+    document.querySelectorAll('.row').forEach(r => {
+      const show = !q || r.dataset.k.toLowerCase().includes(q) || r.textContent.toLowerCase().includes(q);
+      r.classList.toggle('hidden', !show); if (show) vis++;
+    });
+    $('#count').textContent = q ? `${vis} correspondências` : `${entries.length} campos`;
+  }
+  $('#q').addEventListener('input', updateCount);
+
+  // ── patch + save ───────────────────────────────────────
+  function patch(key, lang, newVal){
+    const RE = new RegExp(`('${key.replace(/[.*+?^${}()|[\\]\\\\]/g,'\\\\$&')}'\\s*:\\s*')((?:\\\\.|[^'\\\\])*)(')`);
+    let first = true;
+    raw = raw.replace(RE, (all, a, b, c) => {
+      if (first) { first = false; return lang === 'pt' ? a + esc(newVal) + c : a + b + c; }
+      return lang === 'en' ? a + esc(newVal) + c : a + b + c;
+    });
+  }
+
+  function buildSaved(){
+    dirty.forEach(e => patch(e.key, e.lang, e.val));
+    return raw;
+  }
+
+  $('#save').addEventListener('click', async () => {
+    if (!dirty.size) return;
+    const content = buildSaved();
+    const r = await fetch('/api/save', { method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ content }) });
+    const j = await r.json();
+    if (j.ok) {
+      dirty.forEach(e => { e.dirty = false; });
+      dirty.clear(); updateButtons();
+      document.querySelectorAll('textarea.dirty').forEach(t => t.classList.remove('dirty'));
+      document.querySelectorAll('.cnt.dirty').forEach(c => c.classList.remove('dirty'));
+      $('#msg').textContent = j.msg; $('#msg').className = 'ok';
+      reloadFrame();
+    } else { $('#msg').textContent = 'Erro: ' + (j.err||'?'); $('#msg').className = 'err'; }
+  });
+
+  $('#pub').addEventListener('click', async () => {
+    $('#msg').textContent = 'a publicar…'; $('#msg').className='';
+    const message = prompt('Mensagem de commit:', 'edições de texto') ; if (message === null) return;
+    const r = await fetch('/api/publish', { method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ message }) });
+    const j = await r.json();
+    $('#msg').textContent = j.msg || j.err || 'feito';
+    $('#msg').className = j.ok ? 'ok' : 'err';
+  });
+
+  function updateButtons(){
+    const canSave = local && dirty.size > 0;
+    $('#save').disabled = !canSave;
+    $('#pub').disabled = !local;
+  }
+
+  // ── preview ────────────────────────────────────────────
+  const frame = $('#frame');
+  function reloadFrame(){ frame.src = '/' + $('#page').value + '?t=' + Date.now(); }
+  $('#page').addEventListener('change', reloadFrame);
+  $('#reload').addEventListener('click', reloadFrame);
+
+  // ── init ───────────────────────────────────────────────
+  local = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!local) $('#ro').style.display = 'block';
+  load().then(updateButtons);
+})();
+</script>
+</body>
+</html>
