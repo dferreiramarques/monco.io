@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A Equipa — monco.io</title>
+  <meta name="description" content="O percurso completo por trás do laboratório monco.io: 15+ anos entre design industrial, engenharia de processos, ensino e liderança de equipas internacionais.">
+  <meta property="og:title" content="A Equipa — monco.io">
+  <meta property="og:description" content="Um laboratório que cabe numa pessoa. O percurso completo por trás do método.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='%23d4ff3a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    /* Membro */
+    .eq-id {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 44px;
+      align-items: start;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .eq-id-fig { margin: 0; }
+    .eq-id-img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid var(--f-stroke1);
+      background: var(--f-bg3);
+      box-shadow: var(--f-shadow16);
+    }
+    .eq-id-copy p {
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: var(--text-dim);
+      margin: 0 0 14px;
+      max-width: 560px;
+    }
+    .eq-id-copy p strong { color: var(--text); font-weight: 500; }
+    .eq-id-name {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-size: clamp(26px, 3.2vw, 38px);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-weight: 400;
+      margin: 10px 0 4px;
+    }
+    .eq-id-loc {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-size: 10px;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 18px;
+    }
+    .eq-id-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+
+    /* Timeline de experiência */
+    .tj {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 26px 0;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 28px;
+    }
+    .tj-period {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-size: 10.5px;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding-top: 3px;
+      white-space: nowrap;
+    }
+    .tj-title {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 0 0 2px;
+    }
+    .tj-org {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-size: 12px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+    .tj-sub { font-size: 11.5px; color: var(--text-faint); font-style: italic; display: block; text-transform: none; letter-spacing: 0; margin-top: 2px; }
+    .tj-desc { font-size: 14px; line-height: 1.65; color: var(--text-dim); margin: 0 0 10px; max-width: 720px; }
+    .tj-hl { list-style: none; margin: 0 0 10px; padding: 0; }
+    .tj-hl li { font-size: 13.5px; color: var(--text-dim); line-height: 1.6; padding-left: 16px; position: relative; margin-bottom: 4px; }
+    .tj-hl li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+    .tj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tj-tag {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 9px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-faint);
+    }
+
+    /* Caixa de ferramentas */
+    .tk-grid {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .tk-card { border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px; background: var(--f-bg2); }
+    .tk-card h4 {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin: 0 0 12px;
+    }
+    .tk-card .tk-body { font-size: 14px; line-height: 1.8; color: var(--text-dim); }
+    .tk-card .tk-body strong { color: var(--text); font-weight: 500; }
+    .tk-card.edu .edu-item { margin-bottom: 14px; }
+    .tk-card.edu .edu-item:last-child { margin-bottom: 0; }
+    .tk-edu-h { font-size: 14px; font-weight: 600; color: var(--text); margin: 0 0 2px; }
+    .tk-edu-s { font-size: 12.5px; color: var(--text-dim); }
+    .tk-edu-loc { font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 8px; }
+    .tk-lang { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .tk-lang:last-child { margin-bottom: 0; }
+    .tk-lang-h { font-size: 14px; font-weight: 600; color: var(--text); }
+    .tk-lang-lv { font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.12em; }
+
+    @media (max-width: 900px) {
+      .eq-id { grid-template-columns: 1fr; gap: 28px; }
+      .eq-id-fig { max-width: 340px; }
+      .tj { grid-template-columns: 1fr; gap: 8px; }
+      .tk-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html"><span class="nav-logo-dot"></span><span>monco.io</span></a>
+    <div class="nav-links">
+      <a class="nav-link" href="../index.html">home</a>
+      <a class="nav-link" href="../spark/">spark</a>
+      <a class="nav-link" href="../nimble/">nimble</a>
+      <a class="nav-link" href="../wave/">wave</a>
+      <a class="nav-link" href="../ludens/">ludens</a>
+      <a class="nav-link" href="../metodo.html"><span data-i18n="nav.method">método</span></a>
+      <a class="nav-link is-active" href="../equipa/"><span data-i18n="eq.nav.link">equipa</span></a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn is-active" data-lang="pt">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a class="nav-cta" href="https://www.linkedin.com/in/dferreiramarques/" target="_blank" rel="noopener" data-i18n="nav.cta">linkedin ↗</a>
+    </div>
+  </nav>
+
+  <!-- ============ HERO / MEMBRO ============ -->
+  <section class="section" style="padding-top:80px;">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow" data-i18n="eq.eyebrow">/ A EQUIPA</div>
+        <h2 data-i18n-html="eq.h2">Um laboratório que <em>cabe numa pessoa.</em></h2>
+      </div>
+      <p class="section-desc" data-i18n="eq.desc">Por agora, o laboratório é uma pessoa.</p>
+    </div>
+
+    <div class="eq-id" data-reveal>
+      <figure class="eq-id-fig">
+        <img class="eq-id-img" src="../assets/img/david.jpg" alt="David Ferreira Marques" width="800" height="1000">
+      </figure>
+      <div class="eq-id-copy">
+        <div class="eyebrow" data-i18n="eq.m.eyebrow">/ DIRECTOR DO LABORATÓRIO</div>
+        <h3 class="eq-id-name" data-i18n="eq.m.name">David Ferreira Marques</h3>
+        <div class="eq-id-loc" data-i18n="eq.m.loc">Porto / Maia, Portugal</div>
+        <p data-i18n-html="eq.m.tag"></p>
+        <div class="eq-id-actions">
+          <a class="btn btn-ghost" data-magnetic="0.2" href="https://www.linkedin.com/in/dferreiramarques/" target="_blank" rel="noopener" data-i18n="cta.linkedin">LinkedIn ↗</a>
+          <a class="btn btn-ghost" data-magnetic="0.2" href="mailto:dferreiramarques@gmail.com">dferreiramarques@gmail.com</a>
+          <a class="btn btn-ghost" data-magnetic="0.2" href="../cv/pt.html" target="_blank" rel="noopener" data-i18n="eq.m.cv">CV imprimível</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 01 EXPERIÊNCIA ============ -->
+  <section class="section" style="border-top:1px solid var(--border);">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow" data-i18n="eq.xp.eyebrow">/ 01 — EXPERIÊNCIA</div>
+        <h2 data-i18n-html="eq.xp.h2">Onde o percurso <em>passou.</em></h2>
+      </div>
+    </div>
+
+    <div class="tj" data-reveal>
+      <div class="tj-period" data-i18n="eq.j1.p">2026 — atual</div>
+      <div>
+        <h4 class="tj-title" data-i18n="eq.j1.t">Senior Industrial Engineer / Product Owner</h4>
+        <div class="tj-org" data-i18n="eq.j1.org">FedEx</div>
+        <p class="tj-desc" data-i18n="eq.j1.d"></p>
+        <ul class="tj-hl">
+          <li data-i18n="eq.j1.h1"></li>
+          <li data-i18n="eq.j1.h2"></li>
+        </ul>
+        <div class="tj-tags">
+          <span class="tj-tag">Product Ownership</span><span class="tj-tag">SAFe</span><span class="tj-tag">Agile Release Train</span><span class="tj-tag" data-i18n="eq.tg.ops">Operações</span><span class="tj-tag" data-i18n="eq.tg.ie">Engenharia Industrial</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tj" data-reveal>
+      <div class="tj-period" data-i18n="eq.j2.p">2025 — 2026</div>
+      <div>
+        <h4 class="tj-title" data-i18n="eq.j2.t">Responsável de Operações & Programas</h4>
+        <div class="tj-org" data-i18n="eq.j2.org">CDI Portugal · Centro de Inovação Carlos Fiolhais</div>
+        <p class="tj-desc" data-i18n="eq.j2.d"></p>
+        <ul class="tj-hl">
+          <li data-i18n="eq.j2.h1"></li>
+          <li data-i18n="eq.j2.h2"></li>
+          <li data-i18n="eq.j2.h3"></li>
+          <li data-i18n="eq.j2.h4"></li>
+          <li data-i18n="eq.j2.h5"></li>
+        </ul>
+        <div class="tj-tags">
+          <span class="tj-tag" data-i18n="eq.tg.team">Gestão de Equipas</span><span class="tj-tag" data-i18n="eq.tg.okr">OKRs / KPIs</span><span class="tj-tag" data-i18n="eq.tg.proc">Processos</span><span class="tj-tag" data-i18n="eq.tg.budg">Orçamento</span><span class="tj-tag" data-i18n="eq.tg.multi">Multi-projecto</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tj" data-reveal>
+      <div class="tj-period" data-i18n="eq.j3.p">2023 — 2025</div>
+      <div>
+        <h4 class="tj-title" data-i18n="eq.j3.t">Innovation Principal</h4>
+        <div class="tj-org" data-i18n="eq.j3.org">FARFETCH</div>
+        <p class="tj-desc" data-i18n="eq.j3.d"></p>
+        <ul class="tj-hl">
+          <li data-i18n="eq.j3.h1"></li>
+          <li data-i18n="eq.j3.h2"></li>
+          <li data-i18n="eq.j3.h3"></li>
+        </ul>
+        <div class="tj-tags">
+          <span class="tj-tag" data-i18n="eq.tg.innov">Inovação de Produto</span><span class="tj-tag">Stakeholder Management</span><span class="tj-tag">Agile</span><span class="tj-tag" data-i18n="eq.tg.global">Equipas Globais</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tj" data-reveal>
+      <div class="tj-period" data-i18n="eq.j4.p">2022 — 2024</div>
+      <div>
+        <h4 class="tj-title" data-i18n="eq.j4.t">Senior Production Manager</h4>
+        <div class="tj-org" data-i18n="eq.j4.org">FARFETCH</div>
+        <p class="tj-desc" data-i18n="eq.j4.d"></p>
+        <ul class="tj-hl">
+          <li data-i18n="eq.j4.h1"></li>
+          <li data-i18n="eq.j4.h2"></li>
+          <li data-i18n="eq.j4.h3"></li>
+          <li data-i18n="eq.j4.h4"></li>
+        </ul>
+        <div class="tj-tags">
+          <span class="tj-tag" data-i18n="eq.tg.prod">Gestão de Produção</span><span class="tj-tag" data-i18n="eq.tg.intl">Operações Internacionais</span><span class="tj-tag" data-i18n="eq.tg.sup">Fornecedores</span><span class="tj-tag" data-i18n="eq.tg.metrics">Métricas</span><span class="tj-tag" data-i18n="eq.tg.volume">Alto Volume</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tj" data-reveal>
+      <div class="tj-period" data-i18n="eq.j5.p">2024 — atual</div>
+      <div>
+        <h4 class="tj-title" data-i18n="eq.j5.t">Fundador & Gestor</h4>
+        <div class="tj-org" data-i18n="eq.j5.org">Creative Oscillator<span class="tj-sub" data-i18n="eq.j5.sub">Marcas: Monco · Devity Studio</span></div>
+        <p class="tj-desc" data-i18n="eq.j5.d"></p>
+        <ul class="tj-hl">
+          <li data-i18n="eq.j5.h1"></li>
+          <li data-i18n="eq.j5.h2"></li>
+        </ul>
+        <div class="tj-tags">
+          <span class="tj-tag" data-i18n="eq.tg.chang">Gestão da Mudança</span><span class="tj-tag" data-i18n="eq.tg.cons">Consultoria</span><span class="tj-tag" data-i18n="eq.tg.design">Design</span><span class="tj-tag" data-i18n="eq.tg.ops">Operações</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tj" data-reveal>
+      <div class="tj-period" data-i18n="eq.j6.p">2019 — 2020</div>
+      <div>
+        <h4 class="tj-title" data-i18n="eq.j6.t">Lead Designer — Platform team</h4>
+        <div class="tj-org" data-i18n="eq.j6.org">Surf & Code</div>
+        <p class="tj-desc" data-i18n="eq.j6.d"></p>
+        <ul class="tj-hl">
+          <li data-i18n="eq.j6.h1"></li>
+          <li data-i18n="eq.j6.h2"></li>
+          <li data-i18n="eq.j6.h3"></li>
+        </ul>
+        <div class="tj-tags">
+          <span class="tj-tag">Scrum</span><span class="tj-tag" data-i18n="eq.tg.team">Gestão de Equipas</span><span class="tj-tag" data-i18n="eq.tg.deliv">Métricas de Entrega</span><span class="tj-tag" data-i18n="eq.tg.kai">Melhoria Contínua</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tj" data-reveal>
+      <div class="tj-period" data-i18n="eq.j7.p">2016 — 2019</div>
+      <div>
+        <h4 class="tj-title" data-i18n="eq.j7.t">Scrum Master & Design Manager</h4>
+        <div class="tj-org" data-i18n="eq.j7.org">Namecheap</div>
+        <p class="tj-desc" data-i18n="eq.j7.d"></p>
+        <ul class="tj-hl">
+          <li data-i18n="eq.j7.h1"></li>
+          <li data-i18n="eq.j7.h2"></li>
+          <li data-i18n="eq.j7.h3"></li>
+        </ul>
+        <div class="tj-tags">
+          <span class="tj-tag">Scrum</span><span class="tj-tag" data-i18n="eq.tg.team">Gestão de Equipas</span><span class="tj-tag" data-i18n="eq.tg.deliv">Métricas de Entrega</span><span class="tj-tag" data-i18n="eq.tg.kai">Melhoria Contínua</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tj" data-reveal>
+      <div class="tj-period" data-i18n="eq.j8.p">2010 — 2015</div>
+      <div>
+        <h4 class="tj-title" data-i18n="eq.j8.t">Coordenador Pedagógico</h4>
+        <div class="tj-org" data-i18n="eq.j8.org">ESAD — Escola Superior de Artes e Design</div>
+        <p class="tj-desc" data-i18n="eq.j8.d"></p>
+        <div class="tj-tags">
+          <span class="tj-tag" data-i18n="eq.tg.edu">Coordenação Pedagógica</span><span class="tj-tag" data-i18n="eq.tg.plan">Planeamento</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tj" data-reveal>
+      <div class="tj-period" data-i18n="eq.j9.p">2007 — 2015</div>
+      <div>
+        <h4 class="tj-title" data-i18n="eq.j9.t">Professor Assistente</h4>
+        <div class="tj-org" data-i18n="eq.j9.org">ESAD — Escola Superior de Artes e Design</div>
+        <p class="tj-desc" data-i18n="eq.j9.d"></p>
+        <div class="tj-tags">
+          <span class="tj-tag" data-i18n="eq.tg.edu">Coordenação Pedagógica</span><span class="tj-tag" data-i18n="eq.tg.plan">Planeamento</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 MODELO DE TRABALHO ============ -->
+  <section class="section" style="border-top:1px solid var(--border);">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow" data-i18n="eq.wm.eyebrow">/ 02 — MODELO DE TRABALHO</div>
+        <h2 data-i18n-html="eq.wm.h2">Como <em>trabalho.</em></h2>
+      </div>
+    </div>
+    <div class="principles">
+      <div class="principle" data-reveal><h5 data-i18n="eq.wm1.h">Pontes para a mudança</h5><p data-i18n="eq.wm1.p"></p></div>
+      <div class="principle" data-reveal><h5 data-i18n="eq.wm2.h">Sistemas que sobrevivem ao criador</h5><p data-i18n="eq.wm2.p"></p></div>
+      <div class="principle" data-reveal><h5 data-i18n="eq.wm3.h">Liderança com presença individual</h5><p data-i18n="eq.wm3.p"></p></div>
+      <div class="principle" data-reveal><h5 data-i18n="eq.wm4.h">Pensamento sintético</h5><p data-i18n="eq.wm4.p"></p></div>
+      <div class="principle" data-reveal><h5 data-i18n="eq.wm5.h">IA como alavanca operacional</h5><p data-i18n="eq.wm5.p"></p></div>
+      <div class="principle" data-reveal><h5 data-i18n="eq.wm6.h">Referências transversais</h5><p data-i18n="eq.wm6.p"></p></div>
+    </div>
+  </section>
+
+  <!-- ============ 03 CAIXA DE FERRAMENTAS ============ -->
+  <section class="section" style="border-top:1px solid var(--border);">
+    <div class="section-head" data-reveal>
+      <div>
+        <div class="eyebrow" data-i18n="eq.tools.eyebrow">/ 03 — CAIXA DE FERRAMENTAS</div>
+        <h2 data-i18n-html="eq.tools.h2">O que <em>sustenta</em> o ofício.</h2>
+      </div>
+    </div>
+    <div class="tk-grid">
+      <div class="tk-card" data-reveal>
+        <h4 data-i18n="eq.tools.h">Ferramentas & Métodos</h4>
+        <div class="tk-body">
+          <strong data-i18n="eq.tk1.h">Gestão de Projetos</strong><br>
+          <span data-i18n-html="eq.tk1.p">Scrum / Agile / SAFe<br>OKRs & KPIs</span>
+        </div>
+        <div class="tk-body" style="margin-top:14px;">
+          <strong data-i18n="eq.tk2.h">Ferramentas Digitais</strong><br>
+          <span data-i18n-html="eq.tk2.p">Jira · Notion · Asana</span>
+        </div>
+        <div class="tk-body" style="margin-top:14px;">
+          <strong data-i18n="eq.tk3.h">Competências Transversais</strong><br>
+          <span data-i18n-html="eq.tk3.p">Liderança de equipas</span>
+        </div>
+      </div>
+      <div class="tk-card edu" data-reveal>
+        <h4 data-i18n="eq.edu.h">Educação</h4>
+        <div class="edu-item"><h6 class="tk-edu-h" data-i18n="eq.e1.h">Licenciatura em Design Industrial</h6><div class="tk-edu-s" data-i18n="eq.e1.s">ESAD</div></div>
+        <div class="edu-item"><h6 class="tk-edu-h" data-i18n="eq.e2.h">Pós-graduação em Gestão do Design</h6><div class="tk-edu-s" data-i18n="eq.e2.s">ESAD</div></div>
+        <div class="edu-item"><h6 class="tk-edu-h" data-i18n="eq.e3.h">MA — New Product Development</h6><div class="tk-edu-s" data-i18n="eq.e3.s">ESAD</div></div>
+        <div class="edu-item"><h6 class="tk-edu-h" data-i18n="eq.e4.h">Learning from Users</h6><div class="tk-edu-s" data-i18n="eq.e4.s">Fraunhofer</div></div>
+        <div class="tk-edu-loc" data-i18n="eq.edu.loc">Matosinhos / Porto</div>
+      </div>
+      <div class="tk-card" data-reveal>
+        <h4 data-i18n="eq.lang.h">Línguas</h4>
+        <div class="tk-lang"><span class="tk-lang-h" data-i18n="eq.l1.h">Português</span><span class="tk-lang-lv" data-i18n="eq.l1.lv">Nativo</span></div>
+        <div class="tk-lang"><span class="tk-lang-h" data-i18n="eq.l2.h">Inglês</span><span class="tk-lang-lv" data-i18n="eq.l2.lv">Fluente</span></div>
+        <div class="tk-lang"><span class="tk-lang-h" data-i18n="eq.l3.h">Espanhol</span><span class="tk-lang-lv" data-i18n="eq.l3.lv">Intermédio</span></div>
+      </div>
+      <div class="tk-card" data-reveal>
+        <h4 data-i18n="eq.profile.h">Perfil</h4>
+        <div class="tk-body" data-i18n="eq.profile.p"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta">
+    <div class="cta-bg" style="background:radial-gradient(ellipse at center, rgba(212,255,58,.07) 0%, transparent 60%);"></div>
+    <h2 data-i18n-html="eq.cta.h2">O percurso continua<br><em>no laboratório.</em></h2>
+    <p data-i18n="cta.p"></p>
+    <div class="cta-actions">
+      <a class="btn btn-primary" data-magnetic="0.3" href="../index.html" data-i18n="cta.secondary">Voltar ao laboratório →</a>
+      <a class="btn btn-ghost" data-magnetic="0.2" href="https://www.linkedin.com/in/dferreiramarques/" target="_blank" rel="noopener" data-i18n="cta.linkedin">LinkedIn ↗</a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div><span data-i18n="foot.copy">© 2026 MONCO.IO / DAVID FERREIRA MARQUES</span></div>
+    <div class="foot-links">
+      <a href="../index.html">home</a>
+      <a href="../spark/">spark</a>
+      <a href="../nimble/">nimble</a>
+      <a href="../wave/">wave</a>
+      <a href="../ludens/">ludens</a>
+      <a href="../metodo.html" data-i18n="nav.method">método</a>
+      <a href="https://www.linkedin.com/in/dferreiramarques/" target="_blank" rel="noopener">linkedin</a>
+      <a href="https://github.com/dferreiramarques" target="_blank" rel="noopener">github</a>
+      <a href="../cv/pt.html">CV · PT</a>
+      <a href="../cv/en.html">CV · EN</a>
+      <a href="mailto:hello@monco.io">hello@monco.io</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/i18n.js"></script>
+</body>
+</html>
