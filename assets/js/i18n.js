@@ -328,13 +328,13 @@
       'm.title': 'Experimenta. Valida.<br><em>Ensina. Lança.</em>',
 
 
-      'm.intro1': 'Esta página explica como o estúdio corre: a IA como fundação para iterar mais e mais depressa, o baixo custo de errar, a validação com experts de domínio e a conversão de cada experimento em aprendizagem.',
+      'm.intro1': 'Esta página explica como o estúdio corre.',
 
 
-      'm.intro2': 'Não é um disclaimer, é uma <strong>declaração de método</strong>. Há quem use a IA para automatizar e há quem a use para substituir trabalho sem critério. Eu uso-a como fundação da criatividade: a visão, a direcção e a responsabilidade ficam do lado humano — e os descartes tornam-se lição.',
+      'm.intro2': 'Não é um disclaimer, é uma <strong>declaração de método</strong>.',
 
 
-      'm.intro3': 'E é mais do que um método — o ciclo concreto que esta página descreve —: é uma <strong>metodologia</strong>, uma forma de pensar que assenta na <strong>colaboração homem-máquina</strong> para potenciar o output da mente humana. O método são os passos; a metodologia é aquilo que os torna repetíveis, ensináveis e ampláveis por quem os queira praticar.',
+      'm.intro3': 'Mais do que um método, é uma <strong>metodologia</strong>.',
 
 
       'm.id.eyebrow': '/ QUEM ASSINA',
@@ -367,19 +367,37 @@
       'm.s0.1.h': 'A IA como fundação',
 
 
-      'm.s0.1.p': 'A IA expande o potencial criativo porque permite gerar, testar e descartar versões a um custo ínfimo. Mais iterações, melhor produto — não porque a IA decida, mas porque quem decide tem mais para onde olhar.',
+      'm.s0.1.p': 'Não é acessório, é infra-estrutura: a alavanca está na cadência — mais ciclos de teste no mesmo projecto.',
 
 
-      'm.s0.2.h': 'Validação com SME',
+      'm.s0.2.h': 'Validação em duas camadas',
 
 
-      'm.s0.2.p': 'O juízo final vem de Subject Matter Experts — quem tem domínio ultra-especializado valida em contexto real. É esta a plataforma de validação do estúdio: soluções testadas por quem sabe antes de chegar aos utilizadores.',
+      'm.s0.2.p': 'O diretor valida a entrada, rápido; o utilizador fecha a validação, no fim, com prova de uso real.',
 
 
       'm.s0.3.h': 'Converter em aprendizagem',
 
 
-      'm.s0.3.p': 'Tudo o que o ciclo ensina — incluindo os descartes — vira cenário de aprendizagem. É assim que o estúdio ensina jovens e professores, e é assim que cada produto seguinte nasce mais maduro.',
+      'm.s0.3.p': 'Nada se registra para arquivo: a captura destila-se e optimiza o próximo output da IA.',
+
+
+      'm.s0.v2.h': 'Validação em duas camadas.',
+
+
+      'm.s0.v2.p1': '<strong>O SME valida a entrada.</strong> O perito de domínio decide rápido — ideação e priorização — para acelerar o ciclo sem comités.',
+
+
+      'm.s0.v2.p2': '<strong>O utilizador fecha a validação.</strong> Por defeito, dois testes por ciclo: um de <strong>levantamento</strong>, antes de construir; um de <strong>validação</strong>, no fim. O contrato de ciclo pode ajustar a barra.',
+
+
+      'm.s0.v2.p3': 'Quando o teste directo não é possível, o substituto é uso próprio documentado — e as hipóteses ficam marcadas para validação no lançamento, que as fecha em escala.',
+
+
+      'm.s0.d2.h': 'Documentar é armar o próximo ciclo.',
+
+
+      'm.s0.d2.p1': 'A fundação que dirige a execução é privada por princípio. O que se lança é o produto, aberto e documentado — a fundação não. Replicar o processo exigiria engenharia reversa ao entregável, e essa rota perde o conhecimento que foi segmentado e excluído do final: é a vantagem estrutural do estúdio, por isso é regra e não acidente.',
 
 
       'm.s1.eyebrow': '/ 02 — CO-CRIAÇÃO',
@@ -388,10 +406,19 @@
       'm.s1.h2': 'Co-criar não é <em>gerar automaticamente</em>.',
 
 
-      'm.s1.p1': 'É uma prática de trabalho em que alguém com visão e intenção dirige uma ferramenta com enorme capacidade de execução. O resultado é co-produzido, mas a autoria criativa tem uma origem clara.',
+      'm.s1.p1': 'É uma prática de trabalho em que alguém com visão e intenção dirige uma ferramenta com enorme capacidade de execução. O resultado é co-producido, mas a autoria criativa tem uma origem clara.',
 
 
-      'm.s1.p2': 'A <strong>ideia</strong> nasce em mim: o conceito, o problema, a experiência. A <strong>execução</strong> é delegada à IA: código, texto, estrutura, variantes. O <strong>julgamento</strong> é meu: o que fica, o que se rejeita, o que se itera. E a <strong>responsabilidade</strong> também: quem assina o produto, responde por ele.',
+      'm.s1.c1': '<b>A ideia</b> nasce em mim: o conceito, o problema, a experiência.',
+
+
+      'm.s1.c2': '<b>A execução</b> é delegada à IA: código, texto, estrutura, variantes.',
+
+
+      'm.s1.c3': '<b>O julgamento</b> é meu: o que fica, o que se rejeita, o que se itera.',
+
+
+      'm.s1.c4': '<b>A responsabilidade</b> também: quem assina o produto, responde por ele.',
 
 
       'm.s1.p3': 'É parecido com um director criativo que trabalha com uma equipa de execução muito capaz, com uma diferença: esta equipa não tem iniciativa, nem gosto, nem visão. Trabalha dentro do espaço que eu defino.',
@@ -403,13 +430,13 @@
       'm.s2.h2': 'Quem faz <em>o quê</em>.',
 
 
-      'm.s2.desc': 'Em todos os projectos, a divisão de papéis é a mesma: quem define e supervisiona; o que executa e acelera.',
+      'm.s2.desc': 'Em todos os projectos, a divisão de papéis é a mesma.',
 
 
-      'm.david': 'Designer', 'm.ai': 'IA',
+      'm.david': 'David · Direcção', 'm.ai': 'IA · Execução',
 
 
-      'm.d1.h': 'Visão e conceito', 'm.d1.p': 'O que o produto é, que problema resolve, a quem se dirige, o que o diferencia. Decido isto antes de existir uma linha de código.',
+      'm.d1.h': 'Visão e conceito', 'm.d1.p': 'O que o produto é, que problema resolve, a quem se dirige, o que o diferencia — antes de existir linha de código.',
 
 
       'm.d2.h': 'Direcção de produto', 'm.d2.p': 'Roadmap, prioridades, o que entra e o que fica de fora. O produto avança porque decido que avança e para porque decido que está pronto.',
@@ -418,7 +445,7 @@
       'm.d3.h': 'Direcção de arte e design', 'm.d3.p': 'Paleta, layout, tipografia, hierarquia, tom de voz, sensação geral. A IA propõe; eu decido o que fica.',
 
 
-      'm.d4.h': 'Validação', 'm.d4.p': 'Em cada iteração testo, uso, critico e corrijo. Os bugs que encontro e os fluxos que rejeito ficam documentados nas interacções de trabalho.',
+      'm.d4.h': 'Validação', 'm.d4.p': 'Em cada iteração testo, uso, critico e corrijo. Os bugs que encontro e os fluxos que rejeito ficam documentados na captura de trabalho.',
 
 
       'm.d5.h': 'Direcção técnica', 'm.d5.p': 'Arquitectura, tecnologias, limites e trade-offs. Quando a IA propõe uma solução, sou eu a avaliar se serve o produto a longo prazo.',
@@ -427,7 +454,7 @@
       'm.a1.h': 'Materializa', 'm.a1.p': 'Traduz uma ideia, uma descrição ou uma correcção em algo concreto: código, texto, estrutura, regras.',
 
 
-      'm.a2.h': 'Acelera', 'm.a2.p': 'O que levaria dias a um programador a solo leva horas numa sessão dirigida. Mais ciclos de teste no mesmo projecto.',
+      'm.a2.h': 'Acelera', 'm.a2.p': 'Mais ciclos de teste no mesmo projecto — o que levaria dias a um programador a solo leva horas numa sessão dirigida.',
 
 
       'm.a3.h': 'Propõe variantes', 'm.a3.p': 'Quando peço opções, gera alternativas. Só têm valor depois de eu as avaliar e escolher.',
@@ -445,13 +472,67 @@
       'm.s3.h2': 'A IA é uma <em>alavanca</em>.',
 
 
-      'm.s3.p1': 'A disciplina de design está a evoluir mais do que nunca: a definição do design, a supervisão da execução e a <strong>entrega adaptada às necessidades</strong> nunca foram tão relevantes como agora. A parte operacional consegue-se com recurso à inteligência artificial — e é essa sinergia que <strong>depura a disciplina</strong>: permite pensar o que é certo, no tempo certo, para a pessoa certa. A alavanca não substitui o ofício; devolve-o ao seu centro.',
+      'm.s3.p1': 'A IA é uma alavanca de cadência. O que levaria dias a um programador a solo leva horas numa sessão dirigida — e o ganho real não é só velocidade: <em>são mais ciclos de teste no mesmo projecto.</em>',
 
 
-      'm.s3.p2': 'Num projecto de jogo, por exemplo: as mecânicas, as regras, os temas, os nomes e as decisões de design são meus. O código do servidor, o cliente web, a lógica implementada e a documentação nascem da colaboração, sempre sob direcção e validação contínua.',
+      'm.s3.p2': 'Quem dirige não reescreve: decide, testando. E os artefactos do passo de idear servem duas vezes — são pensamento para mim e especificação para a IA. Um conceito que não se deixa diagramar não está claro o suficiente para dirigir execução.',
 
 
-      'm.s3.p3': 'E quanto mais o estúdio corre, mais claro fica o que o método tem de único: é também a forma de <strong>partilhar o conhecimento</strong> que gera. Cada ciclo documentado torna-se um caminho que outros podem seguir — acelerando a aquisição e a tomada de <strong>ownership</strong> de quem quiser aprender. O método não se publica, ensina-se, como um ofício.',
+      'm.s3.p3': 'E quanto mais o estúdio corre, mais o método serve para partilhar o conhecimento que gera.',
+
+
+      'm.s3.h3': 'Como o mercado cobre o ciclo — e como a suite cobre.',
+
+
+      'm.s3.intro': 'O método tem marca genética das metodologias que o convergiram — Design Thinking no idear, gestão de produto no priorizar, Scrum e Kanban no construir, Lean Startup no fechar, docs-as-code no destilar — em modo dual-track: a descoberta contínua a alimentar a entrega incremental. O mercado cobre a mesma sequência com uma ferramenta paga por etapa. A suite nimble cobre-a de outra maneira: <em>uma app por etapa, um espaço de dados, um operador.</em>',
+
+
+      'm.s3.t.h1': 'Etapa', 'm.s3.t.h2': 'Metodologia', 'm.s3.t.h3': 'Na suite nimble',
+
+
+      'm.s3.t.r1e': '0 · Configurar', 'm.s3.t.r1m': 'Contrato do engajamento / project charter',
+
+
+      'm.s3.t.r1s': '<b>Ciclo</b> · nova — ficha de ciclo fechável + painel de gates e métricas',
+
+
+      'm.s3.t.r2e': '1 · Idear', 'm.s3.t.r2m': 'Design Thinking / Double Diamond',
+
+
+      'm.s3.t.r2s': '<b><a href="https://diagramico.monco.io/" target="_blank" rel="noopener">Diagramico</a></b> — cartão de conceito com non-goals obrigatório + diagrama v1',
+
+
+      'm.s3.t.r3e': '2 · Priorizar', 'm.s3.t.r3m': 'Gestão de produto / priorização (RICE, WSJF, Kano) + backlog refinement',
+
+
+      'm.s3.t.r3s': '<b><a href="https://roadmaps.monco.io/" target="_blank" rel="noopener">Roadmaps</a></b> — taxonomia firme do estúdio, horizontes S/M/L, matriz com eixo de alavanca, apetite',
+
+
+      'm.s3.t.r4e': '3 · Construir', 'm.s3.t.r4m': 'Scrum (sprints, backlog) + Kanban (fluxo) + gestão de defeitos do XP',
+
+
+      'm.s3.t.r4s': '<b><a href="https://taskboards.monco.io/" target="_blank" rel="noopener">Taskboards</a></b> — tarefa de uma frase + ficha de contexto de IA + nota de bugs',
+
+
+      'm.s3.t.r5e': '4 · Validar', 'm.s3.t.r5m': 'Lean Startup (Build–Measure–Learn) + Lean UX',
+
+
+      'm.s3.t.r5s': '<b>Veredicto</b> · nova — ledger de hipóteses falsificáveis: uma sessão, um sinal, um veredicto, uma acção',
+
+
+      'm.s3.t.r6e': '5 · Lançar', 'm.s3.t.r6m': 'Customer Development e release management',
+
+
+      'm.s3.t.r6s': '<b>Finale</b> · nova — checklist da régua do aberto + release derivado do ciclo + licenças do contrato',
+
+
+      'm.s3.t.r7e': 'T · Ensina', 'm.s3.t.r7m': 'docs-as-code, ADRs, Definition of Done',
+
+
+      'm.s3.t.r7s': '<b>Captura</b> · nova (CLI) + fundação privada — capturar já formaliza; o mapa alimenta o próximo ciclo',
+
+
+      'm.s3.t.out': 'A premissa de desenho: uma app só existe se o seu artefacto cruza um gate do ciclo; os dados ficam com o operador, em ficheiros, com exportação por defeito.',
 
 
       'm.s4.eyebrow': '/ 05 — TRANSPARÊNCIA',
@@ -463,7 +544,7 @@
       'm.t1.h': 'Honestidade sobre o processo', 'm.t1.p': 'Esconder a IA não seria honesto para com clientes, parceiros ou público. E seria contraproducente: o valor do trabalho está na qualidade da direcção, não em esconder como foi feito.',
 
 
-      'm.t2.h': 'O papel humano, bem visto', 'm.t2.p': 'Declarar o uso de IA não diminui o meu papel, clarifica-o. Quando se percebe o que a IA faz e o que não faz, a visão, a direcção e a validação ficam mais evidentes.',
+      'm.t2.h': 'O papel humano, bem visto', 'm.t2.p': 'Declarar o uso de IA não diminui o meu papel — clarifica-o. Quando se percebe o que a IA faz e o que não faz, a visão, a direcção e a validação ficam mais evidentes.',
 
 
       'm.quote': 'Um realizador não opera a câmara. Um arquitecto não assenta tijolos. Um director criativo não escreve o código.<br><em>A autoria é a visão, não a execução.</em>',
@@ -487,7 +568,7 @@
       'm.n4.h': 'Não é ausência de competência', 'm.n4.p': 'Dirigir bem uma IA exige perceber de design, código, produto e experiência de utilizador. O meu background é design industrial, engenharia de processos e desenvolvimento de produto.',
 
 
-      'm.n5.h': 'Não é co-autoria legal', 'm.n5.p': 'A IA não é uma pessoa, não tem direitos e não é co-autora em sentido jurídico. O produto é meu. A IA é uma ferramenta, sofisticada, mas ferramenta.',
+      'm.n5.h': 'Não é co-autoria legal', 'm.n5.p': 'A IA não é uma pessoa, não tem direitos e não é co-autora em sentido jurídico. O produto é meu. A IA é uma ferramenta — sofisticada, mas ferramenta.',
 
 
       'm.s6.eyebrow': '/ 07 — LEITURA',
@@ -499,16 +580,25 @@
       'm.s6.desc': 'Qualquer produto ou documento que sai deste processo tem as mesmas quatro características.',
 
 
-      'm.r1.h': '1. A ideia é minha', 'm.r1.p': 'Se um jogo tem certas mecânicas, fui eu que as defini. Se um produto tem certa identidade visual, fui eu que a escolhi. A origem é humana e documentável.',
+      'm.r1.p': '<b>A ideia é minha.</b> Se um produto tem certa identidade, fui eu que a escolhi. A origem é humana e documentável.',
 
 
-      'm.r2.h': '2. A execução foi acelerada por IA', 'm.r2.p': 'Código, redacção e estrutura foram materializados com IA, sob a minha direcção. Isto afecta a velocidade a que foi possível produzir, não a qualidade nem a originalidade.',
+      'm.r2.p': '<b>A execução foi acelerada por IA.</b> Código, redacção e estrutura foram materializados com IA, sob a minha direcção. Isto afecta a velocidade, não a qualidade nem a originalidade.',
 
 
-      'm.r3.h': '3. A validação é humana', 'm.r3.p': 'O que chegou ao final é o que sobreviveu à minha avaliação crítica, incluindo o que rejeitei e as direcções que reverti.',
+      'm.r3.p': '<b>A validação é humana.</b> O que chegou ao final é o que sobreviveu à minha avaliação crítica — incluindo o que rejeitei e as direcções que reverti.',
 
 
-      'm.r4.h': '4. A responsabilidade é minha', 'm.r4.p': 'Qualquer questão, comercial, criativa, técnica ou ética, é respondida por mim. A IA não assina, não garante e não responde.',
+      'm.r4.p': '<b>A responsabilidade é minha.</b> Qualquer questão, comercial, criativa, técnica ou ética, é respondida por mim. A IA não assina, não garante e não responde.',
+
+
+      'm.s7.h3': 'A régua do aberto.',
+
+
+      'm.s7.p1': 'O produto abre-se; a fundação fecha-se. Open source por defeito — <strong>MIT</strong> para o código, licença restritiva para o conteúdo autoral (música, fotografia, desenho, escrita). O que fica privado é o que faz o motor correr: os arneses, os mapas, o método em operação.',
+
+
+      'm.s7.fecho': '<strong>Lançar é ficar público</strong> — porque é o lançamento que realimenta o ciclo. Dirigido, validado <em>e assumido.</em>',
 
 
       'm.end.h2': 'Dirigido, validado<br><em>e assumido.</em>',
@@ -1468,15 +1558,6 @@
       'm.title': 'Experiment. Validate.<br><em>Teach. Launch.</em>',
 
 
-      'm.intro1': 'This page explains how the studio runs: AI as the foundation for more and faster iteration, the low cost of error, validation with domain experts, and the conversion of every experiment into learning.',
-
-
-      'm.intro2': 'It\'s not a disclaimer, it\'s a <strong>statement of method</strong>. Some people use AI to automate, others to replace work without judgement. I use it as the foundation of creativity: vision, direction and accountability stay on the human side — and the discards become lessons.',
-
-
-      'm.intro3': 'And it\'s more than a method — the concrete cycle this page describes —: it\'s a <strong>methodology</strong>, a way of thinking built on <strong>human–machine collaboration</strong> to amplify the output of the human mind. The method is the steps; the methodology is what makes them repeatable, teachable and scalable for anyone who wants to practise them.',
-
-
       'm.id.eyebrow': '/ THE SIGNATURE',
 
 
@@ -1507,31 +1588,13 @@
       'm.s0.1.h': 'AI as foundation',
 
 
-      'm.s0.1.p': 'AI expands creative potential because it lets you generate, test and discard versions at negligible cost. More iterations, better product — not because AI decides, but because the one deciding has more to look at.',
-
-
-      'm.s0.2.h': 'Validation with SMEs',
-
-
-      'm.s0.2.p': 'Final judgement comes from Subject Matter Experts — those with ultra-specialised domain knowledge validate in real context. That\'s the studio\'s validation platform: solutions tested by those who know, before reaching users.',
-
-
       'm.s0.3.h': 'Convert into learning',
-
-
-      'm.s0.3.p': 'Everything the cycle teaches — including the discards — becomes a learning scenario. That\'s how the studio teaches young people and teachers, and how each next product is born more mature.',
 
 
       'm.s1.eyebrow': '/ 02 — CO-CREATION',
 
 
       'm.s1.h2': 'Co-creating isn\'t <em>auto-generating</em>.',
-
-
-      'm.s1.p1': 'It\'s a way of working where someone with vision and intent directs a tool with enormous capacity for execution. The result is co-produced, but creative authorship has a clear origin.',
-
-
-      'm.s1.p2': 'The <strong>idea</strong> starts with me: the concept, the problem, the experience. <strong>Execution</strong> is delegated to AI: code, copy, structure, variants. <strong>Judgement</strong> is mine: what stays, what\'s rejected, what gets iterated. So is <strong>accountability</strong>: whoever signs the product answers for it.',
 
 
       'm.s1.p3': 'It\'s closer to a creative director working with a very capable execution team, with one difference: this team has no initiative, no taste and no vision. It works inside the space I define.',
@@ -1543,13 +1606,7 @@
       'm.s2.h2': 'Who does <em>what</em>.',
 
 
-      'm.s2.desc': 'On every project, the split is the same: those who define and supervise; what executes and accelerates.',
-
-
-      'm.david': 'Designer', 'm.ai': 'AI',
-
-
-      'm.d1.h': 'Vision and concept', 'm.d1.p': 'What the product is, what problem it solves, who it\'s for, what sets it apart. I decide this before a line of code exists.',
+      'm.d1.h': 'Vision and concept',
 
 
       'm.d2.h': 'Product direction', 'm.d2.p': 'Roadmap, priorities, what goes in and what stays out. The product moves forward because I decide it does, and stops because I decide it\'s ready.',
@@ -1558,7 +1615,7 @@
       'm.d3.h': 'Art and design direction', 'm.d3.p': 'Palette, layout, typography, hierarchy, tone of voice, overall feel. AI proposes; I decide what stays.',
 
 
-      'm.d4.h': 'Validation', 'm.d4.p': 'In every iteration I test, use, criticise and fix. The bugs I find and the flows I reject are documented in the working interactions.',
+      'm.d4.h': 'Validation',
 
 
       'm.d5.h': 'Technical steering', 'm.d5.p': 'Architecture, technologies, limits and trade-offs. When AI proposes a solution, I judge whether it serves the product in the long run.',
@@ -1567,7 +1624,7 @@
       'm.a1.h': 'Materialises', 'm.a1.p': 'Turns an idea, a description or a correction into something concrete: code, copy, structure, rules.',
 
 
-      'm.a2.h': 'Accelerates', 'm.a2.p': 'What would take a solo developer days takes hours in a directed session. More test cycles within the same project.',
+      'm.a2.h': 'Accelerates',
 
 
       'm.a3.h': 'Proposes variants', 'm.a3.p': 'When I ask for options, it generates alternatives. They only have value once I\'ve judged and chosen.',
@@ -1585,15 +1642,6 @@
       'm.s3.h2': 'AI is a <em>lever</em>.',
 
 
-      'm.s3.p1': 'The design discipline is evolving like never before: defining the design, supervising the execution and <strong>delivering adapted to real needs</strong> have never been as relevant as they are today. The operational part is achieved with the help of artificial intelligence — and it\'s this synergy that <strong>refines the discipline</strong>: it makes it possible to think what is right, at the right time, for the right person. The lever doesn\'t replace the craft; it gives it back its centre.',
-
-
-      'm.s3.p2': 'In a game project, for example: the mechanics, rules, themes, names and design decisions are mine. The server code, web client, implemented logic and documentation come out of the collaboration, always under continuous direction and validation.',
-
-
-      'm.s3.p3': 'And the more the studio runs, the clearer it becomes what\'s unique about the method: it\'s also the way of <strong>sharing the knowledge</strong> it generates. Every documented cycle becomes a path others can follow — accelerating the acquisition and the taking of <strong>ownership</strong> by whoever wants to learn. The method isn\'t published, it\'s taught, like a craft.',
-
-
       'm.s4.eyebrow': '/ 05 — TRANSPARENCY',
 
 
@@ -1601,9 +1649,6 @@
 
 
       'm.t1.h': 'Honest about the process', 'm.t1.p': 'Hiding AI wouldn\'t be honest with clients, partners or the public. It would also backfire: the value of the work is in the quality of the direction, not in hiding how it was made.',
-
-
-      'm.t2.h': 'The human role, clearly seen', 'm.t2.p': 'Disclosing AI use doesn\'t diminish my role, it clarifies it. Once it\'s clear what AI does and doesn\'t do, the vision, direction and validation stand out more.',
 
 
       'm.quote': 'A film director doesn\'t operate the camera. An architect doesn\'t lay bricks. A creative director doesn\'t write the code.<br><em>Authorship is the vision, not the execution.</em>',
@@ -1627,9 +1672,6 @@
       'm.n4.h': 'Not a lack of skill', 'm.n4.p': 'Directing AI well takes real understanding of design, code, product and user experience. My background is industrial design, process engineering and product development.',
 
 
-      'm.n5.h': 'Not legal co-authorship', 'm.n5.p': 'AI is not a person, has no rights and is not a co-author in the legal sense. The product is mine. AI is a tool, a sophisticated one, but a tool.',
-
-
       'm.s6.eyebrow': '/ 07 — READING',
 
 
@@ -1637,18 +1679,6 @@
 
 
       'm.s6.desc': 'Anything that comes out of this process has the same four traits.',
-
-
-      'm.r1.h': '1. The idea is mine', 'm.r1.p': 'If a game has certain mechanics, I defined them. If a product has a certain visual identity, I chose it. The origin is human and documentable.',
-
-
-      'm.r2.h': '2. Execution was AI-accelerated', 'm.r2.p': 'Code, copy and structure were materialised with AI under my direction. That affects how fast it could be produced, not its quality or originality.',
-
-
-      'm.r3.h': '3. Validation is human', 'm.r3.p': 'What reached the end is what survived my critical review, including what I rejected and the directions I reverted.',
-
-
-      'm.r4.h': '4. Accountability is mine', 'm.r4.p': 'Any question, commercial, creative, technical or ethical, is answered by me. AI doesn\'t sign, guarantee or answer.',
 
 
       'm.end.h2': 'Directed, validated<br><em>and owned.</em>',

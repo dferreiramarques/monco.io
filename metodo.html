@@ -62,6 +62,51 @@
       .m-id { grid-template-columns: 1fr; gap: 28px; }
       .m-id-fig { max-width: 340px; }
     }
+
+    /* Componentes metodo-live adaptados às classes do site */
+    .principle p b { color: var(--text); font-weight: 500; }
+    .m-h3 {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-size: clamp(21px, 2.6vw, 27px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+      margin: 44px 0 14px;
+      color: var(--text);
+    }
+    .m-leitura { list-style: none; counter-reset: mlev; max-width: 680px; margin: 0; padding: 0; }
+    .m-leitura li {
+      counter-increment: mlev;
+      position: relative;
+      padding: 16px 0 16px 54px;
+      border-bottom: 1px solid var(--f-stroke1);
+      font-size: 14.5px;
+      color: var(--text-dim);
+      line-height: 1.62;
+    }
+    .m-leitura li::before {
+      content: counter(mlev, decimal-leading-zero);
+      position: absolute; left: 0; top: 19px;
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-size: 11px; letter-spacing: 0.12em; color: var(--accent);
+    }
+    .m-leitura b { color: var(--text); font-weight: 500; }
+    .m-fecho { max-width: 680px; margin: 46px 0 0; font-size: 17.5px; line-height: 1.6; color: var(--text); }
+    .m-fecho em { font-style: italic; color: var(--accent); }
+    .m-table-wrap { overflow-x: auto; margin: 4px 0 14px; border: 1px solid var(--f-stroke1); border-radius: var(--f-r8); background: var(--f-bg3); }
+    .m-table { width: 100%; border-collapse: collapse; min-width: 660px; font-size: 13.5px; }
+    .m-table th {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-size: 10.5px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em;
+      text-align: left; padding: 13px 16px; border-bottom: 1px solid var(--f-stroke1);
+    }
+    .m-table th:nth-child(1) { width: 16%; }
+    .m-table th:nth-child(2) { width: 30%; }
+    .m-table td { padding: 13px 16px; border-bottom: 1px solid var(--f-stroke1); color: var(--text-dim); line-height: 1.55; vertical-align: top; }
+    .m-table tbody tr:last-child td { border-bottom: none; }
+    .m-table td:first-child { color: var(--text); white-space: nowrap; }
+    .m-table b { color: var(--text); font-weight: 500; }
+    .m-table a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
   </style>
 </head>
 <body>
@@ -125,9 +170,23 @@
       <p class="section-desc" data-i18n="m.s0.desc">Três princípios governam tudo o que o estúdio produz.</p>
     </div>
     <div class="principles">
-      <div class="principle" data-reveal><h5 data-i18n="m.s0.1.h">A IA como fundação</h5><p data-i18n="m.s0.1.p"></p></div>
-      <div class="principle" data-reveal><h5 data-i18n="m.s0.2.h">Validação com SME</h5><p data-i18n="m.s0.2.p"></p></div>
-      <div class="principle" data-reveal><h5 data-i18n="m.s0.3.h">Converter em aprendizagem</h5><p data-i18n="m.s0.3.p"></p></div>
+      <div class="principle" data-reveal><h5 data-i18n="m.s0.1.h">A IA como fundação</h5><p data-i18n="m.s0.1.p">Não é acessório, é infra-estrutura: a alavanca está na cadência — mais ciclos de teste no mesmo projecto.</p></div>
+      <div class="principle" data-reveal><h5 data-i18n="m.s0.2.h">Validação em duas camadas</h5><p data-i18n="m.s0.2.p">O diretor valida a entrada, rápido; o utilizador fecha a validação, no fim, com prova de uso real.</p></div>
+      <div class="principle" data-reveal><h5 data-i18n="m.s0.3.h">Converter em aprendizagem</h5><p data-i18n="m.s0.3.p">Nada se registra para arquivo: a captura destila-se e optimiza o próximo output da IA.</p></div>
+    </div>
+    <div data-reveal>
+      <h3 class="m-h3" data-i18n="m.s0.v2.h">Validação em duas camadas.</h3>
+      <div class="manifesto">
+        <p data-i18n-html="m.s0.v2.p1"><strong>O SME valida a entrada.</strong> O perito de domínio decide rápido — ideação e priorização — para acelerar o ciclo sem comités.</p>
+        <p data-i18n-html="m.s0.v2.p2"><strong>O utilizador fecha a validação.</strong> Por defeito, dois testes por ciclo: um de <strong>levantamento</strong>, antes de construir; um de <strong>validação</strong>, no fim. O contrato de ciclo pode ajustar a barra.</p>
+        <p data-i18n="m.s0.v2.p3">Quando o teste directo não é possível, o substituto é uso próprio documentado — e as hipóteses ficam marcadas para validação no lançamento, que as fecha em escala.</p>
+      </div>
+    </div>
+    <div data-reveal>
+      <h3 class="m-h3" data-i18n="m.s0.d2.h">Documentar é armar o próximo ciclo.</h3>
+      <div class="manifesto">
+        <p data-i18n="m.s0.d2.p1">A fundação que dirige a execução é privada por princípio. O que se lança é o produto, aberto e documentado — a fundação não. Replicar o processo exigiria engenharia reversa ao entregável, e essa rota perde o conhecimento que foi segmentado e excluído do final: é a vantagem estrutural do estúdio, por isso é regra e não acidente.</p>
+      </div>
     </div>
   </section>
 
@@ -140,17 +199,22 @@
       </div>
     </div>
     <div class="manifesto" data-reveal>
-      <p data-i18n-html="m.s1.p1">É uma prática de trabalho em que alguém com visão e intenção dirige uma ferramenta com enorme capacidade de execução. O resultado é co-produzido, mas a autoria criativa tem uma origem clara.</p>
-      <p data-i18n-html="m.s1.p2">A <strong>ideia</strong> nasce em mim: o conceito, o problema, a experiência. A <strong>execução</strong> é delegada à IA: código, texto, estrutura, variantes. O <strong>julgamento</strong> é meu: o que fica, o que se rejeita, o que se itera. E a <strong>responsabilidade</strong> também: quem assina o produto, responde por ele.</p>
+      <p data-i18n-html="m.s1.p1">É uma prática de trabalho em que alguém com visão e intenção dirige uma ferramenta com enorme capacidade de execução. O resultado é co-producido, mas a autoria criativa tem uma origem clara.</p>
       <p data-i18n-html="m.s1.p3">É parecido com um director criativo que trabalha com uma equipa de execução muito capaz, com uma diferença: esta equipa não tem iniciativa, nem gosto, nem visão. Trabalha dentro do espaço que eu defino.</p>
+    </div>
+    <div class="principles" data-reveal>
+      <div class="principle"><p data-i18n-html="m.s1.c1"><b>A ideia</b> nasce em mim: o conceito, o problema, a experiência.</p></div>
+      <div class="principle"><p data-i18n-html="m.s1.c2"><b>A execução</b> é delegada à IA: código, texto, estrutura, variantes.</p></div>
+      <div class="principle"><p data-i18n-html="m.s1.c3"><b>O julgamento</b> é meu: o que fica, o que se rejeita, o que se itera.</p></div>
+      <div class="principle"><p data-i18n-html="m.s1.c4"><b>A responsabilidade</b> também: quem assina o produto, responde por ele.</p></div>
     </div>
   </section>
 
-  <!-- ============ 02 PAPÉIS ============ -->
+  <!-- ============ 03 PAPÉIS ============ -->
   <section class="section" style="border-top:1px solid var(--border);">
     <div class="section-head" data-reveal>
       <div>
-        <div class="eyebrow" data-i18n="m.s2.eyebrow">/ 02 — PAPÉIS</div>
+        <div class="eyebrow" data-i18n="m.s2.eyebrow">/ 03 — PAPÉIS</div>
         <h2 data-i18n-html="m.s2.h2">Quem faz <em>o quê</em>.</h2>
       </div>
       <p class="section-desc" data-i18n="m.s2.desc">Em todos os projectos, a divisão de papéis é a mesma.</p>
@@ -158,17 +222,17 @@
 
     <div class="roles">
       <div class="roles-col" data-reveal>
-        <div class="roles-label" data-i18n="m.david">David</div>
-        <div class="principle"><h5 data-i18n="m.d1.h">Visão e conceito</h5><p data-i18n="m.d1.p">O que o produto é, que problema resolve, a quem se dirige, o que o diferencia. Decido isto antes de existir uma linha de código.</p></div>
+        <div class="roles-label" data-i18n="m.david">David · Direcção</div>
+        <div class="principle"><h5 data-i18n="m.d1.h">Visão e conceito</h5><p data-i18n="m.d1.p">O que o produto é, que problema resolve, a quem se dirige, o que o diferencia — antes de existir linha de código.</p></div>
         <div class="principle"><h5 data-i18n="m.d2.h">Direcção de produto</h5><p data-i18n="m.d2.p">Roadmap, prioridades, o que entra e o que fica de fora. O produto avança porque decido que avança e para porque decido que está pronto.</p></div>
         <div class="principle"><h5 data-i18n="m.d3.h">Direcção de arte e design</h5><p data-i18n="m.d3.p">Paleta, layout, tipografia, hierarquia, tom de voz, sensação geral. A IA propõe; eu decido o que fica.</p></div>
-        <div class="principle"><h5 data-i18n="m.d4.h">Validação</h5><p data-i18n="m.d4.p">Em cada iteração testo, uso, critico e corrijo. Os bugs que encontro e os fluxos que rejeito ficam documentados nas interacções de trabalho.</p></div>
+        <div class="principle"><h5 data-i18n="m.d4.h">Validação</h5><p data-i18n="m.d4.p">Em cada iteração testo, uso, critico e corrijo. Os bugs que encontro e os fluxos que rejeito ficam documentados na captura de trabalho.</p></div>
         <div class="principle"><h5 data-i18n="m.d5.h">Direcção técnica</h5><p data-i18n="m.d5.p">Arquitectura, tecnologias, limites e trade-offs. Quando a IA propõe uma solução, sou eu a avaliar se serve o produto a longo prazo.</p></div>
       </div>
       <div class="roles-col" data-reveal>
-        <div class="roles-label" data-i18n="m.ai">IA</div>
+        <div class="roles-label" data-i18n="m.ai">IA · Execução</div>
         <div class="principle"><h5 data-i18n="m.a1.h">Materializa</h5><p data-i18n="m.a1.p">Traduz uma ideia, uma descrição ou uma correcção em algo concreto: código, texto, estrutura, regras.</p></div>
-        <div class="principle"><h5 data-i18n="m.a2.h">Acelera</h5><p data-i18n="m.a2.p">O que levaria dias a um programador a solo leva horas numa sessão dirigida. Mais ciclos de teste no mesmo projecto.</p></div>
+        <div class="principle"><h5 data-i18n="m.a2.h">Acelera</h5><p data-i18n="m.a2.p">Mais ciclos de teste no mesmo projecto — o que levaria dias a um programador a solo leva horas numa sessão dirigida.</p></div>
         <div class="principle"><h5 data-i18n="m.a3.h">Propõe variantes</h5><p data-i18n="m.a3.p">Quando peço opções, gera alternativas. Só têm valor depois de eu as avaliar e escolher.</p></div>
         <div class="principle"><h5 data-i18n="m.a4.h">Documenta e formaliza</h5><p data-i18n="m.a4.p">Estrutura e redige o que descrevo. A substância é minha; a formalização é dela.</p></div>
         <div class="principle principle-not"><h5 data-i18n="m.a5.h">O que não faz</h5><p data-i18n="m.a5.p">Não tem visão, não sabe o que o produto deve ser, não tem gosto, não valida, não decide, não assume responsabilidade. Sem direcção humana clara, produz output genérico.</p></div>
@@ -185,34 +249,87 @@
       </div>
     </div>
     <div class="manifesto" data-reveal>
-      <p data-i18n-html="m.s3.p1">A disciplina de design está a evoluir mais do que nunca.</p>
+      <p data-i18n-html="m.s3.p1">A IA é uma alavanca de cadência. O que levaria dias a um programador a solo leva horas numa sessão dirigida — e o ganho real não é só velocidade: <em>são mais ciclos de teste no mesmo projecto.</em></p>
+      <p data-i18n="m.s3.p2">Quem dirige não reescreve: decide, testando. E os artefactos do passo de idear servem duas vezes — são pensamento para mim e especificação para a IA. Um conceito que não se deixa diagramar não está claro o suficiente para dirigir execução.</p>
+      <p data-i18n="m.s3.p3">E quanto mais o estúdio corre, mais o método serve para partilhar o conhecimento que gera.</p>
     </div>
-    <div class="manifesto" data-reveal style="margin-top:28px;">
-      <p data-i18n-html="m.s3.p2">Num projecto de jogo, por exemplo.</p>
-      <p data-i18n-html="m.s3.p3">E quanto mais o estúdio corre, mais o método serve para partilhar o conhecimento que gera.</p>
+    <h3 class="m-h3" data-reveal data-i18n="m.s3.h3">Como o mercado cobre o ciclo — e como a suite cobre.</h3>
+    <div class="manifesto" data-reveal>
+      <p data-i18n-html="m.s3.intro">O método tem marca genética das metodologias que o convergiram — Design Thinking no idear, gestão de produto no priorizar, Scrum e Kanban no construir, Lean Startup no fechar, docs-as-code no destilar — em modo dual-track: a descoberta contínua a alimentar a entrega incremental. O mercado cobre a mesma sequência com uma ferramenta paga por etapa. A suite nimble cobre-a de outra maneira: <em>uma app por etapa, um espaço de dados, um operador.</em></p>
+    </div>
+    <div class="m-table-wrap" data-reveal>
+      <table class="m-table">
+        <thead>
+          <tr>
+            <th data-i18n="m.s3.t.h1">Etapa</th>
+            <th data-i18n="m.s3.t.h2">Metodologia</th>
+            <th data-i18n="m.s3.t.h3">Na suite nimble</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-i18n="m.s3.t.r1e">0 · Configurar</td>
+            <td data-i18n="m.s3.t.r1m">Contrato do engajamento / project charter</td>
+            <td data-i18n-html="m.s3.t.r1s"><b>Ciclo</b> · nova — ficha de ciclo fechável + painel de gates e métricas</td>
+          </tr>
+          <tr>
+            <td data-i18n="m.s3.t.r2e">1 · Idear</td>
+            <td data-i18n="m.s3.t.r2m">Design Thinking / Double Diamond</td>
+            <td data-i18n-html="m.s3.t.r2s"><b><a href="https://diagramico.monco.io/" target="_blank" rel="noopener">Diagramico</a></b> — cartão de conceito com non-goals obrigatório + diagrama v1</td>
+          </tr>
+          <tr>
+            <td data-i18n="m.s3.t.r3e">2 · Priorizar</td>
+            <td data-i18n="m.s3.t.r3m">Gestão de produto / priorização (RICE, WSJF, Kano) + backlog refinement</td>
+            <td data-i18n-html="m.s3.t.r3s"><b><a href="https://roadmaps.monco.io/" target="_blank" rel="noopener">Roadmaps</a></b> — taxonomia firme do estúdio, horizontes S/M/L, matriz com eixo de alavanca, apetite</td>
+          </tr>
+          <tr>
+            <td data-i18n="m.s3.t.r4e">3 · Construir</td>
+            <td data-i18n="m.s3.t.r4m">Scrum (sprints, backlog) + Kanban (fluxo) + gestão de defeitos do XP</td>
+            <td data-i18n-html="m.s3.t.r4s"><b><a href="https://taskboards.monco.io/" target="_blank" rel="noopener">Taskboards</a></b> — tarefa de uma frase + ficha de contexto de IA + nota de bugs</td>
+          </tr>
+          <tr>
+            <td data-i18n="m.s3.t.r5e">4 · Validar</td>
+            <td data-i18n="m.s3.t.r5m">Lean Startup (Build–Measure–Learn) + Lean UX</td>
+            <td data-i18n-html="m.s3.t.r5s"><b>Veredicto</b> · nova — ledger de hipóteses falsificáveis: uma sessão, um sinal, um veredicto, uma acção</td>
+          </tr>
+          <tr>
+            <td data-i18n="m.s3.t.r6e">5 · Lançar</td>
+            <td data-i18n="m.s3.t.r6m">Customer Development e release management</td>
+            <td data-i18n-html="m.s3.t.r6s"><b>Finale</b> · nova — checklist da régua do aberto + release derivado do ciclo + licenças do contrato</td>
+          </tr>
+          <tr>
+            <td data-i18n="m.s3.t.r7e">T · Ensina</td>
+            <td data-i18n="m.s3.t.r7m">docs-as-code, ADRs, Definition of Done</td>
+            <td data-i18n-html="m.s3.t.r7s"><b>Captura</b> · nova (CLI) + fundação privada — capturar já formaliza; o mapa alimenta o próximo ciclo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="manifesto" data-reveal>
+      <p data-i18n="m.s3.t.out">A premissa de desenho: uma app só existe se o seu artefacto cruza um gate do ciclo; os dados ficam com o operador, em ficheiros, com exportação por defeito.</p>
     </div>
   </section>
 
-  <!-- ============ 04 TRANSPARÊNCIA ============ -->
+  <!-- ============ 05 TRANSPARÊNCIA ============ -->
   <section class="section" style="border-top:1px solid var(--border);">
     <div class="section-head" data-reveal>
       <div>
-        <div class="eyebrow" data-i18n="m.s4.eyebrow">/ 04 — TRANSPARÊNCIA</div>
+        <div class="eyebrow" data-i18n="m.s4.eyebrow">/ 05 — TRANSPARÊNCIA</div>
         <h2 data-i18n-html="m.s4.h2">Declaro o uso de IA <em>por princípio</em>.</h2>
       </div>
     </div>
     <div class="principles">
       <div class="principle" data-reveal><h5 data-i18n="m.t1.h">Honestidade sobre o processo</h5><p data-i18n="m.t1.p">Esconder a IA não seria honesto para com clientes, parceiros ou público. E seria contraproducente: o valor do trabalho está na qualidade da direcção, não em esconder como foi feito.</p></div>
-      <div class="principle" data-reveal><h5 data-i18n="m.t2.h">O papel humano, bem visto</h5><p data-i18n="m.t2.p">Declarar o uso de IA não diminui o meu papel, clarifica-o. Quando se percebe o que a IA faz e o que não faz, a visão, a direcção e a validação ficam mais evidentes.</p></div>
+      <div class="principle" data-reveal><h5 data-i18n="m.t2.h">O papel humano, bem visto</h5><p data-i18n="m.t2.p">Declarar o uso de IA não diminui o meu papel — clarifica-o. Quando se percebe o que a IA faz e o que não faz, a visão, a direcção e a validação ficam mais evidentes.</p></div>
     </div>
     <blockquote class="m-quote" data-reveal data-i18n-html="m.quote">Um realizador não opera a câmara. Um arquitecto não assenta tijolos. Um director criativo não escreve o código.<br><em>A autoria é a visão, não a execução.</em></blockquote>
   </section>
 
-  <!-- ============ 05 O QUE NÃO É ============ -->
+  <!-- ============ 06 LIMITES ============ -->
   <section class="section" style="border-top:1px solid var(--border);">
     <div class="section-head" data-reveal>
       <div>
-        <div class="eyebrow" data-i18n="m.s5.eyebrow">/ 05 — LIMITES</div>
+        <div class="eyebrow" data-i18n="m.s5.eyebrow">/ 06 — LIMITES</div>
         <h2 data-i18n-html="m.s5.h2">O que este modelo <em>não é</em>.</h2>
       </div>
     </div>
@@ -221,24 +338,31 @@
       <div class="principle" data-reveal><h5 data-i18n="m.n2.h">Não é plágio</h5><p data-i18n="m.n2.p">Os outputs são gerados, não copiados de terceiros. Código, textos e estruturas são originais no contexto de cada projecto.</p></div>
       <div class="principle" data-reveal><h5 data-i18n="m.n3.h">Não é substituir trabalho alheio</h5><p data-i18n="m.n3.p">Não uso IA para fazer o trabalho que estaria a pagar a outra pessoa. É a minha ferramenta de produção, como o software de um designer ou o sintetizador de um músico.</p></div>
       <div class="principle" data-reveal><h5 data-i18n="m.n4.h">Não é ausência de competência</h5><p data-i18n="m.n4.p">Dirigir bem uma IA exige perceber de design, código, produto e experiência de utilizador. O meu background é design industrial, engenharia de processos e desenvolvimento de produto.</p></div>
-      <div class="principle" data-reveal><h5 data-i18n="m.n5.h">Não é co-autoria legal</h5><p data-i18n="m.n5.p">A IA não é uma pessoa, não tem direitos e não é co-autora em sentido jurídico. O produto é meu. A IA é uma ferramenta, sofisticada, mas ferramenta.</p></div>
+      <div class="principle" data-reveal><h5 data-i18n="m.n5.h">Não é co-autoria legal</h5><p data-i18n="m.n5.p">A IA não é uma pessoa, não tem direitos e não é co-autora em sentido jurídico. O produto é meu. A IA é uma ferramenta — sofisticada, mas ferramenta.</p></div>
     </div>
   </section>
 
-  <!-- ============ 06 COMO LER ============ -->
+  <!-- ============ 07 LEITURA ============ -->
   <section class="section" style="border-top:1px solid var(--border);">
     <div class="section-head" data-reveal>
       <div>
-        <div class="eyebrow" data-i18n="m.s6.eyebrow">/ 06 — LEITURA</div>
+        <div class="eyebrow" data-i18n="m.s6.eyebrow">/ 07 — LEITURA</div>
         <h2 data-i18n-html="m.s6.h2">Como ler o que <em>faço</em>.</h2>
       </div>
       <p class="section-desc" data-i18n="m.s6.desc">Qualquer produto ou documento que sai deste processo tem as mesmas quatro características.</p>
     </div>
-    <div class="principles">
-      <div class="principle" data-reveal><h5 data-i18n="m.r1.h">1. A ideia é minha</h5><p data-i18n="m.r1.p">Se um jogo tem certas mecânicas, fui eu que as defini. Se um produto tem certa identidade visual, fui eu que a escolhi. A origem é humana e documentável.</p></div>
-      <div class="principle" data-reveal><h5 data-i18n="m.r2.h">2. A execução foi acelerada por IA</h5><p data-i18n="m.r2.p">Código, redacção e estrutura foram materializados com IA, sob a minha direcção. Isto afecta a velocidade a que foi possível produzir, não a qualidade nem a originalidade.</p></div>
-      <div class="principle" data-reveal><h5 data-i18n="m.r3.h">3. A validação é humana</h5><p data-i18n="m.r3.p">O que chegou ao final é o que sobreviveu à minha avaliação crítica, incluindo o que rejeitei e as direcções que reverti.</p></div>
-      <div class="principle" data-reveal><h5 data-i18n="m.r4.h">4. A responsabilidade é minha</h5><p data-i18n="m.r4.p">Qualquer questão, comercial, criativa, técnica ou ética, é respondida por mim. A IA não assina, não garante e não responde.</p></div>
+    <ol class="m-leitura" data-reveal>
+      <li data-i18n-html="m.r1.p"><b>A ideia é minha.</b> Se um produto tem certa identidade, fui eu que a escolhi. A origem é humana e documentável.</li>
+      <li data-i18n-html="m.r2.p"><b>A execução foi acelerada por IA.</b> Código, redacção e estrutura foram materializados com IA, sob a minha direcção. Isto afecta a velocidade, não a qualidade nem a originalidade.</li>
+      <li data-i18n-html="m.r3.p"><b>A validação é humana.</b> O que chegou ao final é o que sobreviveu à minha avaliação crítica — incluindo o que rejeitei e as direcções que reverti.</li>
+      <li data-i18n-html="m.r4.p"><b>A responsabilidade é minha.</b> Qualquer questão, comercial, criativa, técnica ou ética, é respondida por mim. A IA não assina, não garante e não responde.</li>
+    </ol>
+    <div data-reveal>
+      <h3 class="m-h3" data-i18n="m.s7.h3">A régua do aberto.</h3>
+      <div class="manifesto">
+        <p data-i18n-html="m.s7.p1">O produto abre-se; a fundação fecha-se. Open source por defeito — <strong>MIT</strong> para o código, licença restritiva para o conteúdo autoral (música, fotografia, desenho, escrita). O que fica privado é o que faz o motor correr: os arneses, os mapas, o método em operação.</p>
+      </div>
+      <p class="m-fecho" data-i18n-html="m.s7.fecho"><strong>Lançar é ficar público</strong> — porque é o lançamento que realimenta o ciclo. Dirigido, validado <em>e assumido.</em></p>
     </div>
   </section>
 
