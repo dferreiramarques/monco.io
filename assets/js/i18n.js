@@ -73,7 +73,7 @@
       'hero.title': 'A revolução do conhecimento<br>não se comenta. <em>Pratica-se.</em>',
 
 
-      'hero.sub': 'A monco é a minha estação de experimentação: metodologias de design e design thinking, aceleradas por iterações ultrarrápidas de vibe-coding e validadas com quem tem domínio especializado — para lançar produtos e criar cenários de aprendizagem para quem aprende e quem ensina.',
+      'hero.sub': 'A monco é um estúdio de design de produto: metodologias de design e design thinking, aceleradas por iterações ultrarrápidas de vibe-coding e validadas com quem tem domínio especializado — para lançar produtos e criar cenários de aprendizagem para quem aprende e quem ensina.',
 
 
       'hero.hint': '← mexe o rato / clica para burst →',
@@ -118,7 +118,7 @@
       'cyc.h3': 'Valida. <em>Ensina. Lança.</em>',
 
 
-      'cyc.desc': 'A estação corre este loop em cada experimento — e cada volta é mais barata, mais rápida e mais informada que a anterior.',
+      'cyc.desc': 'O estúdio corre este loop em cada experimento — e cada volta é mais barata, mais rápida e mais informada que a anterior.',
 
 
       'cyc.1.h': 'Ideia',
@@ -166,19 +166,19 @@
       'labs.eyebrow': '/ 03 — AS ESTAÇÕES',
 
 
-      'labs.h2': 'Quatro vetores de <em>conteúdo e aprendizagem.</em>',
+      'labs.h2': 'Um estúdio, quatro <em>destinos.</em>',
 
 
-      'labs.desc': 'Cada estação reúne um campo de experimentação — e tudo o que ele ensina. Os produtos são os artefactos: cada loop bem corrido deixa um.',
+      'labs.desc': 'Do estúdio partem quatro estações: quatro destinos de experimentação — e tudo o que eles ensinam. Os produtos são os artefactos: cada loop bem corrido deixa um.',
 
 
-      'lab.open': 'abrir estação →',
+      'lab.open': 'visitar a estação →',
 
 
 
 
 
-      'lab.spark.tag': 'Aprender fazendo.',
+      'lab.spark.tag': 'Aprendizagens STEAM.',
 
 
       'lab.spark.desc': 'Atividades, ferramentas e workshops STEAM para alunos e professores: ideação, inovação, design thinking, fabricação digital e IA em formação.',
@@ -199,10 +199,10 @@
 
 
 
-      'lab.nimble.tag': 'Entrega rápida e organizada.',
+      'lab.nimble.tag': 'Produtividade acelerada por IA.',
 
 
-      'lab.nimble.desc': 'Uma suite para alta-performance em ambientes agile: pensar, planear, executar e registar — do primeiro esboço à documentação.',
+      'lab.nimble.desc': 'Produtividade e processos de trabalho acelerados pela IA: pensar, planear, executar e registar — do primeiro esboço à documentação.',
 
 
       'lab.nimble.c1': 'agile',
@@ -220,7 +220,7 @@
 
 
 
-      'lab.wave.tag': 'Criatividade × tecnologia.',
+      'lab.wave.tag': 'Criatividade e arte digital.',
 
 
       'lab.wave.desc': 'Ferramentas de produção musical e instrumentos performativos: do microfone ao MIDI, do sampler ao palco.',
@@ -241,10 +241,10 @@
 
 
 
-      'lab.ludens.tag': 'Jogar para criar. Criar para aprender.',
+      'lab.ludens.tag': 'O Homo Ludens.',
 
 
-      'lab.ludens.desc': 'Jogos e jogos de tabuleiro, game design e diversão: regras que ficam jogáveis e workshops que transformam equipas.',
+      'lab.ludens.desc': 'Jogos, game design e partilha de momentos: a estação do Homo Ludens, onde aprendemos a conhecer-nos e a conhecer os outros.',
 
 
       'lab.ludens.c1': 'jogos de tabuleiro',
@@ -268,7 +268,7 @@
       'aud.eyebrow': '/ 04 — PARA QUEM',
 
 
-      'aud.h2': 'Duas portas para a <em>mesma estação.</em>',
+      'aud.h2': 'Duas portas para o <em>mesmo estúdio.</em>',
 
 
       'aud.a1.h': 'Alunos e professores',
@@ -280,7 +280,7 @@
       'aud.a2.h': 'Empresas e experts',
 
 
-      'aud.a2.p': 'Quem tem domínio especializado encontra aqui a plataforma de validação das suas soluções: traz o contexto, a estação traz o ciclo — e o produto chega ao utilizador mais rápido, melhor, mais robusto e mais valioso.',
+      'aud.a2.p': 'Quem tem domínio especializado encontra aqui a plataforma de validação das suas soluções: traz o contexto, o estúdio traz o ciclo — e o produto chega ao utilizador mais rápido, melhor, mais robusto e mais valioso.',
 
 
 
@@ -322,13 +322,13 @@
       /* ── Method page ── */
 
 
-      'm.eyebrow': '/ CICLO DA ESTAÇÃO',
+      'm.eyebrow': '/ CICLO DO ESTÚDIO',
 
 
       'm.title': 'Experimenta. Valida.<br><em>Ensina. Lança.</em>',
 
 
-      'm.intro1': 'Esta página explica como a estação corre: a IA como fundação para iterar mais e mais depressa, o baixo custo de errar, a validação com experts de domínio e a conversão de cada experimento em aprendizagem.',
+      'm.intro1': 'Esta página explica como o estúdio corre: a IA como fundação para iterar mais e mais depressa, o baixo custo de errar, a validação com experts de domínio e a conversão de cada experimento em aprendizagem.',
 
 
       'm.intro2': 'Não é um disclaimer, é uma <strong>declaração de método</strong>. Há quem use a IA para automatizar e há quem a use para substituir trabalho sem critério. Eu uso-a como fundação da criatividade: a visão, a direcção e a responsabilidade ficam do lado humano — e os descartes tornam-se lição.',
@@ -340,10 +340,10 @@
       'm.id.eyebrow': '/ QUEM ASSINA',
 
 
-      'm.id.h2': 'Atrás da estação há <em>um percurso inteiro.</em>',
+      'm.id.h2': 'Atrás do estúdio há <em>um percurso inteiro.</em>',
 
 
-      'm.id.cap': 'DAVID FERREIRA MARQUES · DIRECTOR DA ESTAÇÃO',
+      'm.id.cap': 'DAVID FERREIRA MARQUES · DIRECTOR DO ESTÚDIO',
 
 
       'm.id.p1': 'Nada daqui nasce de um prompt solto. Nasce de anos a desenhar, a construir e a ensinar — primeiro em ciclos lentos, onde cada erro custava caro; agora numa estação onde iterar custa horas. A intuição de saber o que vale a pena descartar não se instala: aprende-se.',
@@ -361,7 +361,7 @@
       'm.s0.h2': 'Iterar mais, <em>mais depressa.</em>',
 
 
-      'm.s0.desc': 'Três princípios governam tudo o que a estação produz.',
+      'm.s0.desc': 'Três princípios governam tudo o que o estúdio produz.',
 
 
       'm.s0.1.h': 'A IA como fundação',
@@ -373,13 +373,13 @@
       'm.s0.2.h': 'Validação com SME',
 
 
-      'm.s0.2.p': 'O juízo final vem de Subject Matter Experts — quem tem domínio ultra-especializado valida em contexto real. É esta a plataforma de validação da estação: soluções testadas por quem sabe antes de chegar aos utilizadores.',
+      'm.s0.2.p': 'O juízo final vem de Subject Matter Experts — quem tem domínio ultra-especializado valida em contexto real. É esta a plataforma de validação do estúdio: soluções testadas por quem sabe antes de chegar aos utilizadores.',
 
 
       'm.s0.3.h': 'Converter em aprendizagem',
 
 
-      'm.s0.3.p': 'Tudo o que o ciclo ensina — incluindo os descartes — vira cenário de aprendizagem. É assim que a estação ensina jovens e professores, e é assim que cada produto seguinte nasce mais maduro.',
+      'm.s0.3.p': 'Tudo o que o ciclo ensina — incluindo os descartes — vira cenário de aprendizagem. É assim que o estúdio ensina jovens e professores, e é assim que cada produto seguinte nasce mais maduro.',
 
 
       'm.s1.eyebrow': '/ 02 — CO-CRIAÇÃO',
@@ -451,7 +451,7 @@
       'm.s3.p2': 'Num projecto de jogo, por exemplo: as mecânicas, as regras, os temas, os nomes e as decisões de design são meus. O código do servidor, o cliente web, a lógica implementada e a documentação nascem da colaboração, sempre sob direcção e validação contínua.',
 
 
-      'm.s3.p3': 'E quanto mais a estação corre, mais claro fica o que o método tem de único: é também a forma de <strong>partilhar o conhecimento</strong> que gera. Cada ciclo documentado torna-se um caminho que outros podem seguir — acelerando a aquisição e a tomada de <strong>ownership</strong> de quem quiser aprender. O método não se publica, ensina-se, como um ofício.',
+      'm.s3.p3': 'E quanto mais o estúdio corre, mais claro fica o que o método tem de único: é também a forma de <strong>partilhar o conhecimento</strong> que gera. Cada ciclo documentado torna-se um caminho que outros podem seguir — acelerando a aquisição e a tomada de <strong>ownership</strong> de quem quiser aprender. O método não se publica, ensina-se, como um ofício.',
 
 
       'm.s4.eyebrow': '/ 05 — TRANSPARÊNCIA',
@@ -517,7 +517,7 @@
       'm.end.p': 'Este texto pode ser citado, partilhado ou incluído na documentação dos meus projectos como declaração de método de trabalho.',
 
 
-      'cta.secondary': 'Voltar à estação →',
+      'cta.secondary': 'Voltar ao estúdio →',
 
 
 
@@ -574,7 +574,7 @@
       'pj.stampforge': 'Editor de carimbos no browser: desenha ou importa SVG e exporta um STL pronto a imprimir em 3D.',
 
 
-      'spark.hero.title': 'A estação de <em>aprender fazendo.</em>',
+      'spark.hero.title': 'A estação das <em>aprendizagens STEAM.</em>',
 
 
       'spark.hero.sub': 'Atividades, ferramentas e workshops STEAM para alunos e professores — capacitação em ideação, inovação, design thinking, fabricação digital e uso de IA em formação e na sala de aula.',
@@ -586,7 +586,7 @@
       'spark.m.h2': 'Um vetor de <em>conteúdo e aprendizagem.</em>',
 
 
-      'spark.m.desc': 'O spark concentra a vertente educativa da estação: metodologias de design convertidas em experiências de sala de aula.',
+      'spark.m.desc': 'O spark concentra a vertente educativa do estúdio: metodologias de design convertidas em experiências de sala de aula.',
 
 
       'spark.v1.h': 'Ideação e design thinking',
@@ -634,7 +634,7 @@
       'spark.w1.h': 'Workshops STEAM',
 
 
-      'spark.w1.p': 'Atividades práticas com os artefactos da estação: da primeira peça impressa em 3D ao primeiro protótipo testado.',
+      'spark.w1.p': 'Atividades práticas com os artefactos do estúdio: da primeira peça impressa em 3D ao primeiro protótipo testado.',
 
 
       'spark.w2.h': 'Capacitação de professores',
@@ -673,10 +673,10 @@
       'pj.sprint': 'Um Design Sprint de 5 dias condensado em 8 horas (mais 8 opcionais), com IA e team building, para dar agilidade à equipa na resolução de problemas complexos de negócio. Traz o guião do facilitador, passo a passo.',
 
 
-      'nimble.hero.title': 'A estação de <em>entrega rápida e organizada.</em>',
+      'nimble.hero.title': 'A estação da <em>produtividade acelerada por IA.</em>',
 
 
-      'nimble.hero.sub': 'Uma suite de ferramentas para alta-performance em ambientes agile: pensar, planear, executar e registar — do primeiro esboço à documentação.',
+      'nimble.hero.sub': 'Produtividade e processos de trabalho acelerados pela IA: pensar, planear, executar e registar — do primeiro esboço à documentação.',
 
 
       'nimble.m.eyebrow': '/ 01 — O QUE SE APRENDE AQUI',
@@ -685,7 +685,7 @@
       'nimble.m.h2': 'Um vetor de <em>alta-performance.</em>',
 
 
-      'nimble.m.desc': 'O nimble concentra a vertente de processos da estação: metodologias agile condensadas em ferramentas sem fricção.',
+      'nimble.m.desc': 'O nimble concentra a vertente de processos do estúdio: metodologias agile condensadas em ferramentas sem fricção.',
 
 
       'nimble.v1.h': 'Pensar',
@@ -739,7 +739,7 @@
       'lp5.p': 'Grava e edita podcasts no browser, sem instalar nada, para qualquer escola produzir e partilhar áudio sem meios especiais. Pronto a gravar, com ferramentas de edição pensadas para quem não é técnico.',
 
 
-      'wave.hero.title': 'A estação de <em>criatividade × tecnologia.</em>',
+      'wave.hero.title': 'A estação da <em>criatividade e arte digital.</em>',
 
 
       'wave.hero.sub': 'Ferramentas de produção musical e instrumentos performativos: do microfone ao MIDI, do sampler ao palco — improvisar, produzir, aprender e actuar.',
@@ -751,7 +751,7 @@
       'wave.m.h2': 'Um vetor de <em>criatividade × tecnologia.</em>',
 
 
-      'wave.m.desc': 'O wave concentra a vertente performativa da estação: tecnologia desmistificada para tocar, gravar e criar música mais cedo.',
+      'wave.m.desc': 'O wave concentra a vertente criativa e multimédia do estúdio: tecnologia desmistificada para tocar, gravar e criar música mais cedo.',
 
 
       'wave.v1.h': 'Improvisar',
@@ -799,10 +799,10 @@
       'pj.bitnik': 'Plataforma online que transforma o livro de regras de um jogo de tabuleiro numa versão jogável no browser e no telemóvel: mesas com amigos ou bots, e consola para editoras.',
 
 
-      'ludens.hero.title': 'A estação de <em>jogar para aprender.</em>',
+      'ludens.hero.title': 'A estação do <em>Homo Ludens.</em>',
 
 
-      'ludens.hero.sub': 'Jogos e jogos de tabuleiro, game design e diversão — regras que ficam jogáveis no browser, workshops de team building e criação de jogos.',
+      'ludens.hero.sub': 'Jogos, game design e partilha de momentos: socialização, team building e criação de jogos — onde aprendemos a conhecer-nos e a conhecer os outros.',
 
 
       'ludens.m.eyebrow': '/ 01 — O QUE SE APRENDE AQUI',
@@ -811,7 +811,7 @@
       'ludens.m.h2': 'Um vetor de <em>jogo e criação.</em>',
 
 
-      'ludens.m.desc': 'O ludens concentra a vertente de jogos da estação: aprender regras de design criando regras — e aprender equipa jogando.',
+      'ludens.m.desc': 'O ludens concentra a vertente de socialização do estúdio: aprender regras de design criando regras — e aprender equipa jogando.',
 
 
       'ludens.v1.h': 'Jogar',
@@ -880,13 +880,13 @@
       'eq.eyebrow': '/ PESSOAS',
 
 
-      'eq.h2': 'Uma estação que <em>cabe numa pessoa.</em>',
+      'eq.h2': 'Um estúdio que <em>cabe numa pessoa.</em>',
 
 
       'eq.desc': 'Por agora, um só perfil — o percurso completo por trás do método. Quando lá houver mais pessoas, é aqui que elas aparecem.',
 
 
-      'eq.m.eyebrow': '/ DIRECTOR DA ESTAÇÃO',
+      'eq.m.eyebrow': '/ DIRECTOR DO ESTÚDIO',
 
 
       'eq.m.name': 'David Ferreira Marques',
@@ -913,7 +913,7 @@
       'eq.wm.h2': 'Como <em>trabalho.</em>',
 
 
-      'eq.cta.h2': 'O percurso continua<br><em>na estação.</em>',
+      'eq.cta.h2': 'O percurso continua<br><em>no estúdio.</em>',
 
 
 
@@ -1213,7 +1213,7 @@
       'hero.title': 'The knowledge revolution<br>isn\'t commented on. It\'s <em>practised.</em>',
 
 
-      'hero.sub': 'monco is my experimentation station: design methodologies and design thinking, accelerated by ultra-fast vibe-coding iterations and validated with domain experts — to launch products and create learning scenarios for those who learn and those who teach.',
+      'hero.sub': 'monco is a product design studio: design methodologies and design thinking, accelerated by ultra-fast vibe-coding iterations and validated with domain experts — to launch products and create learning scenarios for those who learn and those who teach.',
 
 
       'hero.hint': '← move mouse to tilt / click to burst →',
@@ -1258,7 +1258,7 @@
       'cyc.h3': 'Validate. <em>Teach. Launch.</em>',
 
 
-      'cyc.desc': 'The station runs this loop on every experiment — and each pass is cheaper, faster and better-informed than the last.',
+      'cyc.desc': 'The studio runs this loop on every experiment — and each pass is cheaper, faster and better-informed than the last.',
 
 
       'cyc.1.h': 'Idea',
@@ -1306,19 +1306,19 @@
       'labs.eyebrow': '/ 03 — THE STATIONS',
 
 
-      'labs.h2': 'Four vectors of <em>content and learning.</em>',
+      'labs.h2': 'One studio, four <em>destinations.</em>',
 
 
-      'labs.desc': 'Each station gathers a field of experimentation — and everything it teaches. Products are the artefacts: every well-run loop leaves one behind.',
+      'labs.desc': 'From the studio depart four stations — four destinations of experimentation, each with its own field — and everything they teach. Products are the artefacts: every well-run loop leaves one behind.',
 
 
-      'lab.open': 'open station →',
+      'lab.open': 'visit the station →',
 
 
 
 
 
-      'lab.spark.tag': 'Learning by making.',
+      'lab.spark.tag': 'STEAM learning.',
 
 
       'lab.spark.desc': 'Activities, tools and STEAM workshops for students and teachers: ideation, innovation, design thinking, digital fabrication and AI in education.',
@@ -1339,10 +1339,10 @@
 
 
 
-      'lab.nimble.tag': 'Fast, organised delivery.',
+      'lab.nimble.tag': 'AI-accelerated productivity.',
 
 
-      'lab.nimble.desc': 'A suite for high performance in agile environments: think, plan, execute and record — from first sketch to documentation.',
+      'lab.nimble.desc': 'Productivity and work processes accelerated by AI: think, plan, execute and document — from first sketch to documentation.',
 
 
       'lab.nimble.c1': 'agile',
@@ -1360,7 +1360,7 @@
 
 
 
-      'lab.wave.tag': 'Creativity × technology.',
+      'lab.wave.tag': 'Digital art & creativity.',
 
 
       'lab.wave.desc': 'Music production tools and performative instruments: from microphone to MIDI, from sampler to stage.',
@@ -1381,10 +1381,10 @@
 
 
 
-      'lab.ludens.tag': 'Play to create. Create to learn.',
+      'lab.ludens.tag': 'The Homo Ludens station.',
 
 
-      'lab.ludens.desc': 'Games and board games, game design and fun: rules that stay playable and workshops that transform teams.',
+      'lab.ludens.desc': 'Games, game design and shared moments: the Homo Ludens station, where we learn to know ourselves and each other.',
 
 
       'lab.ludens.c1': 'board games',
@@ -1408,7 +1408,7 @@
       'aud.eyebrow': '/ 04 — FOR WHOM',
 
 
-      'aud.h2': 'Two doors into the <em>same station.</em>',
+      'aud.h2': 'Two doors into the <em>same studio.</em>',
 
 
       'aud.a1.h': 'Students and teachers',
@@ -1420,7 +1420,7 @@
       'aud.a2.h': 'Companies and experts',
 
 
-      'aud.a2.p': 'Those with specialised domain knowledge find here the validation platform for their solutions: you bring the context, the station brings the cycle — and the product reaches users faster, better, more robust and more valuable.',
+      'aud.a2.p': 'Those with specialised domain knowledge find here the validation platform for their solutions: you bring the context, the studio brings the cycle — and the product reaches users faster, better, more robust and more valuable.',
 
 
 
@@ -1462,13 +1462,13 @@
       /* ── Method page ── */
 
 
-      'm.eyebrow': '/ STATION CYCLE',
+      'm.eyebrow': '/ THE STUDIO CYCLE',
 
 
       'm.title': 'Experiment. Validate.<br><em>Teach. Launch.</em>',
 
 
-      'm.intro1': 'This page explains how the station runs: AI as the foundation for more and faster iteration, the low cost of error, validation with domain experts, and the conversion of every experiment into learning.',
+      'm.intro1': 'This page explains how the studio runs: AI as the foundation for more and faster iteration, the low cost of error, validation with domain experts, and the conversion of every experiment into learning.',
 
 
       'm.intro2': 'It\'s not a disclaimer, it\'s a <strong>statement of method</strong>. Some people use AI to automate, others to replace work without judgement. I use it as the foundation of creativity: vision, direction and accountability stay on the human side — and the discards become lessons.',
@@ -1480,10 +1480,10 @@
       'm.id.eyebrow': '/ THE SIGNATURE',
 
 
-      'm.id.h2': 'Behind the station there\'s a <em>whole path.</em>',
+      'm.id.h2': 'Behind the studio there\'s a <em>whole path.</em>',
 
 
-      'm.id.cap': 'DAVID FERREIRA MARQUES · STATION DIRECTOR',
+      'm.id.cap': 'DAVID FERREIRA MARQUES · STUDIO DIRECTOR',
 
 
       'm.id.p1': 'None of this starts from a loose prompt. It starts from years of designing, building and teaching — first in slow cycles where every mistake was expensive; now in a station where iterating costs hours. The intuition of what\'s worth discarding isn\'t installed: it\'s learned.',
@@ -1501,7 +1501,7 @@
       'm.s0.h2': 'Iterate more, <em>faster.</em>',
 
 
-      'm.s0.desc': 'Three principles govern everything the station produces.',
+      'm.s0.desc': 'Three principles govern everything the studio produces.',
 
 
       'm.s0.1.h': 'AI as foundation',
@@ -1513,13 +1513,13 @@
       'm.s0.2.h': 'Validation with SMEs',
 
 
-      'm.s0.2.p': 'Final judgement comes from Subject Matter Experts — those with ultra-specialised domain knowledge validate in real context. That\'s the station\'s validation platform: solutions tested by those who know, before reaching users.',
+      'm.s0.2.p': 'Final judgement comes from Subject Matter Experts — those with ultra-specialised domain knowledge validate in real context. That\'s the studio\'s validation platform: solutions tested by those who know, before reaching users.',
 
 
       'm.s0.3.h': 'Convert into learning',
 
 
-      'm.s0.3.p': 'Everything the cycle teaches — including the discards — becomes a learning scenario. That\'s how the station teaches young people and teachers, and how each next product is born more mature.',
+      'm.s0.3.p': 'Everything the cycle teaches — including the discards — becomes a learning scenario. That\'s how the studio teaches young people and teachers, and how each next product is born more mature.',
 
 
       'm.s1.eyebrow': '/ 02 — CO-CREATION',
@@ -1591,7 +1591,7 @@
       'm.s3.p2': 'In a game project, for example: the mechanics, rules, themes, names and design decisions are mine. The server code, web client, implemented logic and documentation come out of the collaboration, always under continuous direction and validation.',
 
 
-      'm.s3.p3': 'And the more the station runs, the clearer it becomes what\'s unique about the method: it\'s also the way of <strong>sharing the knowledge</strong> it generates. Every documented cycle becomes a path others can follow — accelerating the acquisition and the taking of <strong>ownership</strong> by whoever wants to learn. The method isn\'t published, it\'s taught, like a craft.',
+      'm.s3.p3': 'And the more the studio runs, the clearer it becomes what\'s unique about the method: it\'s also the way of <strong>sharing the knowledge</strong> it generates. Every documented cycle becomes a path others can follow — accelerating the acquisition and the taking of <strong>ownership</strong> by whoever wants to learn. The method isn\'t published, it\'s taught, like a craft.',
 
 
       'm.s4.eyebrow': '/ 05 — TRANSPARENCY',
@@ -1657,7 +1657,7 @@
       'm.end.p': 'This text may be quoted, shared or included in my project documentation as a statement of working method.',
 
 
-      'cta.secondary': 'Back to the station →',
+      'cta.secondary': 'Back to the studio →',
 
 
 
@@ -1714,7 +1714,7 @@
       'pj.stampforge': 'Browser-based stamp designer: draw or import SVG, export a print-ready STL for 3D printing.',
 
 
-      'spark.hero.title': 'The station of <em>learning by making.</em>',
+      'spark.hero.title': 'The station of <em>STEAM learning.</em>',
 
 
       'spark.hero.sub': 'Activities, tools and STEAM workshops for students and teachers — skill-building in ideation, innovation, design thinking, digital fabrication and the use of AI in education and the classroom.',
@@ -1726,7 +1726,7 @@
       'spark.m.h2': 'A vector of <em>content and learning.</em>',
 
 
-      'spark.m.desc': 'spark concentrates the station\'s educational side: design methodologies converted into classroom experiences.',
+      'spark.m.desc': 'spark concentrates the studio\'s educational side: design methodologies converted into classroom experiences.',
 
 
       'spark.v1.h': 'Ideation and design thinking',
@@ -1774,7 +1774,7 @@
       'spark.w1.h': 'STEAM workshops',
 
 
-      'spark.w1.p': 'Hands-on activities with the station\'s artefacts: from the first 3D-printed piece to the first tested prototype.',
+      'spark.w1.p': 'Hands-on activities with the studio\'s artefacts: from the first 3D-printed piece to the first tested prototype.',
 
 
       'spark.w2.h': 'Teacher training',
@@ -1813,10 +1813,10 @@
       'pj.sprint': 'A 5-day Design Sprint condensed into 8 hours (plus 8 optional), with AI and team building, to make your team more agile at solving complex business problems. Comes with a step-by-step facilitator script.',
 
 
-      'nimble.hero.title': 'The station of <em>fast, organised delivery.</em>',
+      'nimble.hero.title': 'The station of <em>AI-accelerated productivity.</em>',
 
 
-      'nimble.hero.sub': 'A suite of tools for high performance in agile environments: think, plan, execute and record — from first sketch to documentation.',
+      'nimble.hero.sub': 'Productivity and work processes accelerated by AI: think, plan, execute and document — from first sketch to documentation.',
 
 
       'nimble.m.eyebrow': '/ 01 — WHAT YOU LEARN HERE',
@@ -1825,7 +1825,7 @@
       'nimble.m.h2': 'A vector of <em>high performance.</em>',
 
 
-      'nimble.m.desc': 'nimble concentrates the station\'s process side: agile methodologies condensed into friction-free tools.',
+      'nimble.m.desc': 'nimble concentrates the studio\'s process side: agile methodologies condensed into friction-free tools.',
 
 
       'nimble.v1.h': 'Think',
@@ -1879,7 +1879,7 @@
       'lp5.p': 'Record and edit podcasts in the browser, with nothing to install, so any school can produce and share audio without special equipment. Ready to record, with editing tools made for non-technical people.',
 
 
-      'wave.hero.title': 'The station of <em>creativity × technology.</em>',
+      'wave.hero.title': 'The station of <em>digital art & creativity.</em>',
 
 
       'wave.hero.sub': 'Music production tools and performative instruments: from microphone to MIDI, from sampler to stage — improvise, produce, learn and perform.',
@@ -1891,7 +1891,7 @@
       'wave.m.h2': 'A vector of <em>creativity × technology.</em>',
 
 
-      'wave.m.desc': 'wave concentrates the station\'s performative side: technology demystified so you can play, record and create music earlier.',
+      'wave.m.desc': 'wave concentrates the studio\'s performative side: technology demystified so you can play, record and create music earlier.',
 
 
       'wave.v1.h': 'Improvise',
@@ -1939,10 +1939,10 @@
       'pj.bitnik': 'Online platform that turns the rulebook of a board game into a version playable in the browser and on mobile: tables with friends or bots, and a console for publishers.',
 
 
-      'ludens.hero.title': 'The station of <em>playing to learn.</em>',
+      'ludens.hero.title': 'The station of <em>Homo Ludens.</em>',
 
 
-      'ludens.hero.sub': 'Games and board games, game design and fun — rules that stay playable in the browser, team-building workshops and game creation.',
+      'ludens.hero.sub': 'Games, game design and shared moments: socialisation, team building and game creation — where we learn to know ourselves and each other.',
 
 
       'ludens.m.eyebrow': '/ 01 — WHAT YOU LEARN HERE',
@@ -1951,7 +1951,7 @@
       'ludens.m.h2': 'A vector of <em>play and creation.</em>',
 
 
-      'ludens.m.desc': 'ludens concentrates the station\'s games side: learning the rules of design by creating rules — and learning teamwork by playing.',
+      'ludens.m.desc': 'ludens concentrates the studio\'s games side: learning the rules of design by creating rules — and learning teamwork by playing.',
 
 
       'ludens.v1.h': 'Play',
@@ -2020,13 +2020,13 @@
       'eq.eyebrow': '/ PEOPLE',
 
 
-      'eq.h2': 'A station that <em>fits in one person.</em>',
+      'eq.h2': 'A studio that <em>fits in one person.</em>',
 
 
       'eq.desc': 'One profile for now — the full path behind the method. When there are more people here, this is where they show up.',
 
 
-      'eq.m.eyebrow': '/ STATION DIRECTOR',
+      'eq.m.eyebrow': '/ STUDIO DIRECTOR',
 
 
       'eq.m.name': 'David Ferreira Marques',
@@ -2053,7 +2053,7 @@
       'eq.wm.h2': 'How I <em>work.</em>',
 
 
-      'eq.cta.h2': 'The path continues<br><em>in the station.</em>',
+      'eq.cta.h2': 'The path continues<br><em>in the studio.</em>',
 
 
 
